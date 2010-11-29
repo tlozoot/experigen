@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<TITLE>Questionnaire</TITLE>
+	<META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<LINK rel="stylesheet" href="dynamic/questionnaire.css" type="text/css">
+	<SCRIPT type="text/javascript" src="lib/soundman/soundmanager2-nodebug-jsmin.js"></SCRIPT>
+	<SCRIPT type="text/javascript">soundManager.url = 'lib/soundman/swf/';</SCRIPT>
+	<SCRIPT type="text/javascript" src="lib/jquery-1.4.4.min.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="lib/core.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="dynamic/experiment.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="dynamic/trial.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="dynamic/progressbar.js"></SCRIPT>
+
+	<SCRIPT type="text/javascript">
+	var exp = new Experiment();
+	exp.setAudio(true);
+	
+	function yoImReady() {
+
+		$("#main").html("Data retrieved. Loading some more stuff...");
+
+		block0 = exp.getItems().subset("item","farasel");
+
+		block1 = new Array();
+		block1.append(exp.getItems().exclude("item","farasel").subset("size","poly").subset("type","al-aux"));
+		block1.append(exp.getItems().subset("size","mono").subset("type","ol-ou"));
+		block1.shuffle();
+		//block1.alertItems();
+
+		exp.addStaticScreen({url: "static/intro.html"});
+		exp.addBlock(block0);
+		exp.addStaticScreen({url: "static/getgoing.html"})
+		exp.addBlock(block1);
+		exp.addStaticScreen({url: "static/demographic.html"})
+		exp.addStaticScreen({url: "static/finalthanks.html"})
+
+		exp.setProgressBar(new Progressbar({adjustWidth: 4}));
+		exp.advance();
+
+	}
+
+	$(document).ready(function(){
+		if (exp.getAudio()) {
+			soundManager.onload = function() {   loadServerData();  }
+		} else {
+			loadServerData();
+		}
+	});
+
+	function loadServerData() {
+		$.getJSON("lib/getUserCode.cgi", function(data){ 
+			exp.setUser(data);
+			$.getJSON("lib/getItems.cgi", function(data) {
+				exp.setItems(data);
+				if (exp.getStatus()==0) { 
+					yoImReady();
+				} else {
+					alert(exp.getStatus());
+				}
+			});
+		});
+	}
+	</SCRIPT>
+
+</HEAD>
+<BODY>
+
+<DIV ID="main">
+	Loading...
+</DIV>
+
+<DIV ID="footer">
+	<DIV ID="progressbar"></DIV>
+	Harvard University language study<BR>
+	Please send any questions to info@phonologist.org
+</DIV>
+
+</BODY>
+</HTML>

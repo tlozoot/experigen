@@ -1,0 +1,55 @@
+item	pl_l	item_j	pl_j	type	size	file_l	file_pl_l	file_j	file_pl_j
+auscral	auscraux	auscrail	auscraux	al-aux	poly	auscral_3052.wav	auscraux_2772.wav	auscrail_145.wav	auscraux_2772.wav
+cral	craux	crail	craux	al-aux	mono	cral_2632.wav	craux_257.wav	crail_229.wav	craux_257.wav
+dernal	dernaux	dernail	dernaux	al-aux	poly	dernal_3192.wav	dernaux_55.wav	dernail_1532.wav	dernaux_55.wav
+fal	faux	fail	faux	al-aux	mono	fal_772.wav	faux_333.wav	fail_232.wav	faux_333.wav
+fral	fraux	frail	fraux	al-aux	mono	fral_81.wav	fraux_33.wav	frail_121.wav	fraux_33.wav
+gistal	gistaux	gistail	gistaux	al-aux	poly	gistal_2852.wav	gistaux_87.wav	gistail_317.wav	gistaux_87.wav
+gnal	gnaux	gnail	gnaux	al-aux	mono	gnal_2232.wav	gnaux_2052.wav	gnail_1632.wav	gnaux_2052.wav
+gouval	gouvaux	gouvail	gouvaux	al-aux	poly	gouval_41.wav	gouvaux_1172.wav	gouvail_1872.wav	gouvaux_1172.wav
+histral	histraux	histrail	histraux	al-aux	poly	histral_127.wav	histraux_1332.wav	histrail_31.wav	histraux_1332.wav
+jal	jaux	jail	jaux	al-aux	mono	jal_2312.wav	jaux_1492.wav	jail_112.wav	jaux_1492.wav
+monnal	monnaux	monnail	monnaux	al-aux	poly	monnal_1232.wav	monnaux_263.wav	monnail_131.wav	monnaux_263.wav
+orsodal	orsodaux	orsodail	orsodaux	al-aux	poly	orsodal_872.wav	orsodaux_2272.wav	orsodail_2452.wav	orsodaux_2272.wav
+pérétal	pérétaux	pérétail	pérétaux	al-aux	poly	peretal_195.wav	peretaux_225.wav	peretail_117.wav	peretaux_225.wav
+pnal	pnaux	pnail	pnaux	al-aux	mono	pnal_2972.wav	pnaux_432.wav	pnail_2072.wav	pnaux_432.wav
+pral	praux	prail	praux	al-aux	mono	pral_207.wav	praux_267.wav	prail_319.wav	praux_267.wav
+prucal	prucaux	prucail	prucaux	al-aux	poly	prucal_192.wav	prucaux_53.wav	prucail_572.wav	prucaux_53.wav
+psal	psaux	psail	psaux	al-aux	mono	psal_43.wav	psaux_2212.wav	psail_113.wav	psaux_2212.wav
+sal	saux	sail	saux	al-aux	mono	sal_2112.wav	saux_692.wav	sail_327.wav	saux_692.wav
+scral	scraux	scrail	scraux	al-aux	mono	scral_972.wav	scraux_3292.wav	scrail_107.wav	scraux_3292.wav
+screnal	screnaux	screnail	screnaux	al-aux	poly	screnal_852.wav	screnaux_1352.wav	screnail_932.wav	screnaux_1352.wav
+ségal	ségaux	ségail	ségaux	al-aux	poly	segal_79.wav	segaux_11.wav	segail_109.wav	segaux_11.wav
+smeunal	smeunaux	smeunail	smeunaux	al-aux	poly	smeunal_275.wav	smeunaux_287.wav	smeunail_832.wav	smeunaux_287.wav
+smurcal	smurcaux	smurcail	smurcaux	al-aux	poly	smurcal_1312.wav	smurcaux_165.wav	smurcail_71.wav	smurcaux_165.wav
+snal	snaux	snail	snaux	al-aux	mono	snal_239.wav	snaux_105.wav	snail_129.wav	snaux_105.wav
+spral	spraux	sprail	spraux	al-aux	mono	spral_23.wav	spraux_59.wav	sprail_65.wav	spraux_59.wav
+stral	straux	strail	straux	al-aux	mono	stral_1852.wav	straux_221.wav	strail_201.wav	straux_221.wav
+sval	svaux	svail	svaux	al-aux	mono	sval_812.wav	svaux_2712.wav	svail_169.wav	svaux_2712.wav
+tral	traux	trail	traux	al-aux	mono	tral_3332.wav	traux_135.wav	trail_187.wav	traux_135.wav
+veusal	veusaux	veusail	veusaux	al-aux	poly	veusal_269.wav	veusaux_233.wav	veusail_209.wav	veusaux_233.wav
+vral	vraux	vrail	vraux	al-aux	mono	vral_309.wav	vraux_253.wav	vrail_67.wav	vraux_253.wav
+xovral	xovraux	xovrail	xovraux	al-aux	poly	xovral_153.wav	xovraux_159.wav	xovrail_243.wav	xovraux_159.wav
+zal	zaux	zail	zaux	al-aux	mono	zal_147.wav	zaux_321.wav	zail_307.wav	zaux_321.wav
+caul	caux			aul-au	mono	caul_281.wav	caux_312.wav	x	x
+craul	craux			aul-au	mono	craul_271.wav	craux_257.wav	x	x
+nounaul	nounaux			aul-au	poly	nounaul_1952.wav	nounaux_2032.wav	x	x
+sadaul	sadaux			aul-au	poly	sadaul_291.wav	sadaux_259.wav	x	x
+chautel	chautaux	chauteil	chauteux	el-aux	poly	chautel_2732.wav	chautaux_241.wav	chauteil_119.wav	chauteux_223.wav
+cnel	cnaux	cneil	cneux	el-aux	mono	cnel_183.wav	cnaux_1212.wav	cneil_103.wav	cneux_157.wav
+drel	draux	steil	steux	el-aux	mono	drel_45.wav	draux_247.wav	steil_2792.wav	steux_179.wav
+fanel	fanaux	faneil	faneux	el-aux	poly	fanel_2132.wav	fanaux_372.wav	faneil_301.wav	faneux_111.wav
+farasel	farasaux	faraseil	faraseux	el-aux	poly	farasel_215.wav	farasaux_3352.wav	faraseil_149.wav	faraseux_452.wav
+juvel	juvaux	juveil	juveux	el-aux	poly	juvel_552.wav	juvaux_732.wav	juveil_992.wav	juveux_532.wav
+nel	naux	peil	peux	el-aux	mono	nel_133.wav	naux_2912.wav	peil_3232.wav	peux_2992.wav
+ommel	ommaux	ommeil	ommeux	el-aux	poly	ommel_25.wav	ommaux_472.wav	ommeil_49.wav	ommeux_83.wav
+prel	praux	treil	treux	el-aux	mono	prel_21.wav	praux_267.wav	treil_29.wav	treux_155.wav
+rel	raux	reil	reux	el-aux	mono	rel_1412.wav	raux_143.wav	reil_73.wav	reux_123.wav
+crol	croux			ol-ou	mono	crol_265.wav	croux_1272.wav	x	x
+dol	doux			ol-ou	mono	dol_212.wav	doux_1572.wav	x	x
+gigol	gigoux			ol-ou	poly	gigol_217.wav	gigoux_1812.wav	x	x
+grassol	grassoux			ol-ou	poly	grassol_311.wav	grassoux_2392.wav	x	x
+guénol	guénoux			ol-ou	poly	guenol_13.wav	guenoux_91.wav	x	x
+psol	psoux			ol-ou	mono	psol_2652.wav	psoux_293.wav	x	x
+rafol	rafoux			ol-ou	poly	rafol_137.wav	rafoux_1192.wav	x	x
+zol	zoux			ol-ou	mono	zol_279.wav	zoux_303.wav	x	x

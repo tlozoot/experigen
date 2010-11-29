@@ -1,0 +1,32 @@
+<script>
+	soundManager.createSound({
+		id: "intro sound",
+		url: "sounds/pharon_374.wav.mp3",
+		autoPlay: false, 
+		autoLoad: true,
+		onload:function() {
+		},
+		onfinish:function() {
+			$("#pharon_buttons").show();
+		}
+	});
+
+	
+	$("#leftbutton").click(function() {alert("That's not right... try again.");});
+	
+</script>
+
+<form>
+Welcome to our English language questionnaire. We hope you enjoy it!
+<p>
+Please put on headphones to participate. 
+<p>
+Click the button to hear a made-up word: <INPUT TYPE='button' VALUE='    ►    '  onClick='soundManager.play("intro sound")'><BR>
+Adjust the volume to a comfortable level.
+<DIV ID="pharon_buttons" STYLE="display: none;">
+	The word you just heard has...<BR>
+	<INPUT TYPE='button' id="leftbutton" VALUE="  has the sound of the 'ph' in 'Stephen'  ">
+	<INPUT TYPE='button' id="rightbutton" VALUE="  has the sound of the 'ph' in 'orphan'  " onClick='exp.advance(this);'>
+</DIV>
+</form>
+
