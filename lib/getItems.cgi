@@ -18,8 +18,6 @@ for x in lines[1:]:
 	items.append(item)
 
 
-#items = [{"item":"cral","type":"al","size":"mono","file.l":"cral_2632.wav.mp3"},{"item":"pral","type":"al","size":"mono","file.l":"pral_207.wav.mp3"},{"item":"farasel","type":"el","size":"poly","file.l":"farasel_215_215.wav.mp3"}]
-#random.shuffle(items)
 
 print 'Content-Type: text/html; charset=utf-8\n'
 print json.dumps(items)
