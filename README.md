@@ -30,3 +30,4 @@ A linguist should be able to clone this, and easily set up your own experiment w
   - Replace getItems, getUserCode, getFrames with JavaScript versions
 * Jon:
   - Couch?
+  - Sammy
