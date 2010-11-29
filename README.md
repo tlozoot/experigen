@@ -2,6 +2,8 @@
 
 A framework for creating phonology experiments.
 
+A linguist should be able to clone this, and easily set up your own experiment without any server-side code! (i.e. run this on your personal website.) You need to know a minimal amount of JavaScript, and perhaps some HTML and even CSS.
+
 ## Setup
 
 * app
@@ -21,6 +23,8 @@ A framework for creating phonology experiments.
 ## TODO
 
 * Documentation
+* Examples
+* What the linguist needs to learn
 * Michael:
   - Make it work again!
   - Replace getItems, getUserCode, getFrames with JavaScript versions
