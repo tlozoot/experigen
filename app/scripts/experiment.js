@@ -34,6 +34,7 @@ function Experiment() {
 			
 				trial = new Trial(screen);
 				$("#main").html(trial.html());
+				setTimeout('trial.addEvents();',300);
 				break;
 				
 			default:
