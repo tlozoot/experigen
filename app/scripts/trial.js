@@ -5,7 +5,7 @@ function Trial(screen) {
 
 	this.screen.base1 = "";
 	this.screen.base2 = "";
-	this.screen.deriv1 = "sounds/" + exp.getCurrentScreen()["file_l"];
+	this.screen.deriv1 = "data/sounds/" + exp.getCurrentScreen()["file_l"];
 	this.screen.deriv2 = "";
 	this.screen.continuebutton = exp.getCurrentScreen().item + 'continue'
 

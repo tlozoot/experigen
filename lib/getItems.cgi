@@ -4,7 +4,7 @@ import random
 import json
 import os
 
-FILE = open('../dynamic/items.txt' ,'r')
+FILE = open('../data/items.txt' ,'r')
 lines =  FILE.readlines();
 FILE.close()
 

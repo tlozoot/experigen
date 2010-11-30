@@ -5,18 +5,23 @@
 	<META HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
-	<LINK rel="stylesheet" href="dynamic/questionnaire.css" type="text/css">
+
+	<LINK rel="stylesheet" href="lib/default.css" type="text/css">
+	<LINK rel="stylesheet" href="app/custom.css" type="text/css">
+
 	<SCRIPT type="text/javascript" src="lib/soundman/soundmanager2-nodebug-jsmin.js"></SCRIPT>
 	<SCRIPT type="text/javascript">soundManager.url = 'lib/soundman/swf/';</SCRIPT>
 	<SCRIPT type="text/javascript" src="lib/jquery-1.4.4.min.js"></SCRIPT>
 	<SCRIPT type="text/javascript" src="lib/core.js"></SCRIPT>
-	<SCRIPT type="text/javascript" src="dynamic/experiment.js"></SCRIPT>
-	<SCRIPT type="text/javascript" src="dynamic/trial.js"></SCRIPT>
-	<SCRIPT type="text/javascript" src="dynamic/progressbar.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="lib/progressbar.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="app/scripts/experiment.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="app/scripts/trial.js"></SCRIPT>
+	<SCRIPT type="text/javascript" src="lib/dataconnection.js"></SCRIPT>
 
 	<SCRIPT type="text/javascript">
 	var exp = new Experiment();
 	exp.setAudio(true);
+	
 	
 	function yoImReady() {
 
@@ -30,12 +35,12 @@
 		block1.shuffle();
 		//block1.alertItems();
 
-		exp.addStaticScreen({url: "static/intro.html"});
+		exp.addStaticScreen({url: "app/templates/intro.html"});
 		exp.addBlock(block0);
-		exp.addStaticScreen({url: "static/getgoing.html"})
+		exp.addStaticScreen({url: "app/templates/getgoing.html"})
 		exp.addBlock(block1);
-		exp.addStaticScreen({url: "static/demographic.html"})
-		exp.addStaticScreen({url: "static/finalthanks.html"})
+		exp.addStaticScreen({url: "app/templates/demographic.html"})
+		exp.addStaticScreen({url: "app/templates/finalthanks.html"})
 
 		exp.setProgressBar(new Progressbar({adjustWidth: 4}));
 		exp.advance();
@@ -43,16 +48,18 @@
 	}
 
 	$(document).ready(function(){
+
 		if (exp.getAudio()) {
-			soundManager.onload = function() {   loadServerData();  }
+			soundManager.onload = function() {  loadServerData();  }
 		} else {
 			loadServerData();
 		}
 	});
 
 	function loadServerData() {
-		$.getJSON("lib/getUserCode.cgi", function(data){ 
-			exp.setUser(data);
+	
+		if (exp.getUserID()) {
+
 			$.getJSON("lib/getItems.cgi", function(data) {
 				exp.setItems(data);
 				if (exp.getStatus()==0) { 
@@ -61,7 +68,8 @@
 					alert(exp.getStatus());
 				}
 			});
-		});
+
+		}
 	}
 	</SCRIPT>
 

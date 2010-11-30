@@ -1,67 +1,29 @@
 BODY {
-	background-color: #444;
-	padding-top: 12pt;
 }
 
 #main {
-	width: 600px;
-	margin: auto;	
-	border: solid black 1px;
-	padding: 20px 20px 20px 20px;
-
-	background-color: #EEE;
-	color: #000;
-	position: relative;
-	clear:both;
-
 }
-H1 {
-	color: #390;
-}
+
 
 
 INPUT, SELECT, TEXTAREA {
-   	font-size: 1em;
 }
 
 
 
 #footer {
-	width: 640px;
-	margin: auto;	
-	padding: 10px 0px 0px 0px;
-	color: #aaa;	
-	font-size: 10pt;
 }
 
 
 
 
 #progressbar {
-	float: right;
 }
 #progress_text {
-	float: left;
-	font-size: 10pt;
-	color: #aaa;
-	padding: 0px 0px 0px 5px;
 }
 #progress_bar_full {
-	float: left;
-	height: 3px;
-	margin: 4px 0px 4px 0px;
-	background-color: #aaa;
-	border-right: solid 1px #aaa;
-	border-top: solid 1px #aaa;
-	border-bottom: solid 1px #aaa;
 }
 #progress_bar_empty {
-	float: left;
-	height: 3px;
-	margin: 4px 0px 4px 0px;
-	border-left: solid 1px #aaa;
-	border-top: solid 1px #aaa;
-	border-bottom: solid 1px #aaa;
 }
 
 
