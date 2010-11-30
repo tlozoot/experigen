@@ -9,6 +9,7 @@ function Trial(screen) {
 	this.screen.deriv2 = "data/sounds/" + exp.getCurrentScreen().file_pl_l;
 
 
+
 	soundManager.createSound({
 		id: exp.getCurrentScreen().deriv1,
 		url: exp.getCurrentScreen().deriv1,
@@ -52,7 +53,7 @@ function Trial(screen) {
 
 		var f1 = this.screen.frame.text.replace(/_+/, "<b><i>" + this.screen.item + "</i></b>");
 		f1 = f1.replace(/_+/, '<input type="button" id="' + exp.getCurrentScreen().item + 'pl1button' +'" value="    ►    ">');
-		str += '<div style="text-align:center;">' + f1 + '</div>';
+		str += '<div style="text-align:center;">' + f1 + ' (' + this.screen.finalConsonant  + ')</div>';
 		
 		str += '<table border=0 style="height: 30ex; width: 100%; padding: 10px 0px 10px 0px"><tr><td style="vertical-align: middle;">'
 		str += '<div id="' + exp.getCurrentScreen().item + 'response_buttons' + '" style="margin-left: 50%; display: none;">';
