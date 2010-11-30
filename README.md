@@ -29,6 +29,7 @@ A linguist should be able to clone this, and easily set up your own experiment w
   - Make it work again! (done)
   - Replace getItems, getUserCode, getFrames with JavaScript versions (done)
 * Jon:
-  - Couch?
+  - Couch? http://guide.couchdb.org/
+    - security: http://blog.couchone.com/post/1027100082/whats-new-in-couchdb-1-0-part-4-securityn-stuff
   - Sammy
   - Deal with events
