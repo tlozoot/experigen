@@ -22,25 +22,20 @@
 	var exp = new Experiment();
 	exp.setAudio(true);
 	
-	
 	function yoImReady() {
-
-		$("#main").html("Data retrieved. Loading some more stuff...");
-
 		
 		block0 = exp.getItems().subset("item","farasel");
 		block0.pairWith("frame", exp.getFrameSentences());
 		block0.shuffle();
-		
-		// to do: make "pairWith" distinguish array from string
-
 
 		block1 = new Array();
 		block1.append(exp.getItems().exclude("item","farasel").subset("size","poly").subset("type","al-aux"));
 		block1.append(exp.getItems().subset("size","mono").subset("type","ol-ou"));
-		block1.pairWith("frame", exp.getFrameSentences().shuffle());
+		block1.pairWith("frame", exp.getFrameSentences().slice(1, exp.getFrameSentences().length).shuffle());
 		block1.shuffle();
 
+		/// add .chooseRandom(), .chooseFirst(), and .excludeFirst()
+		/// all optionally take an int, default is 1
 
 		exp.addStaticScreen({url: "app/templates/intro.html"});
 		exp.addBlock(block0);
@@ -51,31 +46,24 @@
 
 		exp.setProgressBar(new Progressbar({adjustWidth: 4}));
 		exp.advance();
-
+	
 	}
+
+
+
 
 	$(document).ready(function(){
 
-		if (exp.getAudio()) {
-			soundManager.onload = function() {  loadServerData();  }
-		} else {
-			loadServerData();
-		}
-	});
+		soundManager.onload = function() {};
+		exp.loadUserID();
+		exp.loadFrameSentences();
+		exp.loadItems();
 
-	function loadServerData() {
-	
-		exp.loadUserID()
-		exp.loadFrameSentences()
-			
-		$.getJSON("lib/getItems.cgi", function(data) {
-			exp.setItems(data);
-			//if (exp.getStatus()==0) {} 
-		});
+		$("#main").html("Data retrieved. Loading some more stuff...");
 
 		setTimeout('yoImReady();',100);
 
-	}
+	});
 	</SCRIPT>
 
 </HEAD>

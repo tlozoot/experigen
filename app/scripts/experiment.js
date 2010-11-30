@@ -1,8 +1,8 @@
 
 function Experiment() {
 
-	var STATIC = 1;
-	var TRIAL = 2;
+	this.STATIC = 1;
+	this.TRIAL = 2;
 
 	this.userFileName = "";
 	this.userCode = "";
@@ -23,14 +23,14 @@ function Experiment() {
 		
 		var screen = this.getCurrentScreen();
 		switch (screen.screentype) {
-			case STATIC:
+			case this.STATIC:
 			
 				$.get(screen.url, function(data) {
 					$("#main").html(data);
 				});
 				break;
 				
-			case TRIAL:
+			case this.TRIAL:
 			
 				trial = new Trial(screen);
 				$("#main").html(trial.html());
@@ -50,7 +50,7 @@ function Experiment() {
 	}
 
 	this.getFrameSentences = function () {
-		return ["frame1","frame2","frame3"];// this.frames;
+		return this.frames; //["frame1","frame2","frame3"]
 	}
 
 	this.setProgressBar = function (obj) {
@@ -61,7 +61,7 @@ function Experiment() {
 	}
 
 	this.addStaticScreen = function (obj) {
-		obj.screentype=STATIC;
+		obj.screentype = this.STATIC;
 		this.screens.push(obj);	
 	}
 	this.getCurrentScreen = function () {
@@ -80,14 +80,14 @@ function Experiment() {
 	this.getAudio = function() {
 		return this.hasAudio;
 	}
-	this.setItems = function (arr) {
+/*	this.setItems = function (arr) {
 		this.items = arr;
 		for (var i=0; i<this.items.length; i++) {
 			if(!this.items[i].screentype) {
 				this.items[i].screentype = TRIAL;
 			}
 		}
-	}
+	} */
 	this.getItems = function() {
 		return this.items;
 	}

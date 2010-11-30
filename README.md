@@ -26,7 +26,7 @@ A linguist should be able to clone this, and easily set up your own experiment w
 * Examples
 * What the linguist needs to learn
 * Michael:
-  - Make it work again!
+  - Make it work again! (done?)
   - Replace getItems, getUserCode, getFrames with JavaScript versions
 * Jon:
   - Couch?
