@@ -9,7 +9,7 @@ function Experiment() {
 
 	this.screens = new Array();
 	this.items = new Array();
-	this.blocks;
+	this.frames = new Array();
 
 	this.position = -1;
 	this.progressbar;
@@ -42,18 +42,16 @@ function Experiment() {
 
 	}
 
-	this.makeBlocks = function() {
-	
-	}
+
 	this.addBlock = function (arr) {
 		for (var i=0 ; i<arr.length ; i++) {
 			this.screens.push(arr[i]);	
 		}
 	}
-	this.getBlock = function (i) {
-		return this.items;
-	}
 
+	this.getFrameSentences = function () {
+		return ["frame1","frame2","frame3"];// this.frames;
+	}
 
 	this.setProgressBar = function (obj) {
 		this.progressbar = obj;
@@ -66,9 +64,6 @@ function Experiment() {
 		obj.screentype=STATIC;
 		this.screens.push(obj);	
 	}
-
-
-
 	this.getCurrentScreen = function () {
 		return this.screens[this.position];
 	}

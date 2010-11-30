@@ -24,7 +24,7 @@ function Trial(screen) {
 	this.html = function() {
 		var str = "";
 		str += "<P>" 
-		str += this.screen.item;
+		str += this.screen.item + "  --- " + this.screen.frame;
 		str += "<P>";
 		str += '<INPUT TYPE="button" VALUE="    ►    "  onClick="soundManager.play(exp.getCurrentScreen().deriv1);">';
 		str += "<P>";
