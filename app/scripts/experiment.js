@@ -3,6 +3,8 @@ function Experiment() {
 
 	this.STATIC = 1;
 	this.TRIAL = 2;
+	
+	this.VERSION = "0.1";
 
 	this.userFileName = "";
 	this.userCode = "";
@@ -34,7 +36,7 @@ function Experiment() {
 			
 				trial = new Trial(screen);
 				$("#main").html(trial.html());
-				setTimeout('trial.addEvents();',300);
+				this.getCurrentScreen().advance();
 				break;
 				
 			default:
@@ -76,19 +78,11 @@ function Experiment() {
 		return this.userCode;
 	}
 	this.setAudio = function (b) {		
-		this.hasAudio = (b==true)? true : false;
+		this.hasAudio = (b==true) ? true : false;
 	}
 	this.getAudio = function() {
 		return this.hasAudio;
 	}
-/*	this.setItems = function (arr) {
-		this.items = arr;
-		for (var i=0; i<this.items.length; i++) {
-			if(!this.items[i].screentype) {
-				this.items[i].screentype = TRIAL;
-			}
-		}
-	} */
 	this.getItems = function() {
 		return this.items;
 	}

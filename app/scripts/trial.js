@@ -2,7 +2,11 @@
 function Trial(screen) {
 
 	this.screen = screen || {};
+	this.screen.uniquekey = exp.getCurrentScreen().item; /// to be implemented
 
+	this.screen.HORIZONTAL = 1;
+	this.screen.VERTICAL = 2;
+	
 	this.screen.singular = (this.screen.finalConsonant=="l") ? this.screen.item : this.screen.item_j;
 
 	this.screen.base1 = "";
@@ -11,92 +15,96 @@ function Trial(screen) {
 	this.screen.deriv1 = "data/sounds/" + exp.getCurrentScreen()["file_" + this.screen.finalConsonant];
 	this.screen.deriv2 = "data/sounds/" + exp.getCurrentScreen()["file_pl_" + this.screen.finalConsonant];
 
-
-
-
-	soundManager.createSound({
-		id: exp.getCurrentScreen().deriv1,
-		url: exp.getCurrentScreen().deriv1,
-		autoPlay: false, 
-		autoLoad: true,
-		onload:function() {
-		},
-		onfinish:function() {
-			if (exp.getCurrentScreen().rand == "s-first") {
-				$("#" + exp.getCurrentScreen().item + 'secondhalf').show();
-			} else {
-				$("#" + exp.getCurrentScreen().item + 'response_buttons').show();
-				$("#" + exp.getCurrentScreen().continuebutton).show();
-			}
-		}
-	});
-	soundManager.createSound({
-		id: exp.getCurrentScreen().deriv2,
-		url: exp.getCurrentScreen().deriv2,
-		autoPlay: false, 
-		autoLoad: true,
-		onload:function() {
-		},
-		onfinish:function() {
-			if (exp.getCurrentScreen().rand == "x-first") {
-				$("#" + exp.getCurrentScreen().item + 'secondhalf').show();
-			} else {
-				$("#" + exp.getCurrentScreen().item + 'response_buttons').show();
-				$("#" + exp.getCurrentScreen().continuebutton).show();
-			}
-		}
-	});
-
-
-	this.addEvents = function () {
-	
-		$("#" + exp.getCurrentScreen().item + 'pl1button').click(function(){ soundManager.play(exp.getCurrentScreen().deriv1); });  
-		$("#" + exp.getCurrentScreen().item + 'pl2button').click(function(){ soundManager.play(exp.getCurrentScreen().deriv2); });  
-
-		for (var i=1; i<=7; i++) {
-			$("#" + exp.getCurrentScreen().item + 'button' + i).click(function() { exp.advance(); });
-		}
-
+	this.screen.position = 0;
+	this.screen.advance = function() {
+		$("#" + exp.getCurrentScreen().item + 'trialpart' + exp.getCurrentScreen().position).show();
+		exp.getCurrentScreen().position++;
 	}
+	
+	this.screen.makeScale = function(obj) {
+		var direction = obj.direction || Trial.VERTICAL;
+		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
+		var labels = obj.labels || [""];
+		var serverValues = obj.serverValues || buttons;
+		var labelposition = 0;
+		
+		var str = "";
+		for (var i=0; i<buttons.length; i++) {
+			str += '<div><input type="button" value=" '+ buttons[i] +' " id="' + exp.getCurrentScreen().item + 'button' + i + '" style="margin-right: 10px;" onClick="exp.advance();">';
+			str += labels[labelposition];
+			labelposition++;
+			if(labelposition>=labels.length) labelposition=0;
+			str += '</div>';
+		}
+		return str;
+	}
+	
+	this.screen.makeSoundButton = function (obj) {
+		var label = obj.label || "    ►    ";
+		var soundID  = obj.soundID || exp.getCurrentScreen().uniquekey + 'pl1button';
+		var soundFile = obj.soundFile;
+
+		soundManager.createSound({
+			id: soundID,
+			url: soundFile,
+			autoPlay: false, 
+			autoLoad: true,
+			onload:function() {
+			},
+			onfinish:function() {
+				exp.getCurrentScreen().advance();
+			}
+		});
+
+		str = "";
+		str += '<input type="button" ';
+		str += ' id="' + soundID +'"';
+		str += ' value="' + label + '"';
+		str += ' onClick="soundManager.play(\'' + soundID + '\');"'
+		str += ' style="margin-left: 10px;"'
+		str += '>';
+		return str;
+	}
+
 
 	this.html = function() {
 	
 		var str = "";
 
 		var f1 = this.screen.frame.text.replace(/_+/, "<b><i>" +  this.screen.singular + "</i></b>");
-		f1 = f1.replace(/_+/, '<input type="button" id="' + exp.getCurrentScreen().item + 'pl1button' +'" value="    ►    ">');
+		f1 += exp.getCurrentScreen().makeSoundButton({soundFile: exp.getCurrentScreen().deriv1, soundID: exp.getCurrentScreen().uniquekey + 'pl1button'});
 
 		var f2 = this.screen.frame.text.replace(/_+/, "<b><i>" +  this.screen.singular + "</i></b>");
-		f2 = f2.replace(/_+/, '<input type="button" id="' + exp.getCurrentScreen().item + 'pl2button' +'" value="    ►    ">');
+		f2 += exp.getCurrentScreen().makeSoundButton({soundFile: exp.getCurrentScreen().deriv2, soundID: exp.getCurrentScreen().uniquekey + 'pl2button'});
 
 		if (exp.getCurrentScreen().rand == "x-first") {
-			var temp = f1;
-			f1 = f2;
-			f2 = temp
-		};
-
-
-		str += '<div style="text-align:center;">' + f1 + '</div>';
-		
-		// this will be replaced by a function that makes scales
-		// you will specify the no. of points on the scale, axis,  
-		// array of labels for the buttons, array of labels next to the buttons
-		str += '<table border=0 style="height: 30ex; width: 100%; padding: 10px 0px 10px 0px"><tr><td style="vertical-align: middle;">'
-		str += '<div id="' + exp.getCurrentScreen().item + 'response_buttons' + '" style="margin-left: 50%; display: none;">';
-		for (var i=1; i<=7; i++) {
-			str += '<div><input type="button" value=" '+ i +' " id="' + exp.getCurrentScreen().item + 'button' + i + '">';
-			if(i==1) str += ' ⬆ I prefer the first plural ';
-			if(i==4) str += ' No preference ';
-			if(i==7) str += ' ⬇ I prefer the second plural ';
-			str += '</div>';
+			[f1 ,f2] = [f2 ,f1];
 		}
+
+
+
+		str += '<div id="' + exp.getCurrentScreen().item + 'trialpart0' + '" style="text-align:center; display:none;">';
+		str += f1;
+		str += '</div>';
+		str += '<script>';
+		str += "$('#' + exp.getCurrentScreen().item + 'pl1button').click(function(){ soundManager.play(exp.getCurrentScreen().deriv1); });"; 
+		str += '</script>';
+
+		
+		str += '<table border=0 style="height: 30ex; width: 100%; padding: 10px 0px 10px 0px"><tr><td style="vertical-align: middle;">'
+		str += '<div id="' + exp.getCurrentScreen().item + 'trialpart2' + '" style="margin-left: 50%; display: none;">';
+		str += exp.getCurrentScreen().makeScale({buttons: ["1","2","3","4","5","6","7"], direction: Trial.HORIZONTAL, labels: ['⬆ I prefer the first plural','','','No preference','','','⬇ I prefer the second plural']}); //
 		str += '</div>'
 		str += '</td></tr></table>'
 
-		str += '<div id="' + exp.getCurrentScreen().item + 'secondhalf' + '" style="display: none; text-align:center;">';
+
+		str += '<div id="' + exp.getCurrentScreen().item + 'trialpart1' + '" style="display: none; text-align:center;">';
 		str += f2;
 		str += '</div>';
-
+		str += '<script>';
+		str += "$('#' + exp.getCurrentScreen().item + 'pl2button').click(function(){ soundManager.play(exp.getCurrentScreen().deriv2); });"; 
+		str += '</script>';
+		
 		return str;
 	}
 
