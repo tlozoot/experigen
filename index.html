@@ -29,10 +29,21 @@
 		block0.shuffle();
 		
 		block1 = new Array();
-		block1.append(exp.getItems().exclude("item","farasel").subset("size","poly").subset("type","al-aux"));
-		block1.append(exp.getItems().subset("size","mono").subset("type","ol-ou"));
+		block1.append(exp.getItems().exclude("item","farasel").subset("size","poly").subset("type","al-aux").chooseRandom(1));
+		block1.append(exp.getItems().subset("size","mono").subset("type","el-aux").chooseRandom(1));
 		block1.pairWith("frame", exp.getFrameSentences().excludeFirst().shuffle());
 		block1.shuffle().pairWith("finalConsonant",["l","j"]).shuffle();
+
+		block2 = new Array();
+		block2.append(exp.getItems().subset("size","poly").subset("type","ol-ou").chooseRandom(1));
+		block2.append(exp.getItems().subset("size","mono").subset("type","aul-au").chooseRandom(1));
+		block2.pairWith("frame", exp.getFrameSentences().excludeFirst().shuffle());
+		block2.shuffle().pairWith("finalConsonant",["l"]);
+
+		block1.append(block2).shuffle();
+
+		block0.pairWith("rand", ["s-first"]);
+		block1.pairWith("rand", ["s-first","x-first"]).shuffle();
 
 		exp.addStaticScreen({url: "app/templates/intro.html"});
 		exp.addBlock(block0);
@@ -58,7 +69,7 @@
 
 		$("#main").html("Data retrieved. Loading some more stuff...");
 
-		setTimeout('yoImReady();',100);
+		setTimeout('yoImReady();',1000);
 
 	});
 	</script>

@@ -3,10 +3,14 @@ function Trial(screen) {
 
 	this.screen = screen || {};
 
+	this.screen.singular = (this.screen.finalConsonant=="l") ? this.screen.item : this.screen.item_j;
+
 	this.screen.base1 = "";
 	this.screen.base2 = "";
-	this.screen.deriv1 = "data/sounds/" + exp.getCurrentScreen().file_l;
-	this.screen.deriv2 = "data/sounds/" + exp.getCurrentScreen().file_pl_l;
+
+	this.screen.deriv1 = "data/sounds/" + exp.getCurrentScreen()["file_" + this.screen.finalConsonant];
+	this.screen.deriv2 = "data/sounds/" + exp.getCurrentScreen()["file_pl_" + this.screen.finalConsonant];
+
 
 
 
@@ -18,7 +22,12 @@ function Trial(screen) {
 		onload:function() {
 		},
 		onfinish:function() {
-			$("#" + exp.getCurrentScreen().item + 'secondhalf').show();
+			if (exp.getCurrentScreen().rand == "s-first") {
+				$("#" + exp.getCurrentScreen().item + 'secondhalf').show();
+			} else {
+				$("#" + exp.getCurrentScreen().item + 'response_buttons').show();
+				$("#" + exp.getCurrentScreen().continuebutton).show();
+			}
 		}
 	});
 	soundManager.createSound({
@@ -29,8 +38,12 @@ function Trial(screen) {
 		onload:function() {
 		},
 		onfinish:function() {
-			$("#" + exp.getCurrentScreen().item + 'response_buttons').show();
-			$("#" + exp.getCurrentScreen().continuebutton).show();
+			if (exp.getCurrentScreen().rand == "x-first") {
+				$("#" + exp.getCurrentScreen().item + 'secondhalf').show();
+			} else {
+				$("#" + exp.getCurrentScreen().item + 'response_buttons').show();
+				$("#" + exp.getCurrentScreen().continuebutton).show();
+			}
 		}
 	});
 
@@ -50,11 +63,24 @@ function Trial(screen) {
 	
 		var str = "";
 
-
-		var f1 = this.screen.frame.text.replace(/_+/, "<b><i>" + this.screen.item + "</i></b>");
+		var f1 = this.screen.frame.text.replace(/_+/, "<b><i>" +  this.screen.singular + "</i></b>");
 		f1 = f1.replace(/_+/, '<input type="button" id="' + exp.getCurrentScreen().item + 'pl1button' +'" value="    ►    ">');
-		str += '<div style="text-align:center;">' + f1 + ' (' + this.screen.finalConsonant  + ')</div>';
+
+		var f2 = this.screen.frame.text.replace(/_+/, "<b><i>" +  this.screen.singular + "</i></b>");
+		f2 = f2.replace(/_+/, '<input type="button" id="' + exp.getCurrentScreen().item + 'pl2button' +'" value="    ►    ">');
+
+		if (exp.getCurrentScreen().rand == "x-first") {
+			var temp = f1;
+			f1 = f2;
+			f2 = temp
+		};
+
+
+		str += '<div style="text-align:center;">' + f1 + '</div>';
 		
+		// this will be replaced by a function that makes scales
+		// you will specify the no. of points on the scale, axis,  
+		// array of labels for the buttons, array of labels next to the buttons
 		str += '<table border=0 style="height: 30ex; width: 100%; padding: 10px 0px 10px 0px"><tr><td style="vertical-align: middle;">'
 		str += '<div id="' + exp.getCurrentScreen().item + 'response_buttons' + '" style="margin-left: 50%; display: none;">';
 		for (var i=1; i<=7; i++) {
@@ -68,9 +94,6 @@ function Trial(screen) {
 		str += '</td></tr></table>'
 
 		str += '<div id="' + exp.getCurrentScreen().item + 'secondhalf' + '" style="display: none; text-align:center;">';
-
-		var f2 = this.screen.frame.text.replace(/_+/, "<b><i>" + this.screen.item + "</i></b>");
-		f2 = f2.replace(/_+/, '<input type="button" id="' + exp.getCurrentScreen().item + 'pl2button' +'" value="    ►    ">');
 		str += f2;
 		str += '</div>';
 
