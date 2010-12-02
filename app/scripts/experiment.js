@@ -34,7 +34,7 @@ function Experiment() {
 				
 			case this.TRIAL:
 			
-				trial = new Trial(screen);
+				trial = new Trial(screen, this.position);
 				$("#main").html(trial.html());
 				this.getCurrentScreen().advance();
 				break;
