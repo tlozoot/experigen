@@ -64,9 +64,38 @@ INPUT, SELECT, TEXTAREA {
 	border-bottom: solid 1px #aaa;
 }
 
+.trialpartWrapper {
+	display: none;
+	clear: both;
+	text-align:center; 
+	padding: 20px;
+}
 
-
-
+.scaleWrapper {
+	position: relative;
+	text-align: left; 
+	margin-left: 0px; 
+}
+.scalebuttonWrapper {
+	clear: both;
+	height: 30px;
+}
+.scaleButton {
+	width: 2em;
+	height: 1.5em;
+	float: left;
+}
+.scalebuttonleftlabel {
+	float: left;
+	text-align: right;
+	margin-right: 10px;	
+	width: 48%;
+}
+.scalebuttonrightlabel {
+	float: left;
+	margin-left: 10px;
+	width: 40%;
+}
 
 
 

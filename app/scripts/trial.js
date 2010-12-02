@@ -21,18 +21,32 @@ function Trial(screen, position) {
 	this.screen.makeScale = function(obj) {
 		var direction = obj.direction || Trial.VERTICAL;
 		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
-		var labels = obj.labels || [""];
+		var leftlabels = obj.leftlabels || [""];
+		var rightlabels = obj.rightlabels || [""];
+		var leftlabelposition = 0;
+		var rightlabelposition = 0;
+
 		var serverValues = obj.serverValues || buttons;
-		var labelposition = 0;
+		/// validate serverValues here to be non-empty and distinct
 		
 		var str = "";
-		str += '<div style="text-align: left; margin-left: 50%; padding: 20px 0px 20px 0px;">';
+		str += '<div class="scaleWrapper">';
 		for (var i=0; i<buttons.length; i++) {
-			str += '<div><input type="button" value=" '+ buttons[i] +' " id="' + exp.getCurrentScreen().uniquekey + 'button' + i + '" style="margin-right: 10px;" onClick="exp.advance();">';
-			str += labels[labelposition];
-			labelposition++;
-			if(labelposition>=labels.length) labelposition=0;
+
+			if (direction==Trial.VERTICAL) {
+				str += '<div class="scalebuttonWrapper">';
+			} else {
+				str += '<div class="scalebuttonWrapper" style="display: inline;">';
+			}
+			
+			str += '<div class="scalebuttonleftlabel">' + leftlabels[leftlabelposition] + '</div>';
+			str += '<input type="button" value=" '+ buttons[i] +' " id="' + exp.getCurrentScreen().uniquekey + 'button' + i + '" class="scaleButton" onClick="exp.advance();">';
+			str += '<div class="scalebuttonrightlabel">' + rightlabels[rightlabelposition] + '</div>';
+
 			str += '</div>';
+
+			leftlabelposition++;  if(leftlabelposition >=leftlabels.length)  leftlabelposition=0;
+			rightlabelposition++; if(rightlabelposition>=rightlabels.length) rightlabelposition=0;
 		}
 		str += '</div>';
 		return str;
@@ -70,7 +84,7 @@ function Trial(screen, position) {
 	this.screen.addPart = function (content) {
 		content = content || "";
 		var str ="";
-		str += '<div id="' + exp.getCurrentScreen().uniquekey + 'part' + exp.getCurrentScreen().parts.length + '" style="text-align:center; display:none;">';
+		str += '<div id="' + exp.getCurrentScreen().uniquekey + 'part' + exp.getCurrentScreen().parts.length + '" class="trialpartWrapper">';
 		str += content;
 		str += '</div>';
 		exp.getCurrentScreen().parts.push(str);
@@ -120,7 +134,7 @@ function Trial(screen, position) {
 
 		exp.getCurrentScreen().addPart(f2);
 
-		scale = exp.getCurrentScreen().makeScale({buttons: ["1","2","3","4","5","6","7"], direction: Trial.HORIZONTAL, labels: ['⬆ I prefer the first plural','','','No preference','','','⬇ I prefer the second plural']});
+		scale = exp.getCurrentScreen().makeScale({buttons: ["w","2","e","4","5","6","7"], direction: Trial.HORIZONTAL, rightlabels: ['⬆ I prefer the first plural','','','No preference','','','⬇ I prefer the second plural'], leftlabels:['a','&nbsp;']});
 		exp.getCurrentScreen().addPart(scale);
 		
 		exp.getCurrentScreen().order([0, 2, 1]);
