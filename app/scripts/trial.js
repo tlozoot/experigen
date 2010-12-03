@@ -9,14 +9,12 @@ function Trial(screen, position) {
 	this.screen.VERTICAL = 2;
 
 	this.screen.parts = new Array();
-	this.screen.partOrder = new Array();
-	this.screen.currentPart = 0;
+	this.screen.currentPart = -1;
+	this.screen.callingPart = -1;
 	this.screen.soundbuttoncounter = 0;
+	
+	this.screen.hmtlStr = "";
 
-	this.screen.advance = function() {
-		$("#" + exp.getCurrentScreen().uniquekey + 'part' + exp.getCurrentScreen().currentPart).show();
-		exp.getCurrentScreen().currentPart++;
-	}
 	
 	this.screen.makeScale = function(obj) {
 		var direction = obj.direction || Trial.VERTICAL;
@@ -51,6 +49,20 @@ function Trial(screen, position) {
 		str += '</div>';
 		return str;
 	}
+
+
+	this.screen.advance = function() {
+		if (exp.getCurrentScreen().callingPart==exp.getCurrentScreen().currentPart) {
+			exp.getCurrentScreen().currentPart++;
+			$("#" + exp.getCurrentScreen().uniquekey + 'part' + exp.getCurrentScreen().currentPart).show();
+		}
+	}
+
+	this.screen.playSound = function (soundID, caller) {
+		var comingFrom = $(caller).parent(".trialpartWrapper").attr("id").match(/part(\d+)$/)[1];
+		exp.getCurrentScreen().callingPart = comingFrom;
+		soundManager.play(soundID);
+	}
 	
 	this.screen.makeSoundButton = function (obj) {
 		var label = obj.label || "    ►    ";
@@ -74,42 +86,29 @@ function Trial(screen, position) {
 		str += '<input type="button" ';
 		str += ' id="' + soundID +'"';
 		str += ' value="' + label + '"';
-		str += ' onClick="soundManager.play(\'' + soundID + '\');"'
+		str += ' onClick="exp.getCurrentScreen().playSound(\'' + soundID + '\',this);"'
 		str += ' style="margin-left: 10px;"'
 		str += ' data-played="0"'
 		str += '>';
 		return str;
 	}
 	
-	this.screen.addPart = function (content) {
+	
+	
+	this.screen.makePart = function (content) {
 		content = content || "";
 		var str ="";
 		str += '<div id="' + exp.getCurrentScreen().uniquekey + 'part' + exp.getCurrentScreen().parts.length + '" class="trialpartWrapper">';
 		str += content;
 		str += '</div>';
-		exp.getCurrentScreen().parts.push(str);
+		exp.getCurrentScreen().parts.push(str);		
+		return str; //exp.getCurrentScreen().parts.push(str);
 	}
 	
-	this.screen.order = function(arr) {
-		if (typeof arr != "object") {
-			alert("Please supply an array to the order function.");
-			return false;
-		}
-		if(arr.length==exp.getCurrentScreen().parts.length) {
-			for (var i=0; i<arr.length; i++) {
-				if(typeof arr[i]!="number") {
-					alert("Not a number at "+i+".");
-					return false;
-				}
-			}
-			exp.getCurrentScreen().partOrder = arr;
-		} else {
-			alert("The order array you supplied doesn't match the number of parts you supplied.");
-		}
-		
+
+	this.screen.addPart = function (str) {
+		exp.getCurrentScreen().hmtlStr += str;
 	}
-
-
 
 
 	this.html = function() {
@@ -130,21 +129,17 @@ function Trial(screen, position) {
 			[f1 ,f2] = [f2 ,f1];
 		}
 
-		exp.getCurrentScreen().addPart(f1);
+		part1 = exp.getCurrentScreen().makePart(f1);
+		part2 = exp.getCurrentScreen().makePart(f2);
 
-		exp.getCurrentScreen().addPart(f2);
-
-		scale = exp.getCurrentScreen().makeScale({buttons: ["w","2","e","4","5","6","7"], direction: Trial.HORIZONTAL, rightlabels: ['⬆ I prefer the first plural','','','No preference','','','⬇ I prefer the second plural'], leftlabels:['a','&nbsp;']});
-		exp.getCurrentScreen().addPart(scale);
+		scale = exp.getCurrentScreen().makeScale({buttons: ["1","2","3","4","5","6","7"], direction: Trial.HORIZONTAL, rightlabels: ['⬆ I prefer the first plural','','','No preference','','','⬇ I prefer the second plural'], leftlabels:['a','&nbsp;']});
+		part3 = exp.getCurrentScreen().makePart(scale);
 		
-		exp.getCurrentScreen().order([0, 2, 1]);
+		exp.getCurrentScreen().addPart(part1);
+		exp.getCurrentScreen().addPart(part3);
+		exp.getCurrentScreen().addPart(part2);
 		
-
-		var str = "";
-		for (var i=0; i<exp.getCurrentScreen().partOrder.length; i++) {
-			str += exp.getCurrentScreen().parts[exp.getCurrentScreen().partOrder[i]];
-		}
-		return str;
+		return exp.getCurrentScreen().hmtlStr;
 	}
 
 }

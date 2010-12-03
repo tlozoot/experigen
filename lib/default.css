@@ -1,4 +1,4 @@
-BODY {
+body {
 	background-color: #444;
 	padding-top: 12pt;
 }
@@ -15,13 +15,14 @@ BODY {
 	clear:both;
 
 }
-H1 {
+h1 {
 	color: #390;
 }
 
 
-INPUT, SELECT, TEXTAREA {
-   	font-size: 1em;
+
+input, select, textarea {
+	font-size: 2ex;
 }
 
 
@@ -82,7 +83,8 @@ INPUT, SELECT, TEXTAREA {
 }
 .scaleButton {
 	width: 2em;
-	height: 1.5em;
+	height: 30px;
+	font-size: 12pt;
 	float: left;
 }
 .scalebuttonleftlabel {
@@ -90,11 +92,17 @@ INPUT, SELECT, TEXTAREA {
 	text-align: right;
 	margin-right: 10px;	
 	width: 48%;
+	font-size: 16pt;
+	height: 30px;
+	margin: 2px 0px;
 }
 .scalebuttonrightlabel {
 	float: left;
 	margin-left: 10px;
 	width: 40%;
+	font-size: 16px;
+	height: 30px;
+	margin: 2px 0px;
 }
 
 
