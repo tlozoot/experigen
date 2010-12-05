@@ -1,8 +1,7 @@
 
-function Trial(screen, position) {
+function Trial(screen) {
 
 	this.screen = screen || {};
-	this.screen.trialnumber = position + 1;
 	this.screen.uniquekey = exp.getCurrentScreen().item + Math.floor(Math.random()*1000000); /// to be improved?
 
 	this.screen.HORIZONTAL = 1;
@@ -119,16 +118,18 @@ function Trial(screen, position) {
 		var sound_pl1 = "data/sounds/" + exp.getCurrentScreen()["file_" + exp.getCurrentScreen().finalConsonant];
 		var f1 = this.screen.frame.text.replace(/_+/, "<b><i>" +  singular + "</i></b>");
 		f1 += exp.getCurrentScreen().makeSoundButton({soundFile: sound_pl1});
-		var part1 = exp.getCurrentScreen().makePart(f1);
 
 		var sound_pl2 = "data/sounds/" + exp.getCurrentScreen()["file_pl_" + exp.getCurrentScreen().finalConsonant];
 		var f2 = this.screen.frame.text.replace(/_+/, "<b><i>" +  singular + "</i></b>");
 		f2 += exp.getCurrentScreen().makeSoundButton({soundFile: sound_pl2});
-		var part2 = exp.getCurrentScreen().makePart(f2);
 
 		if (exp.getCurrentScreen().rand == "x-first") {
-			[part1 ,part2] = [part2 ,part1];
+			[f1 ,f2] = [f2 ,f1];
 		}
+
+		var part1 = exp.getCurrentScreen().makePart(f1);
+		var part2 = exp.getCurrentScreen().makePart(f2);
+
 
 		//var scale = exp.getCurrentScreen().makeScale({direction: exp.getCurrentScreen().HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], rightlabels: ['⬆ I prefer the first plural','','','No preference','','','⬇ I prefer the second plural'], leftlabels:['&nbsp;']});
 		var scale = exp.getCurrentScreen().makeScale({direction: exp.getCurrentScreen().HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], leftlabels:['Good','','','','','',''], rightlabels: ['','','','','','','Bad']});

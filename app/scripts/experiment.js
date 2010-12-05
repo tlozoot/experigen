@@ -3,7 +3,6 @@ function Experiment() {
 
 	this.STATIC = 1;
 	this.TRIAL = 2;
-	
 	this.VERSION = "0.1";
 
 	this.userFileName = "";
@@ -34,7 +33,7 @@ function Experiment() {
 				
 			case this.TRIAL:
 			
-				trial = new Trial(screen, this.position);
+				trial = new Trial(screen);
 				$("#main").html(trial.html());
 				this.getCurrentScreen().advance();
 				break;
@@ -48,12 +47,13 @@ function Experiment() {
 
 	this.addBlock = function (arr) {
 		for (var i=0 ; i<arr.length ; i++) {
+			arr[i].trialnumber = this.screens.length+1;
 			this.screens.push(arr[i]);	
 		}
 	}
 
 	this.getFrameSentences = function () {
-		return this.frames; //["frame1","frame2","frame3"]
+		return this.frames;
 	}
 
 	this.setProgressBar = function (obj) {
@@ -65,6 +65,7 @@ function Experiment() {
 
 	this.addStaticScreen = function (obj) {
 		obj.screentype = this.STATIC;
+		obj.trialnumber = this.screens.length+1;
 		this.screens.push(obj);	
 	}
 	this.getCurrentScreen = function () {

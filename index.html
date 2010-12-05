@@ -24,9 +24,10 @@
 	
 	function yoImReady() {
 	
-		
+
 		block0 = exp.getItems().subset("item","farasel").pairWith("finalConsonant",["l"]);
 		block0.pairWith("frame", exp.getFrameSentences().chooseFirst());
+		block0.pairWith("rand", ["x-first"]);
 		block0.shuffle();
 		
 		block1 = new Array();
@@ -42,11 +43,9 @@
 		block2.shuffle().pairWith("finalConsonant",["l"]);
 
 		block1.append(block2).shuffle();
-
-		block0.pairWith("rand", ["s-first"]);
 		block1.pairWith("rand", ["s-first","x-first"]).shuffle();
 
-		//exp.addStaticScreen({url: "app/templates/intro.html"});
+		exp.addStaticScreen({url: "app/templates/intro.html"});
 		exp.addBlock(block0);
 		exp.addStaticScreen({url: "app/templates/getgoing.html"})
 		exp.addBlock(block1);
@@ -54,6 +53,7 @@
 		exp.addStaticScreen({url: "app/templates/finalthanks.html"})
 
 		exp.setProgressBar(new Progressbar({adjustWidth: 4}));
+		
 		exp.advance();
 	
 	}
