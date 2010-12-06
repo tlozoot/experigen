@@ -16,6 +16,20 @@ function Experiment() {
 	this.progressbar;
 	this.audio = false;
 
+	this.load = function () {
+		$("#main").html("Loading...");
+		this.loadUserID();
+		this.loadFrameSentences();
+		this.loadItems();
+		if (this.hasAudio()) {
+			e = this;
+			soundManager.onload = function() { e.initialize(); };
+		} else {
+			this.initialize();
+		}
+	}
+
+
 	this.advance = function(callerButton) {
 
 		if (callerButton) callerButton.disabled = true;

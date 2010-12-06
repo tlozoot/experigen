@@ -22,22 +22,14 @@
 	<script type="text/javascript" src="app/scripts/trial.js"></script>
 	<script type="text/javascript" src="app/scripts/ready.js"></script>
 	<script type="text/javascript" src="lib/dataconnection.js"></script>
-  <script type="text/javascript">
-  var exp = new Experiment();
-  exp.hasAudio(true);
-  
-  $(document).ready(function(){
-   $("#main").html("Loading...");
-   exp.loadUserID();
-   exp.loadFrameSentences();
-   exp.loadItems();
-   if (exp.hasAudio()) {
-     soundManager.onload = function() { yoImReady(); };
-   } else {
-     yoImReady();
-   }
-  });
-  </script>
+	<script type="text/javascript">
+		var exp = new Experiment();
+		exp.hasAudio(true);
+
+		$(document).ready(function(){
+			exp.load();
+		});
+	</script>
 
 </head>
 <body>
