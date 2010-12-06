@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="lib/default.css" type="text/css">
 	<link rel="stylesheet" href="app/custom.css" type="text/css">
 
+	<script type="text/javascript" src="lib/jquery-1.4.4.min.js"></script>
 	<script type="text/javascript" src="lib/soundman/soundmanager2-nodebug-jsmin.js"></script>
 	<script type="text/javascript">soundManager.url = 'lib/soundman/swf/';</script>
-	<script type="text/javascript" src="lib/jquery-1.4.4.min.js"></script>
 	<script type="text/javascript" src="lib/core.js"></script>
 	<script type="text/javascript" src="lib/progressbar.js"></script>
 	<script type="text/javascript" src="app/scripts/experiment.js"></script>
@@ -20,7 +20,7 @@
 
 	<script type="text/javascript">
 	var exp = new Experiment();
-	exp.setAudio(true);
+	exp.hasAudio(true);
 	
 	function yoImReady() {
 	
@@ -47,8 +47,8 @@
 
 		exp.addStaticScreen({url: "app/templates/intro.html"});
 		exp.addBlock(block0);
-		exp.addStaticScreen({url: "app/templates/getgoing.html"})
-		exp.addBlock(block1);
+		//exp.addStaticScreen({url: "app/templates/getgoing.html"})
+		//exp.addBlock(block1);
 		exp.addStaticScreen({url: "app/templates/demographic.html"})
 		exp.addStaticScreen({url: "app/templates/finalthanks.html"})
 
@@ -63,14 +63,15 @@
 
 	$(document).ready(function(){
 
-		soundManager.onload = function() {};
+		$("#main").html("Loading...");
 		exp.loadUserID();
 		exp.loadFrameSentences();
 		exp.loadItems();
-
-		$("#main").html("Data retrieved. Loading some more stuff...");
-
-		setTimeout('yoImReady();',1000);
+		if (exp.hasAudio()) {
+			soundManager.onload = function() { yoImReady(); };
+		} else {
+			yoImReady();
+		}
 
 	});
 	</script>

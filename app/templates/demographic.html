@@ -1,9 +1,17 @@
+<script>
+
+function recordResponse (callerbutton) {
+	document.forms["demographicform"].userCode.value = exp.getUserCode();
+	exp.sendForm(document.forms["demographicform"]);
+	exp.advance(callerbutton);
+}
+
+</script>
 
 Thank you! Please answer the following questions about your language background.
 
-<form METHOD="post" action="" onSubmit="return false;" name="finaldiv">
-<input type="hidden" name="userid" value="${userId}">
-<input type="hidden" name='username'  value='${userCode}'>
+<form METHOD="post" action="" onSubmit="return false;" name="demographicform">
+<input type="hidden" name='userCode'  value=''>
 <p>
 Where are you from?  
 	<select name="place" style="position: absolute; left:12em; margin-top:-2px;">
@@ -48,9 +56,8 @@ Please leave us your email if you'd like us to get back to you.<br>
 <input type="text" name="email" value="" SIZE="30" MAXLENGTH="100" style="width: 30em;">
 
 <P style="text-align: right;">
-<input type="button" value="   send   " onClick="exp.advance(this);" >
+<input type="button" value="   send   " onClick="recordResponse(this);">
 
-<!-- this.disabled = true;sendForm(this.form,'ajax_metadata.cgi',''); -->
 
 </form>
 	

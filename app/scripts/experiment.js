@@ -14,7 +14,7 @@ function Experiment() {
 
 	this.position = -1;
 	this.progressbar;
-	this.hasAudio = false;
+	this.audio = false;
 
 	this.advance = function(callerButton) {
 
@@ -78,11 +78,13 @@ function Experiment() {
 	this.getUserCode = function() {
 		return this.userCode;
 	}
-	this.setAudio = function (b) {		
-		this.hasAudio = (b==true) ? true : false;
-	}
-	this.getAudio = function() {
-		return this.hasAudio;
+	this.hasAudio = function(bool) {
+		if (bool==null) {
+			return this.audio;
+		} else {
+			this.audio = (bool==true) ? true : false;
+			return this.audio;
+		}
 	}
 	this.getItems = function() {
 		return this.items;

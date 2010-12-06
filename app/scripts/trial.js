@@ -10,9 +10,10 @@ function Trial(screen) {
 	this.screen.parts = new Array();
 	this.screen.currentPart = -1;
 	this.screen.callingPart = -1;
-	this.screen.soundbuttoncounter = 0;
+	this.screen.soundbuttons = new Array();
+	this.screen.responses = 0;
 	
-	this.screen.hmtlStr = "";
+	this.screen.htmlStr = "";
 
 	
 	this.screen.makeScale = function(obj) {
@@ -37,7 +38,7 @@ function Trial(screen) {
 			}
 			
 			str += '<div class="scalebuttonleftlabel">' + leftlabels[leftlabelposition] + '</div>';
-			str += '<input type="button" value=" '+ buttons[i] +' " id="' + exp.getCurrentScreen().uniquekey + 'button' + i + '" class="scaleButton" onClick="exp.advance();">';
+			str += '<input type="button" value=" '+ buttons[i] +' " id="' + exp.getCurrentScreen().uniquekey + 'button' + i + '" class="scaleButton" onClick="exp.getCurrentScreen().recordResponse(' + exp.getCurrentScreen().responses + "," + "'" + buttons[i] + "'" + ');exp.advance();">';
 			str += '<div class="scalebuttonrightlabel">' + rightlabels[rightlabelposition] + '</div>';
 
 			str += '</div>';
@@ -46,7 +47,16 @@ function Trial(screen) {
 			rightlabelposition++; if(rightlabelposition>=rightlabels.length) rightlabelposition=0;
 		}
 		str += '</div>';
+		str += "<input type='hidden' name='response" + exp.getCurrentScreen().responses + "' value=''>\n";
 		return str;
+	}
+
+	this.screen.recordResponse = function (scaleNo, buttonNo) {
+		document.forms[exp.getCurrentScreen().uniquekey + "form"]["response"+scaleNo].value = buttonNo;
+		for (var i=0; i<exp.getCurrentScreen().soundbuttons.length; i++) {
+			document.forms[exp.getCurrentScreen().uniquekey + "form"]["sound"+i].value = exp.getCurrentScreen().soundbuttons[i].presses;
+		}
+		exp.sendForm(document.forms[exp.getCurrentScreen().uniquekey + "form"]);
 	}
 
 
@@ -61,13 +71,18 @@ function Trial(screen) {
 		var comingFrom = $(caller).parent(".trialpartWrapper").attr("id").match(/part(\d+)$/)[1];
 		exp.getCurrentScreen().callingPart = comingFrom;
 		soundManager.play(soundID);
+		for (i=0; i<exp.getCurrentScreen().soundbuttons.length; i++) {
+			if (exp.getCurrentScreen().soundbuttons[i].id == soundID) {
+				exp.getCurrentScreen().soundbuttons[i].presses++;
+			}
+		}
 	}
 	
 	this.screen.makeSoundButton = function (obj) {
 		var label = obj.label || "    ►    ";
-		var soundID  = obj.soundID || exp.getCurrentScreen().uniquekey + exp.getCurrentScreen().soundbuttoncounter;
+		var soundID  = obj.soundID || exp.getCurrentScreen().uniquekey + exp.getCurrentScreen().soundbuttons.length;
 		var soundFile = obj.soundFile;
-		exp.getCurrentScreen().soundbuttoncounter++;
+		exp.getCurrentScreen().soundbuttons.push({id: soundID, presses: 0});
 		
 		soundManager.createSound({
 			id: soundID,
@@ -87,7 +102,6 @@ function Trial(screen) {
 		str += ' value="' + label + '"';
 		str += ' onClick="exp.getCurrentScreen().playSound(\'' + soundID + '\',this);"'
 		str += ' style="margin-left: 10px;"'
-		str += ' data-played="0"'
 		str += '>';
 		return str;
 	}
@@ -106,25 +120,42 @@ function Trial(screen) {
 	
 
 	this.screen.addPart = function (str) {
-		exp.getCurrentScreen().hmtlStr += str;
+		exp.getCurrentScreen().htmlStr += str;
+	}
+	
+	this.screen.save = function(obj) {
+		var str = "";
+		str += "<form action='' name='" + exp.getCurrentScreen().uniquekey + "form" + "' id='" + exp.getCurrentScreen().uniquekey + "form" + "'>\n";
+		str += "<input type='hidden' name='userCode' value='" + exp.getUserCode() + "'>\n";
+		for (i=0; i<exp.getCurrentScreen().soundbuttons.length; i++) {
+			str += "<input type='hidden' name='sound" + i + "' value='0'>\n";
+		}
+		for (var i in obj) {
+			str += "<input type='hidden' name='" + i + "' value='" + obj[i] + "'>\n";
+		}
+		str += exp.getCurrentScreen().htmlStr;
+		str += "</form>";
+		exp.getCurrentScreen().htmlStr = str;
 	}
 
 
 	this.html = function() {
 
 
-		var singular = (this.screen.finalConsonant=="l") ? exp.getCurrentScreen().item : exp.getCurrentScreen().item_j;
+		exp.getCurrentScreen().singular = (exp.getCurrentScreen().finalConsonant=="l") ? exp.getCurrentScreen().item : exp.getCurrentScreen().item_j;
 
 		var sound_pl1 = "data/sounds/" + exp.getCurrentScreen()["file_" + exp.getCurrentScreen().finalConsonant];
-		var f1 = this.screen.frame.text.replace(/_+/, "<b><i>" +  singular + "</i></b>");
+		var f1 = exp.getCurrentScreen().frame.text.replace(/_+/, "<b><i>" +  exp.getCurrentScreen().singular + "</i></b>");
 		f1 += exp.getCurrentScreen().makeSoundButton({soundFile: sound_pl1});
 
 		var sound_pl2 = "data/sounds/" + exp.getCurrentScreen()["file_pl_" + exp.getCurrentScreen().finalConsonant];
-		var f2 = this.screen.frame.text.replace(/_+/, "<b><i>" +  singular + "</i></b>");
+		var f2 = exp.getCurrentScreen().frame.text.replace(/_+/, "<b><i>" +  exp.getCurrentScreen().singular + "</i></b>");
 		f2 += exp.getCurrentScreen().makeSoundButton({soundFile: sound_pl2});
-
+		
 		if (exp.getCurrentScreen().rand == "x-first") {
-			[f1 ,f2] = [f2 ,f1];
+			var temp = f1;
+			f1 = f2; 
+			f2 = temp;
 		}
 
 		var part1 = exp.getCurrentScreen().makePart(f1);
@@ -140,7 +171,15 @@ function Trial(screen) {
 		exp.getCurrentScreen().addPart(part3);
 		exp.getCurrentScreen().addPart(part2);
 		
-		return exp.getCurrentScreen().hmtlStr;
+		exp.getCurrentScreen().save({
+			"item" : exp.getCurrentScreen().item, 
+			"final": exp.getCurrentScreen().finalConsonant,
+			"frame": exp.getCurrentScreen().frame.id,
+			"rand" : exp.getCurrentScreen().rand
+		});
+		
+		
+		return exp.getCurrentScreen().htmlStr;
 	}
 
 }

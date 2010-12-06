@@ -42,25 +42,25 @@ input, select, textarea {
 	float: right;
 }
 #progress_text {
-	float: left;
+	float: right;
 	font-size: 10pt;
 	color: #aaa;
-	padding: 0px 0px 0px 5px;
+	padding-right: 6px;
 }
 #progress_bar_full {
-	float: left;
+	float: right;
 	height: 3px;
 	margin: 4px 0px 4px 0px;
 	background-color: #aaa;
-	border-right: solid 1px #aaa;
+	border-left: solid 1px #aaa;
 	border-top: solid 1px #aaa;
 	border-bottom: solid 1px #aaa;
 }
 #progress_bar_empty {
-	float: left;
+	float: right;
 	height: 3px;
 	margin: 4px 0px 4px 0px;
-	border-left: solid 1px #aaa;
+	border-right: solid 1px #aaa;
 	border-top: solid 1px #aaa;
 	border-bottom: solid 1px #aaa;
 }
