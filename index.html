@@ -11,8 +11,11 @@
 
 	<script type="text/javascript" src="app/config.js"></script>
 	<script type="text/javascript" src="lib/jquery-1.4.4.modded.js"></script>
-	<script type="text/javascript" src="lib/soundman/soundmanager2-nodebug-jsmin.js"></script>
-	<script type="text/javascript">soundManager.url = CONFIG.proxyURL + 'lib/soundman/swf/';</script>
+  <script type="text/javascript" src="lib/soundman/soundmanager2-jsmin.js"></script>
+  <script type="text/javascript">
+    soundManager.url = CONFIG.proxyURL + 'lib/soundman/swf/';
+    soundManager.debugMode = false;
+  </script>
 	<script type="text/javascript" src="lib/core.js"></script>
 	<script type="text/javascript" src="lib/progressbar.js"></script>
 	<script type="text/javascript" src="app/scripts/experiment.js"></script>
@@ -22,17 +25,17 @@
   <script type="text/javascript">
   var exp = new Experiment();
   exp.hasAudio(true);
-
+  
   $(document).ready(function(){
-  	$("#main").html("Loading...");
-  	exp.loadUserID();
-  	exp.loadFrameSentences();
-  	exp.loadItems();
-  	if (exp.hasAudio()) {
-  		soundManager.onload = function() { yoImReady(); };
-  	} else {
-  		yoImReady();
-  	}
+   $("#main").html("Loading...");
+   exp.loadUserID();
+   exp.loadFrameSentences();
+   exp.loadItems();
+   if (exp.hasAudio()) {
+     soundManager.onload = function() { yoImReady(); };
+   } else {
+     yoImReady();
+   }
   });
   </script>
 

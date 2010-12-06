@@ -81,7 +81,7 @@ function Trial(screen) {
 	this.screen.makeSoundButton = function (obj) {
 		var label = obj.label || "    ►    ";
 		var soundID  = obj.soundID || exp.getCurrentScreen().uniquekey + exp.getCurrentScreen().soundbuttons.length;
-		var soundFile = obj.soundFile;
+		var soundFile = CONFIG.proxyURL + obj.soundFile;
 		exp.getCurrentScreen().soundbuttons.push({id: soundID, presses: 0});
 		
 		soundManager.createSound({
@@ -144,7 +144,7 @@ function Trial(screen) {
 
 		exp.getCurrentScreen().singular = (exp.getCurrentScreen().finalConsonant=="l") ? exp.getCurrentScreen().item : exp.getCurrentScreen().item_j;
 
-		var sound_pl1 = CONFIG.proxyURL + "data/sounds/" + exp.getCurrentScreen()["file_" + exp.getCurrentScreen().finalConsonant];
+		var sound_pl1 = "data/sounds/" + exp.getCurrentScreen()["file_" + exp.getCurrentScreen().finalConsonant];
 		var f1 = exp.getCurrentScreen().frame.text.replace(/_+/, "<b><i>" +  exp.getCurrentScreen().singular + "</i></b>");
 		f1 += exp.getCurrentScreen().makeSoundButton({soundFile: sound_pl1});
 
