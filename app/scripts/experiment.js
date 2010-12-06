@@ -26,7 +26,7 @@ function Experiment() {
 		switch (screen.screentype) {
 			case this.STATIC:
 			
-				$.get(screen.url, function(data) {
+				$.get(CONFIG.proxyURL + screen.url, function(data) {
 					$("#main").html(data);
 				});
 				break;

@@ -9,9 +9,10 @@
 	<link rel="stylesheet" href="lib/default.css" type="text/css">
 	<link rel="stylesheet" href="app/custom.css" type="text/css">
 
-	<script type="text/javascript" src="lib/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="app/config.js"></script>
+	<script type="text/javascript" src="lib/jquery-1.4.4.modded.js"></script>
 	<script type="text/javascript" src="lib/soundman/soundmanager2-nodebug-jsmin.js"></script>
-	<script type="text/javascript">soundManager.url = 'lib/soundman/swf/';</script>
+	<script type="text/javascript">soundManager.url = CONFIG.proxyURL + 'lib/soundman/swf/';</script>
 	<script type="text/javascript" src="lib/core.js"></script>
 	<script type="text/javascript" src="lib/progressbar.js"></script>
 	<script type="text/javascript" src="app/scripts/experiment.js"></script>
@@ -57,9 +58,6 @@
 		exp.advance();
 	
 	}
-
-
-
 
 	$(document).ready(function(){
 
