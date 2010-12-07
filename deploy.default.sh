@@ -1,6 +1,6 @@
 #! /bin/sh
 
-ssh -T phonetics.fas.harvard.edu <<\EOI
+ssh -T dailyoperations@phonetics.fas.harvard.edu <<\EOI
 
 cd /experigen
 /usr/local/git/bin/git checkout .
