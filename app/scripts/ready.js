@@ -6,16 +6,16 @@ Experiment.prototype.initialize = function () {
 	block0.shuffle();
 	
 	block1 = new Array();
-	block1.append(this.getItems().exclude("item","farasel").subset("size","poly").subset("type","al-aux").chooseRandom(1));
-	block1.append(this.getItems().subset("size","mono").subset("type","el-aux").chooseRandom(1));
-	block1.pairWith("frame", this.getFrameSentences().excludeFirst().shuffle());
-	block1.shuffle().pairWith("finalConsonant",["l","j"]).shuffle();
+	block1.append(this.getItems().exclude("item","farasel").subset("size","poly").subset("type","al-aux").chooseRandom(1))
+	  .append(this.getItems().subset("size","mono").subset("type","el-aux").chooseRandom(1))
+	  .pairWith("frame", this.getFrameSentences().excludeFirst().shuffle())
+	  .shuffle().pairWith("finalConsonant",["l","j"]).shuffle();
 
 	block2 = new Array();
-	block2.append(this.getItems().subset("size","poly").subset("type","ol-ou").chooseRandom(1));
-	block2.append(this.getItems().subset("size","mono").subset("type","aul-au").chooseRandom(1));
-	block2.pairWith("frame", this.getFrameSentences().excludeFirst().shuffle());
-	block2.shuffle().pairWith("finalConsonant",["l"]);
+	block2.append(this.getItems().subset("size","poly").subset("type","ol-ou").chooseRandom(1))
+	      .append(this.getItems().subset("size","mono").subset("type","aul-au").chooseRandom(1))
+	      .pairWith("frame", this.getFrameSentences().excludeFirst().shuffle())
+	      .shuffle().pairWith("finalConsonant",["l"]);
 
 	block1.append(block2).shuffle();
 	block1.pairWith("rand", ["s-first","x-first"]).shuffle();
