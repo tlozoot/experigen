@@ -4,7 +4,7 @@ function Config(env) {
         this.baseURL = "http://localhost/experigen/";
     } else if (env == 'production') {
         this.proxyHost =  "http://phonetics.fas.harvard.edu/experigen_proxy/pass?url=";
-        this.baseURL = "http://static.jon-levine.com/experigen/";
+        this.baseURL = "http://phonetics.fas.harvard.edu/experigen/";
     }
     this.proxyURL = this.proxyHost + this.baseURL;
     this.experiment = "French";
