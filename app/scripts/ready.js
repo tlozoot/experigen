@@ -20,17 +20,19 @@ Experiment.prototype.initialize = function () {
 	         .pairWith("frame", this.getFrameSentences().excludeFirst().shuffle())
 	         .shuffle().pairWith("finalConsonant",["l"]);
 
-	nounBasedItems.append(adjectiveBasedItems).shuffle()
-	              .pairWith("rand", ["s-first","x-first"]).shuffle();
+	nounBasedItems.append(adjectiveBasedItems)
+	              .shuffle()
+	              .pairWith("rand", ["s-first","x-first"])
+	              .shuffle();
 
-	this.addStaticScreen({url: "app/templates/intro.html"});
-	this.addBlock(sampleItem);
-	this.addStaticScreen({url: "app/templates/getgoing.html"})
-	this.addBlock(nounBasedItems);
-	this.addStaticScreen({url: "app/templates/demographic.html"})
-	this.addStaticScreen({url: "app/templates/finalthanks.html"})
+	this.addStaticScreen("intro.html") // This file lives in app/templates/intro.html
+        .addBlock(sampleItem)
+	    .addStaticScreen("getgoing.html")
+	    .addBlock(nounBasedItems)
+	    .addStaticScreen("demographic.html")
+	    .addStaticScreen("finalthanks.html");
 
-	this.setProgressBar(new Progressbar({adjustWidth: 4}));
-	this.advance();
+	this.setProgressBar(new Progressbar({adjustWidth: 4}))
+	    .advance();
 
 }

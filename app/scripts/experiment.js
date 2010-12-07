@@ -64,6 +64,7 @@ function Experiment() {
 			arr[i].trialnumber = this.screens.length+1;
 			this.screens.push(arr[i]);	
 		}
+		return this;
 	}
 
 	this.getFrameSentences = function () {
@@ -75,12 +76,19 @@ function Experiment() {
 		this.progressbar.length = this.screens.length;
 		this.progressbar.position = this.position+1;
 		this.progressbar.initialize();
+		return this;
 	}
 
 	this.addStaticScreen = function (obj) {
+	
+		if (typeof obj=="string") {
+			obj = {url: "app/templates/" + obj};	
+		}
 		obj.screentype = this.STATIC;
 		obj.trialnumber = this.screens.length+1;
 		this.screens.push(obj);	
+
+		return this;
 	}
 	this.getCurrentScreen = function () {
 		return this.screens[this.position];
