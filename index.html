@@ -14,9 +14,11 @@
     <script type='text/javascript' src='app/config.js'></script>
     <script type='text/javascript' src='lib/jquery-1.4.4.min.js'></script>
     <script type="text/javascript">
-      CONFIG = new Config();
+      var env = (window.location.host == 'localhost') ? 'development' : 'production';
+      CONFIG = new Config(env);
       $(document).ready(function() {
         $('body').html("<iframe src='" + CONFIG.proxyURL  + "index2.html' />");
+        $('head').append('<title>' + CONFIG.title + '</title>')
       });
     </script>
   </head> 
