@@ -2,7 +2,7 @@
 
 ssh -T dailyoperations@phonetics.fas.harvard.edu <<\EOI
 
-cd /experigen
+cd experigen
 /usr/local/git/bin/git checkout .
 /usr/local/git/bin/git pull
 exit
