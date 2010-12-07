@@ -1,10 +1,8 @@
-CONFIG = {
-    "proxyHost": "http://localhost:5000/pass?url=",
-    "baseURL": "http://localhost/experigen/",
-    // "proxyURL": "http://localhost:5000/pass?url=http://localhost/experigen/",
-    "proxyURL": "",
-    "experiment": "French",
-    "database": {
-        "host": "http://phonetics.couchone.com"
-    }
+function Config() {
+    this.proxyHost =  "http://phonetics.fas.harvard.edu/experigen_proxy/pass?url=";
+    this.baseURL = "http://static.jon-levine.com/experigen/";
+    this.proxyURL = this.proxyHost + this.baseURL;
+    // this.proxyURL = "";
+    this.experiment = "French";
+    this.databaseHost = "";
 }
