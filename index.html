@@ -1,51 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD html 4.0 Transitional//EN">
-<html>
-<head>
-	<title>Questionnaire</title>
-	<meta HTTP-EQUIV="Content-Type" content="text/html; charset=utf-8">
-	<meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
-	<meta HTTP-EQUIV="Expires" CONTENT="-1">
-
-	<link rel="stylesheet" href="lib/default.css" type="text/css">
-	<link rel="stylesheet" href="app/custom.css" type="text/css">
-
-	<script type="text/javascript" src="app/config.js"></script>
-	<script type="text/javascript" src="lib/jquery-1.4.4.modded.js"></script>
-  <script type="text/javascript" src="lib/soundman/soundmanager2-jsmin.js"></script>
-  <script type="text/javascript">
-    CONFIG = new Config();
-    soundManager.url = CONFIG.proxyURL + 'lib/soundman/swf/';
-    soundManager.debugMode = false;
-  </script>
-	<script type="text/javascript" src="lib/core.js"></script>
-	<script type="text/javascript" src="lib/progressbar.js"></script>
-	<script type="text/javascript" src="app/scripts/experiment.js"></script>
-	<script type="text/javascript" src="app/scripts/trial.js"></script>
-	<script type="text/javascript" src="app/scripts/ready.js"></script>
-	<script type="text/javascript" src="lib/dataconnection.js"></script>
-	<script type="text/javascript">
-		var exp = new Experiment();
-		exp.hasAudio(true);
-
-		$(document).ready(function(){
-			exp.load();
-		});
-	</script>
-
-</head>
-<body>
-
-<div id="main">
-	Loading...
-</div>
-
-<div id="footer">
-	<div id="progressbar"></div>
-	Harvard University language study<BR>
-	Please send any questions to info@phonologist.org
-</div>
-
-
-
-</body>
+<html> 
+  <head>
+    <style> 
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      body {
+        margin: 0px;
+      }
+    </style>
+    <title>Welcome to Experigen</title>
+    <script type='text/javascript' src='app/config.js'></script>
+    <script type='text/javascript' src='lib/jquery-1.4.4.min.js'></script>
+    <script type="text/javascript">
+      CONFIG = new Config();
+      $(document).ready(function() {
+        $('body').html("<iframe src='" + CONFIG.proxyURL  + "index2.html' />");
+      });
+    </script>
+  </head> 
+  <body></body>
 </html>
