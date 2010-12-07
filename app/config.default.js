@@ -11,3 +11,6 @@ function Config(env) {
     this.title = "French Questionaire"
     this.databaseHost = "";
 }
+
+var env = (window.location.host == 'localhost') ? 'development' : 'production';
+CONFIG = new Config(env);

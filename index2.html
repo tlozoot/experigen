@@ -13,9 +13,6 @@
 	<script type="text/javascript" src="lib/jquery-1.4.4.modded.js"></script>
   <script type="text/javascript" src="lib/soundman/soundmanager2-jsmin.js"></script>
   <script type="text/javascript">
-    
-    var env = (window.location.host == 'localhost') ? 'development' : 'production';
-    CONFIG = new Config(env);
     soundManager.url = CONFIG.proxyURL + 'lib/soundman/swf/';
     soundManager.debugMode = false;
   </script>
