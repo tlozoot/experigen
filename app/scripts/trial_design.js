@@ -30,13 +30,13 @@ Trial.prototype.html = function() {
 	exp.getCurrentScreen().addPart(part3);
 	exp.getCurrentScreen().addPart(part2);
 	
-	exp.getCurrentScreen().save({
+/*	exp.getCurrentScreen().save({
 		"item" : exp.getCurrentScreen().item, 
 		"final": exp.getCurrentScreen().finalConsonant,
 		"frame": exp.getCurrentScreen().frame.id,
 		"rand" : exp.getCurrentScreen().rand
 	});
-	
+*/
 	
 	return exp.getCurrentScreen().htmlStr;
 }

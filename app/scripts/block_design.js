@@ -6,7 +6,6 @@ Experiment.prototype.initialize = function () {
 	var sampleItem = 
 	    items.subset("item","farasel").pairWith("finalConsonant","l")
 	         .pairWith("frame", frames.chooseFirst())
-	         .pairWith("rand", "x-first")
 	         .shuffle()
 	         .pairWith("view","xfirst.ejs");
 	
@@ -24,16 +23,15 @@ Experiment.prototype.initialize = function () {
 
 	nounBasedItems.append(adjectiveBasedItems)
 	              .shuffle()
-	              .pairWith("rand", ["s-first","x-first"])
-	              .shuffle()
-		          .pairWith("view","xfirst.ejs");
+	              .pairWith("view",["sfirst.ejs","xfirst.ejs"])
+	              .shuffle();
 
-	this.addStaticScreen("intro.html") // This file lives in app/templates/intro.html
-        .addBlock(sampleItem)
-	    .addStaticScreen("getgoing.html")
-	    .addBlock(nounBasedItems)
-	    .addStaticScreen("demographic.html")
-	    .addStaticScreen("finalthanks.html");
+	this.addStaticScreen("intro.html"); // This file lives in app/templates/intro.html
+    this.addBlock(sampleItem);
+	this.addStaticScreen("getgoing.html");
+	this.addBlock(nounBasedItems);
+	this.addStaticScreen("demographic.html");
+	this.addStaticScreen("finalthanks.html");
 
 	this.setProgressBar(new Progressbar({adjustWidth: 4}));
 

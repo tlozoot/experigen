@@ -6,7 +6,7 @@ var screen = exp.getCurrentScreen();
 	<%= screen.frame.text1 %>
 	<B><I><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></I></B>
 	<%= screen.frame.text2 %>
-	<%= screen.makeSoundButton(screen["file_pl_" + screen.finalConsonant]) %>
+	<%= screen.makeSoundButton(screen["file_" + screen.finalConsonant]) %>
 </div>
 
 
@@ -19,6 +19,7 @@ var screen = exp.getCurrentScreen();
 	<%= screen.frame.text1 %>
 	<B><I><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></I></B>
 	<%= screen.frame.text2 %>
-	<%= screen.makeSoundButton(screen["file_" + screen.finalConsonant]) %>
+	<%= screen.makeSoundButton(screen["file_pl_" + screen.finalConsonant]) %>
 </div>
+
 

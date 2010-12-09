@@ -1,8 +1,9 @@
 <script>
 
 function recordResponse (callerbutton) {
-	document.forms["demographicform"].userCode.value = exp.getUserCode();
-	exp.sendForm(document.forms["demographicform"]);
+
+	$("#currentform").append("<input type='hidden' name='userCode' value='" + exp.getUserCode() + "'>"); 
+	exp.sendForm($("#currentform"));
 	exp.advance(callerbutton);
 }
 
@@ -10,8 +11,6 @@ function recordResponse (callerbutton) {
 
 Thank you! Please answer the following questions about your language background.
 
-<form METHOD="post" action="" onSubmit="return false;" name="demographicform">
-<input type="hidden" name='userCode'  value=''>
 <p>
 Where are you from?  
 	<select name="place" style="position: absolute; left:12em; margin-top:-2px;">
@@ -57,8 +56,5 @@ Please leave us your email if you'd like us to get back to you.<br>
 
 <P style="text-align: right;">
 <input type="button" value="   send   " onClick="recordResponse(this);">
-
-
-</form>
 	
 

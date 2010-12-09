@@ -1,21 +1,21 @@
-type	id	text
-stadard	A	Au debut il y avait qu'un seul gros  _______.<br>Puis, cinq petits  _______ sont arrivés.
-stadard	B	Ce mec a eu un  _______ gris.<br>Puis, ses amis lui ont donnés encore trois  _______ blancs.
-stadard	C	J'ai un grand ____ pour toi.<br>Je peux te donner autant de grands  ____ que tu veux.
-stadard	D	It paraît qu'il me faut un petit _______.<br>On m'a piqué tous mes petits _______ cette semaine. 
-stadard	E	Il y a un  _______ blanc sur la table.<br>Il y a aussi six _______ blancs sur l'étagère.
-stadard	F	L'été dernier, on avait un gros _______.<br>Cet été on a pas de gros ______ du tout.
-stadard	G	Il y a un petit _______ qui dort dans une boîte.<br>Il ya plusiers petits _______ a côté de la boîte.
-stadard	H	Le musée a un  _______ léger.<br>Le zoo se vente d'avoir des disaine de lourds _______.
-stadard	I	Tiens, regarde ce long  _______ !<br>J'apperçoit encore trois longs  _______ à l'autre côté.
-stadard	J	Elle a acheté un _______ blanc.<br>Ses amis lui ont acheté plusiers  _______ noirs.
-stadard	K	Personne ne connaît ce  _______.<br>On ne connaît aucun de ces vieux _______ non plus.
-stadard	L	Elle n'a pu se permettre qu'un seul _______ épais.<br>Ma mère lui a offert deux _______ fins.
-stadard	M	Ce joli _______ est trop cuit.<br>Il faut mieux surveiller les autres _______.
-stadard	N	J'ai envoyé un petit _______ à mon patron.<br>Il m'a répondu en envoyant trois gros _______.
-stadard	O	Elle aime bien son _______ ouvert.<br>Par contre, ses amis tiennent leurs  _______ bien fermés.
-stadard	P	Hier je me suis débarrassé d'un ______.<br>Mais ce matin j'ai trouvé cinq _____ qui sont toujours là.
-stadard	Q	Ton _________ est trop lourd.<br>Moi, j'ai l'horreur des  ______ lourds comme ça.
-stadard	R	J'aimerai bien avoir un ________.<br>C'est pas ta mère qui passe là avec deux _______ ?
-stadard	S	Je viens d'installé un  _____ bien mauvais.<br>Combien de mauvais ______ as-tu sur ton ordinateur ?
-stadard	T	Ton premier  ______ est vraiment pas mal.<br>Encore quelsque _____,  et tu seras tout prêt.
+id	type	text1	text2
+A	sg/pl	Au debut il y avait qu'un seul gros  	.<br>Puis, cinq petits  _______ sont arrivés.
+B	sg/pl	Ce mec a eu un  	 gris.<br>Puis, ses amis lui ont donnés encore trois  _______ blancs.
+C	sg/pl	J'ai un grand 	 pour toi.<br>Je peux te donner autant de grands  ____ que tu veux.
+D	sg/pl	It paraît qu'il me faut un petit 	.<br>On m'a piqué tous mes petits _______ cette semaine. 
+E	sg/pl	Il y a un  	 blanc sur la table.<br>Il y a aussi six _______ blancs sur l'étagère.
+F	sg/pl	L'été dernier, on avait un gros 	.<br>Cet été on a pas de gros ______ du tout.
+G	sg/pl	Il y a un petit 	 qui dort dans une boîte.<br>Il ya plusiers petits _______ a côté de la boîte.
+H	sg/pl	Le musée a un  	 léger.<br>Le zoo se vente d'avoir des disaine de lourds _______.
+I	sg/pl	Tiens, regarde ce long  	 !<br>J'apperçoit encore trois longs  _______ à l'autre côté.
+J	sg/pl	Elle a acheté un 	 blanc.<br>Ses amis lui ont acheté plusiers  _______ noirs.
+K	sg/pl	Personne ne connaît ce  	.<br>On ne connaît aucun de ces vieux _______ non plus.
+L	sg/pl	Elle n'a pu se permettre qu'un seul 	 épais.<br>Ma mère lui a offert deux _______ fins.
+M	sg/pl	Ce joli 	 est trop cuit.<br>Il faut mieux surveiller les autres _______.
+N	sg/pl	J'ai envoyé un petit 	 à mon patron.<br>Il m'a répondu en envoyant trois gros _______.
+O	sg/pl	Elle aime bien son 	 ouvert.<br>Par contre, ses amis tiennent leurs  _______ bien fermés.
+P	sg/pl	Hier je me suis débarrassé d'un 	.<br>Mais ce matin j'ai trouvé cinq _____ qui sont toujours là.
+Q	sg/pl	Ton 	 est trop lourd.<br>Moi, j'ai l'horreur des  ______ lourds comme ça.
+R	sg/pl	J'aimerai bien avoir un 	.<br>C'est pas ta mère qui passe là avec deux _______ ?
+S	sg/pl	Je viens d'installé un  	 bien mauvais.<br>Combien de mauvais ______ as-tu sur ton ordinateur ?
+T	sg/pl	Ton premier  	 est vraiment pas mal.<br>Encore quelsque _____,  et tu seras tout prêt.
