@@ -2,7 +2,7 @@ Experiment.prototype.initialize = function () {
 
 	var items  = this.getItems();
 	var frames = this.getFrameSentences();
-
+	
 	var sampleItem = 
 	    items.subset("item","farasel").pairWith("finalConsonant","l")
 	         .pairWith("frame", frames.chooseFirst())
