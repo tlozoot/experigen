@@ -1,7 +1,22 @@
-<h2><%= exp.getCurrentScreen().item %></h2>
+<%
+var screen = exp.getCurrentScreen();
+%>
 
-The current item has not been associated with a view. 
-Please alert the questionnaire designer.
+<div class="trialpartWrapper">
+<%= screen.frame.text %>
+<%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %>
+
+<%= screen.makeSoundButton(screen["file_" + screen.finalConsonant]) %>
+</div>
+
+
+<div class="trialpartWrapper">
+<%= screen.frame.text %>
+<%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %>
+
+<%= screen.makeSoundButton(screen["file_" + screen.finalConsonant]) %>
+</div>
+
 
 <p>
 <input type="button" value="   continue   " onClick="exp.advance(this);">
