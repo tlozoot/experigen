@@ -7,7 +7,8 @@ Experiment.prototype.initialize = function () {
 	    items.subset("item","farasel").pairWith("finalConsonant","l")
 	         .pairWith("frame", frames.chooseFirst())
 	         .pairWith("rand", "x-first")
-	         .shuffle();
+	         .shuffle()
+	         .pairWith("view","xfirst.ejs");
 	
 	var nounBasedItems = 
 	    items.exclude("item","farasel").subset("size","poly").subset("type","al-aux").chooseRandom(1)
@@ -24,7 +25,8 @@ Experiment.prototype.initialize = function () {
 	nounBasedItems.append(adjectiveBasedItems)
 	              .shuffle()
 	              .pairWith("rand", ["s-first","x-first"])
-	              .shuffle();
+	              .shuffle()
+		          .pairWith("view","xfirst.ejs");
 
 	this.addStaticScreen("intro.html") // This file lives in app/templates/intro.html
         .addBlock(sampleItem)
