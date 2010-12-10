@@ -1,1 +1,0 @@
-response1: 6	userCode: PKL1	userFileName: 1	item: caul	finalConsonant: l	frame: I	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:14:44 2010

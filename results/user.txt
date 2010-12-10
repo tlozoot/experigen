@@ -1,2 +1,0 @@
-place: none	year: none	sex: none	soundlike: 	lang: 	sugg: 	email: 	userCode: LCG175	time: Fri Dec 10 14:21:35 2010
-place: none	year: none	sex: none	soundlike: 	lang: 	sugg: 	email: 	userCode: HOI176	time: Fri Dec 10 14:23:45 2010
