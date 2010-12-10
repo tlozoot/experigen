@@ -27,7 +27,7 @@ for (@fields) {
 }
 
 open (USER, ">>../results/user" . $userFileName . ".txt") or die "Can't open user file. $!";
-print USER join("\t",@fields) . "\n" ;
+print USER join("\t",@fields) . "\r\n" ;
 close(USER) or die "Can't close user file. $!";
 
 print $q->header(-charset=>'utf-8');
