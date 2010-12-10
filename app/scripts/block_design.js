@@ -26,9 +26,9 @@ Experiment.prototype.initialize = function () {
 	              .pairWith("view",["sfirst.ejs","xfirst.ejs"])
 	              .shuffle();
 
-	this.addStaticScreen("intro.html"); // This file lives in app/templates/intro.html
+	//this.addStaticScreen("intro.html"); // This file lives in app/templates/intro.html
     this.addBlock(sampleItem);
-	this.addStaticScreen("getgoing.html");
+	//this.addStaticScreen("getgoing.html");
 	this.addBlock(nounBasedItems);
 	this.addStaticScreen("demographic.html");
 	this.addStaticScreen("finalthanks.html");

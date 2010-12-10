@@ -3,21 +3,16 @@ var screen = exp.getCurrentScreen();
 %>
 
 <div class="trialpartWrapper" id="part1">
-	<%= screen.frame.text1 %>
-	<B><I><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></I></B>
-	<%= screen.frame.text2 %>
+	<%= screen.frame.text1 %><b><i><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></i></b><%= screen.frame.text2 %>
 	<%= screen.makeSoundButton(screen["file_pl_" + screen.finalConsonant]) %>
 </div>
 
 <div class="trialpartWrapper" id="part3">
-	<%= screen.makeScale({direction: screen.HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['Good','Bad']})  %>
+	<%= screen.makeScale({direction: screen.VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) %>
 </div>
 
-
 <div class="trialpartWrapper" id="part2">
-	<%= screen.frame.text1 %>
-	<B><I><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></I></B>
-	<%= screen.frame.text2 %>
+	<%= screen.frame.text1 %><b><i><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></i></b><%= screen.frame.text2 %>
 	<%= screen.makeSoundButton(screen["file_" + screen.finalConsonant]) %>
 </div>
 
