@@ -1,0 +1,6 @@
+response1: 2	userCode: JGJ2	userFileName: 2	item: farasel	finalConsonant: l	frame: A	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:39:52 2010
+response1: 3	userCode: JGJ2	userFileName: 2	item: monnal	finalConsonant: j	frame: L	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:39:58 2010
+response1: 2	userCode: JGJ2	userFileName: 2	item: nel	finalConsonant: l	frame: N	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:40:02 2010
+response1: 2	userCode: JGJ2	userFileName: 2	item: caul	finalConsonant: l	frame: H	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:40:05 2010
+response1: 3	userCode: JGJ2	userFileName: 2	item: grassol	finalConsonant: l	frame: G	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:40:11 2010
+userCode: JGJ2	userFileName: 2	place: none	year: none	sex: none	soundlike: 	lang: 	sugg: 	email: 	time: Fri Dec 10 14:40:19 2010
