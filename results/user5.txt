@@ -1,0 +1,6 @@
+response1: 6	userCode: HAZ5	userFileName: 5	item: farasel	finalConsonant: l	frame: A	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:53:54 2010
+response1: 3	userCode: HAZ5	userFileName: 5	item: prel	finalConsonant: l	frame: F	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:54:03 2010
+response1: 3	userCode: HAZ5	userFileName: 5	item: prucal	finalConsonant: j	frame: S	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:54:08 2010
+response1: 2	userCode: HAZ5	userFileName: 5	item: craul	finalConsonant: l	frame: G	view: xfirst.ejs	sound1: 1	sound2: 2	time: Fri Dec 10 17:54:11 2010
+response1: 3	userCode: HAZ5	userFileName: 5	item: gigol	finalConsonant: l	frame: C	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:54:15 2010
+userCode: HAZ5	userFileName: 5	place: none	year: none	sex: none	soundlike: 	lang: 	sugg: 	email: 	time: Fri Dec 10 17:54:17 2010
