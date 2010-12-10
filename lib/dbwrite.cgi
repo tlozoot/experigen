@@ -9,7 +9,7 @@ my $q = new CGI;
 my @names = $q->param;
 
 my @fields;
-push(@fields, $ENV{REMOTE_ADDR}          || "");
+#push(@fields, $ENV{REMOTE_ADDR}          || "");
 for (my $i=0 ; $i<@names; $i++) {
 	push(@fields, $q->param($names[$i])  || "");
 }
