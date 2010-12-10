@@ -1,0 +1,5 @@
+response1: 2	userCode: LCG175	userFileName: 175	item: farasel	finalConsonant: l	frame: A	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:21:13 2010
+response1: 2	userCode: LCG175	userFileName: 175	item: auscral	finalConsonant: j	frame: B	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:21:20 2010
+response1: 1	userCode: LCG175	userFileName: 175	item: nel	finalConsonant: l	frame: T	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:21:23 2010
+response1: 3	userCode: LCG175	userFileName: 175	item: rafol	finalConsonant: l	frame: M	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:21:28 2010
+response1: 4	userCode: LCG175	userFileName: 175	item: craul	finalConsonant: l	frame: I	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:21:32 2010

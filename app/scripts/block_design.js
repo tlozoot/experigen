@@ -2,6 +2,7 @@ Experiment.prototype.initialize = function () {
 
 	var items  = this.getItems();
 	var frames = this.getFrameSentences();
+	var pictures = this.getPictures();
 	
 	var sampleItem = 
 	    items.subset("item","farasel").pairWith("finalConsonant","l")

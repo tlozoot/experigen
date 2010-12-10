@@ -1,0 +1,1 @@
+response1: 2	userCode: PKL174	userFileName: 174	item: farasel	finalConsonant: l	frame: A	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:16:50 2010

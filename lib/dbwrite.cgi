@@ -8,14 +8,28 @@ my $q = new CGI;
 # verify that userid and username are there first
 my @names = $q->param;
 
+# un-tainting the user id
+my $id = $q->param("userFileName");
+$id =~ /^(\d+)$/;
+my $userFileName = $1;
+
+
+
 my @fields;
 #push(@fields, $ENV{REMOTE_ADDR}          || "");
 for (my $i=0 ; $i<@names; $i++) {
-	push(@fields, $q->param($names[$i])  || "");
+	push(@fields, [$names[$i] , $q->param($names[$i])]  || []);
 }
-push(@fields, "" . localtime());
+push(@fields, ["time", "" . localtime()]);
+
+for (@fields) {
+	$_ = @{$_}[0] . ": " . @{$_}[1]; 
+}
+
+open (USER, ">>../results/user" . $userFileName . ".txt") or die "Can't open user file. $!";
+print USER join("\t",@fields) . "\n" ;
+close(USER) or die "Can't close user file. $!";
 
 print $q->header(-charset=>'utf-8');
-print "@fields";
-
+print "success";
 
