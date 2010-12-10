@@ -1,17 +1,12 @@
-BODY {
+body {
 }
-
 #main {
 }
-
-
-
-INPUT, SELECT, TEXTAREA {
-}
-
-
-
 #footer {
+}
+h1 {
+}
+input, select, textarea {
 }
 
 
@@ -26,7 +21,34 @@ INPUT, SELECT, TEXTAREA {
 #progress_bar_empty {
 }
 
+.trialpartWrapper {
+}
 
+
+
+
+
+.scaleWrapperH {
+}
+.scaleEdgeLabelH {
+}
+.scalebuttonWrapperH {
+}
+.scalebuttonsidelabelH{
+}
+.scaleButtonH {
+}
+
+.scaleWrapperV {
+}
+.scaleEdgeLabelV {
+}
+.scalebuttonWrapperV {
+}
+.scalebuttonsidelabelV{
+}
+.scaleButtonV {
+}
 
 
 
