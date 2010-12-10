@@ -1,0 +1,4 @@
+response1: 2	userCode: ZLC3	userFileName: 3	item: farasel	finalConsonant: l	frame: A	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:43:41 2010
+response1: 2	userCode: ZLC3	userFileName: 3	item: prel	finalConsonant: l	frame: E	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:43:47 2010
+response1: 5	userCode: ZLC3	userFileName: 3	item: auscral	finalConsonant: j	frame: G	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:43:52 2010
+response1: 6	userCode: ZLC3	userFileName: 3	item: craul	finalConsonant: l	frame: C	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 14:43:56 2010
