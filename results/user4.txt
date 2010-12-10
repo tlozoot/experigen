@@ -1,0 +1,6 @@
+response1: 3	userCode: CIZ4	userFileName: 4	item: farasel	finalConsonant: l	frame: A	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:18:51 2010
+response1: 2	userCode: CIZ4	userFileName: 4	item: smeunal	finalConsonant: j	frame: B	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:18:59 2010
+response1: 2	userCode: CIZ4	userFileName: 4	item: nel	finalConsonant: l	frame: D	view: xfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:19:05 2010
+response1: 6	userCode: CIZ4	userFileName: 4	item: caul	finalConsonant: l	frame: S	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:19:08 2010
+response1: 3	userCode: CIZ4	userFileName: 4	item: grassol	finalConsonant: l	frame: I	view: sfirst.ejs	sound1: 1	sound2: 1	time: Fri Dec 10 17:19:12 2010
+userCode: CIZ4	userFileName: 4	place: none	year: none	sex: none	soundlike: 	lang: 	sugg: 	email: 	time: Fri Dec 10 17:19:13 2010
