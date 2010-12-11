@@ -23,11 +23,14 @@ for (my $i=0 ; $i<@names; $i++) {
 push(@fields, ["time", "" . localtime()]);
 
 for (@fields) {
-	$_ = @{$_}[0] . ": " . @{$_}[1]; 
+	@{$_}[1] =~ s/"/'/sg;
+	@{$_}[1] =~ s/\n/ /sg;
+	@{$_}[1] =~ s/\r/ /sg;
+	$_ = '"' . @{$_}[0] . '": "'  . @{$_}[1] .'"'; 
 }
 
 open (USER, ">>../results/user" . $userFileName . ".txt") or die "Can't open user file. $!";
-print USER join("\t",@fields) . "\r\n" ;
+print USER '{' . join(", ",@fields) . "}\r\n" ;
 close(USER) or die "Can't close user file. $!";
 
 print $q->header(-charset=>'utf-8');
