@@ -4,3 +4,7 @@ exp.hasAudio(true);
 $(document).ready(function(){
 	exp.load();
 });
+
+
+
+//console.log(a);

@@ -10,7 +10,8 @@ Experiment.prototype.initialize = function () {
 			.shuffle()
 			.pairWith("view","xfirst.ejs")
 			;
-	
+	//console.log(sampleItem);
+
 	var nounBasedItems = items
 			.exclude("item","farasel")
 			.subset("size","poly")
@@ -22,6 +23,7 @@ Experiment.prototype.initialize = function () {
 			.pairWith("finalConsonant",["l","j"])
 			.shuffle()
 			;
+	//console.log(nounBasedItems);
 	
 	var adjectiveBasedItems = items
 			.subset("size","poly").subset("type","ol-ou").chooseRandom(1)
@@ -30,6 +32,7 @@ Experiment.prototype.initialize = function () {
 			.shuffle()
 			.pairWith("finalConsonant","l")
 			;
+	//console.log(adjectiveBasedItems);
 	
 	nounBasedItems.append(adjectiveBasedItems)
 			.shuffle()
@@ -37,6 +40,7 @@ Experiment.prototype.initialize = function () {
 			.shuffle()
 			;
 	
+	//console.log(nounBasedItems);
 	
 	this.addStaticScreen("intro.html");
 	this.addBlock(sampleItem);
