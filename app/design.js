@@ -17,7 +17,7 @@ Experiment.prototype.initialize = function () {
 			.subset("size","poly")
 			.subset("type","al-aux")
 			.chooseRandom(1)
-			.append(items.subset("size","mono").subset("type","el-aux").chooseRandom(1))
+			.concat(items.subset("size","mono").subset("type","el-aux").chooseRandom(1))
 			.pairWith("frame", frames.excludeFirst().shuffle())
 			.shuffle()
 			.pairWith("finalConsonant",["l","j"])
@@ -27,14 +27,15 @@ Experiment.prototype.initialize = function () {
 	
 	var adjectiveBasedItems = items
 			.subset("size","poly").subset("type","ol-ou").chooseRandom(1)
-			.append(items.subset("size","mono").subset("type","aul-au").chooseRandom(1))
+			.concat(items.subset("size","mono").subset("type","aul-au").chooseRandom(1))
 			.pairWith("frame", frames.excludeFirst().shuffle())
 			.shuffle()
 			.pairWith("finalConsonant","l")
 			;
 	//console.log(adjectiveBasedItems);
 	
-	nounBasedItems.append(adjectiveBasedItems)
+	nounBasedItems = nounBasedItems
+	        .concat(adjectiveBasedItems)
 			.shuffle()
 			.pairWith("view",["sfirst.ejs","xfirst.ejs"])
 			.shuffle()
@@ -42,9 +43,9 @@ Experiment.prototype.initialize = function () {
 	
 	//console.log(nounBasedItems);
 	
-	this.addStaticScreen("intro.html");
+	this.addStaticScreen("intro.ejs");
 	this.addBlock(sampleItem);
-	this.addStaticScreen("getgoing.html");
+	this.addStaticScreen("getgoing.ejs");
 	this.addBlock(nounBasedItems);
 	this.addStaticScreen("demographic.html");
 	this.addStaticScreen("finalthanks.html");

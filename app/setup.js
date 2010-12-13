@@ -9,7 +9,8 @@ Experiment.prototype.settings = {
 	audio: true,
 	progressbar: {
 		visible: true, 
-		adjustWidth: 4
+		adjustWidth: 6,
+		percentage: false
 	},
 	resouces: {
 		items: true,
