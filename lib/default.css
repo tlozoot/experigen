@@ -1,5 +1,6 @@
 body {
-	background-color: #444;
+	font-size: 14pt;
+	background-color: #334;
 	padding-top: 12pt;
 }
 
@@ -9,7 +10,7 @@ body {
 	border: solid black 1px;
 	padding: 20px 20px 20px 20px;
 
-	background-color: #EEE;
+	background-color: #eee;
 	color: #000;
 	position: relative;
 	clear:both;
