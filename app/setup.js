@@ -10,11 +10,11 @@ Experiment.prototype.settings = {
 	progressbar: {
 		visible: true, 
 		adjustWidth: 4
-	}
+	},
 	resouces: {
 		items: true,
 		frames: true,
 		pictures: false	
 	}
-	
+
 }
