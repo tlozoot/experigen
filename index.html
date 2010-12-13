@@ -21,12 +21,22 @@
 		CONFIG.proxyURL = "";
 	</script>
 	<script type="text/javascript" src="lib/core.js"></script>
-	<script type="text/javascript" src="lib/progressbar.js"></script>
 	<script type="text/javascript" src="lib/experiment.js"></script>
+	<script type="text/javascript" src="lib/progressbar.js"></script>
 	<script type="text/javascript" src="lib/trial.js"></script>
 	<script type="text/javascript" src="lib/dataconnection.js"></script>
 	<script type="text/javascript" src="app/design.js"></script>
+
+
 	<script type="text/javascript" src="app/setup.js"></script>
+	<script type="text/javascript">
+		var exp = new Experiment();
+		$(document).ready(function(){
+			exp.load();
+		});
+	</script>
+	
+
 
 </head>
 <body>

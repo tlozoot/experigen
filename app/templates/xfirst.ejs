@@ -1,18 +1,18 @@
 <%
-var screen = exp.getCurrentScreen();
+exp.screen().singular = (exp.screen().finalConsonant=="l") ? exp.screen().item : exp.screen().item_j
 %>
 
 <div class="trialpartWrapper" id="part1">
-	<%= screen.frame.text1 %><b><i><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></i></b><%= screen.frame.text2 %>
-	<%= screen.makeSoundButton(screen["file_pl_" + screen.finalConsonant]) %>
+	<%= exp.screen().frame.text1 %><b><i><%= exp.screen().singular %></i></b><%= exp.screen().frame.text2 %>
+	<%= exp.screen().makeSoundButton(exp.screen()["file_pl_" + exp.screen().finalConsonant]) %>
 </div>
 
 <div class="trialpartWrapper" id="part3">
-	<%= screen.makeScale({direction: screen.VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) %>
+	<%= exp.screen().makeScale({direction: exp.screen().VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) %>
 </div>
 
 <div class="trialpartWrapper" id="part2">
-	<%= screen.frame.text1 %><b><i><%= (screen.finalConsonant=="l") ? screen.item : screen.item_j %></i></b><%= screen.frame.text2 %>
-	<%= screen.makeSoundButton(screen["file_" + screen.finalConsonant]) %>
+	<%= exp.screen().frame.text1 %><b><i><%= exp.screen().singular %></i></b><%= exp.screen().frame.text2 %>
+	<%= exp.screen().makeSoundButton(exp.screen()["file_" + exp.screen().finalConsonant]) %>
 </div>
 

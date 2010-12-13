@@ -1,10 +1,15 @@
-var exp = new Experiment();
-exp.hasAudio(true);
+Experiment.prototype.settings = {
 
-$(document).ready(function(){
-	exp.load();
-});
-
-
-
-//console.log(a);
+	strings: {
+		loading:        "Loading...",
+		errorMessage:   "An error occurred. We apologize for the inconvenience.",
+		soundButton:    "    ►    ",
+		continueButton: "   continue   "
+	},
+	audio: true,
+	progressbar: {
+		visible: true, 
+		adjustWidth: 4
+	}
+	
+}

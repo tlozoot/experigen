@@ -49,7 +49,8 @@ Experiment.prototype.initialize = function () {
 	this.addStaticScreen("demographic.html");
 	this.addStaticScreen("finalthanks.html");
 
+	//this.printScreensToConsole();
 	
-	this.setProgressBar(new Progressbar({adjustWidth: 4}));
 	this.advance();
+	
 }
