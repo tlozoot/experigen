@@ -12,7 +12,7 @@ Experiment.prototype.initialize = function () {
 			;
 	//console.log(sampleItem);
 
-	var nounBasedItems = items
+/*	var nounBasedItems = items
 			.exclude("item","farasel")
 			.subset("size","poly")
 			.subset("type","al-aux")
@@ -42,15 +42,36 @@ Experiment.prototype.initialize = function () {
 			;
 	
 	//console.log(nounBasedItems);
-	
+*/
+
+	var block1 =  items
+			.subset("type","ol-ou").subset("size","poly").chooseRandom(2)
+			.concat(items.subset("type","ol-ou").subset("size","mono").chooseRandom(2))
+			.pairWith("finalConsonant","l")
+			.pairWith("frame", frames.chooseFirst())
+			.shuffle()
+			.pairWith("view","xfirst.ejs")
+			;
+
+	var block2 =  items
+			.excludeBlock(block1)
+			.subset("type","ol-ou")
+			.chooseRandom(4)
+			.pairWith("finalConsonant","l")
+			.pairWith("frame", frames.chooseFirst())
+			.shuffle()
+			.pairWith("view","xfirst.ejs")
+			;
+
 	this.addStaticScreen("intro.ejs");
-	this.addBlock(sampleItem);
+	this.addBlock(block1);
 	this.addStaticScreen("getgoing.ejs");
-	this.addBlock(nounBasedItems);
+	this.addBlock(block2);
 	this.addStaticScreen("demographic.html");
 	this.addStaticScreen("finalthanks.html");
+	
 
-	//this.printScreensToConsole();
+	this.printScreensToConsole();
 	
 	this.advance();
 	
