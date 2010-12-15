@@ -1,5 +1,5 @@
 Experiment.prototype.settings = {
-
+    experimentName: "Fido",
 	strings: {
 		loading:        "Loading...",
 		errorMessage:   "An error occurred. We apologize for the inconvenience.",
