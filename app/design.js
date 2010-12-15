@@ -1,5 +1,6 @@
 Experiment.prototype.initialize = function () {
 	
+	
 	var items  = this.getItems();
 	var frames = this.getFrameSentences();
 	var pictures = this.getPictures();
@@ -74,6 +75,7 @@ Experiment.prototype.initialize = function () {
 	
 
 	this.printScreensToConsole();
+	
 	
 	
 }
