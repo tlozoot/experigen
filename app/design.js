@@ -75,6 +75,5 @@ Experiment.prototype.initialize = function () {
 
 	this.printScreensToConsole();
 	
-	this.advance();
 	
 }
