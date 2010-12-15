@@ -4,7 +4,7 @@ Experiment.prototype.initialize = function () {
 	var frames = this.getFrameSentences();
 	var pictures = this.getPictures();
 	
-	var sampleItem = items
+/*	var sampleItem = items
 			.subset("item","farasel").pairWith("finalConsonant","l")
 			.pairWith("frame", frames.chooseFirst())
 			.shuffle()
@@ -12,7 +12,7 @@ Experiment.prototype.initialize = function () {
 			;
 	//console.log(sampleItem);
 
-/*	var nounBasedItems = items
+	var nounBasedItems = items
 			.exclude("item","farasel")
 			.subset("size","poly")
 			.subset("type","al-aux")
@@ -44,24 +44,26 @@ Experiment.prototype.initialize = function () {
 	//console.log(nounBasedItems);
 */
 
+
 	var block1 =  items
-			.subset("type","ol-ou").subset("size","poly").chooseRandom(2)
-			.concat(items.subset("type","ol-ou").subset("size","mono").chooseRandom(2))
-			.pairWith("finalConsonant","l")
-			.pairWith("frame", frames.chooseFirst())
+			.subset("type","al-aux").subset("size","poly").chooseRandom(2)
+			.pairWith("finalConsonant","j")
 			.shuffle()
-			.pairWith("view","xfirst.ejs")
+			.pairWith("frame", frames.shuffle())
+			.shuffle()
+			.pairWith("view",["sfirst.ejs","xfirst.ejs"])
+			.shuffle()
 			;
 
-	var block2 =  items
-			.excludeBlock(block1)
-			.subset("type","ol-ou")
-			.chooseRandom(4)
+	var block2 =  block1
 			.pairWith("finalConsonant","l")
-			.pairWith("frame", frames.chooseFirst())
 			.shuffle()
-			.pairWith("view","xfirst.ejs")
+			.pairWith("frame", frames.shuffle())
+			.shuffle()
+			.pairWith("view",["sfirst.ejs","xfirst.ejs"])
+			.shuffle()
 			;
+
 
 	this.addStaticScreen("intro.ejs");
 	this.addBlock(block1);
