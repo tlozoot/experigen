@@ -8,7 +8,7 @@ my $q = new CGI;
 
 # generate unique user id number, requires a directory names "users" with write permissions
 my $userId = 0;
-opendir(USERS,"../results/") or die "Couldn't open user directory $!";
+opendir(USERS,"../../results/") or die "Couldn't open user directory $!";
 while (my $file = readdir(USERS)) {
 	if ($file =~ /^user(\d+).txt$/) {
 		$userId = $1 if $1>$userId;

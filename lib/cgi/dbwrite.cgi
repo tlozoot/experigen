@@ -29,7 +29,7 @@ for (@fields) {
 	$_ = '"' . @{$_}[0] . '": "'  . @{$_}[1] .'"'; 
 }
 
-open (USER, ">>../results/user" . $userFileName . ".txt") or die "Can't open user file. $!";
+open (USER, ">>../../results/user" . $userFileName . ".txt") or die "Can't open user file. $!";
 print USER '{' . join(", ",@fields) . "}\r\n" ;
 close(USER) or die "Can't close user file. $!";
 
