@@ -66,7 +66,7 @@ Experiment.prototype.initialize = function () {
 			;
 
 
-	this.addStaticScreen("intro.ejs");
+//	this.addStaticScreen("intro.ejs");
 	this.addBlock(block1);
 	this.addStaticScreen("getgoing.ejs");
 	this.addBlock(block2);
@@ -74,7 +74,7 @@ Experiment.prototype.initialize = function () {
 	this.addStaticScreen("finalthanks.html");
 	
 
-	this.printScreensToConsole();
+//	this.printScreensToConsole();
 	
 	
 	

@@ -1,5 +1,6 @@
 Experiment.prototype.settings = {
     experimentName: "Fido",
+    databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
 	strings: {
 		loading:        "Loading...",
 		errorMessage:   "An error occurred. We apologize for the inconvenience.",

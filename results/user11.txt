@@ -1,5 +1,0 @@
-{"userCode": "QVD11", "userFileName": "11", "response1": "5", "item": "farasel", "trialnumber": "2", "finalConsonant": "l", "frame": "A", "view": "xfirst.ejs", "sound1": "1", "sound2": "1", "time": "Sun Dec 12 22:48:41 2010"}
-{"userCode": "QVD11", "userFileName": "11", "response1": "6", "item": "xovral", "trialnumber": "4", "finalConsonant": "l", "frame": "P", "view": "sfirst.ejs", "sound1": "1", "sound2": "1", "time": "Sun Dec 12 22:48:48 2010"}
-{"userCode": "QVD11", "userFileName": "11", "response1": "6", "item": "guénol", "trialnumber": "5", "finalConsonant": "l", "frame": "M", "view": "xfirst.ejs", "sound1": "1", "sound2": "1", "time": "Sun Dec 12 22:49:27 2010"}
-{"userCode": "QVD11", "userFileName": "11", "response1": "4", "item": "rel", "trialnumber": "6", "finalConsonant": "j", "frame": "O", "view": "sfirst.ejs", "sound1": "1", "sound2": "1", "time": "Sun Dec 12 22:50:00 2010"}
-{"userCode": "QVD11", "userFileName": "11", "response1": "5", "item": "caul", "trialnumber": "7", "finalConsonant": "l", "frame": "H", "view": "xfirst.ejs", "sound1": "1", "sound2": "1", "time": "Sun Dec 12 22:50:09 2010"}
