@@ -1,9 +1,9 @@
 Experigen.initialize = function () {
 	
 	
-	var items  = this.getItems();
-	var frames = this.getFrameSentences();
-	var pictures = this.getPictures();
+	var items  = this.resource("items");
+	var frames = this.resource("frames");
+	var pictures = this.resource("pictures");
 	
 /*	var sampleItem = items
 			.subset("item","farasel").pairWith("finalConsonant","l")
