@@ -1,18 +1,18 @@
 <%
-exp.screen().singular = (exp.screen().finalConsonant=="l") ? exp.screen().item_l : exp.screen().item_j
+Experigen.screen().singular = (Experigen.screen().finalConsonant=="l") ? Experigen.screen().item_l : Experigen.screen().item_j
 %>
 
 <div class="trialpartWrapper" id="part1">
-	<%= exp.screen().frame.text1 %><b><i><%= exp.screen().singular %></i></b><%= exp.screen().frame.text2 %>
-	<%= exp.screen().makeSoundButton(exp.screen()["file_pl_" + exp.screen().finalConsonant]) %>
+	<%= Experigen.screen().frame.text1 %><b><i><%= Experigen.screen().singular %></i></b><%= Experigen.screen().frame.text2 %>
+	<%= Experigen.screen().makeSoundButton(Experigen.screen()["file_pl_" + Experigen.screen().finalConsonant]) %>
 </div>
 
 <div class="trialpartWrapper" id="part3">
-	<%= exp.screen().makeScale({direction: exp.screen().VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) %>
+	<%= Experigen.screen().makeScale({direction: Experigen.screen().VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) %>
 </div>
 
 <div class="trialpartWrapper" id="part2">
-	<%= exp.screen().frame.text1 %><b><i><%= exp.screen().singular %></i></b><%= exp.screen().frame.text2 %>
-	<%= exp.screen().makeSoundButton(exp.screen()["file_" + exp.screen().finalConsonant]) %>
+	<%= Experigen.screen().frame.text1 %><b><i><%= Experigen.screen().singular %></i></b><%= Experigen.screen().frame.text2 %>
+	<%= Experigen.screen().makeSoundButton(Experigen.screen()["file_" + Experigen.screen().finalConsonant]) %>
 </div>
 
