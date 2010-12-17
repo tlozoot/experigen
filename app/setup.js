@@ -2,7 +2,7 @@ var Experigen = (function() { return {
 
 	settings: {
 	
-		experimentName: "Fido",
+		experimentName: "Fido", // use only A-Z, a-z, 0-9
 		
 		databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
 		

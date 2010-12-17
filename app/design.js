@@ -1,5 +1,6 @@
 Experigen.initialize = function () {
 	
+	// remember to give your experiment a name in setup.js
 	
 	var items  = this.resource("items");
 	var frames = this.resource("frames");
