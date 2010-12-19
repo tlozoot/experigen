@@ -27,3 +27,15 @@ A framework for creating phonology experiments.
 * Your results will accumulate on the database server you specified. To get your results... (we'll email them to you until we make an 
   online interface.)
 
+
+
+
+## TODO
+
+* add support for text input
+* add keyboard support
+* accept CR files
+* add source URL to all forms
+* send a form for all pages
+* send browser stats to server (with IP locator?)
+* improve sound button support / better encapsulation?
