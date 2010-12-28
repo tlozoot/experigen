@@ -1,4 +1,4 @@
-item_l	pl_l	item_j	pl_j	type	size	file_l	file_pl_l	file_j	file_pl_j
+﻿item_l	pl_l	item_j	pl_j	type	size	file_l	file_pl_l	file_j	file_pl_j
 auscral	auscraux	auscrail	auscraux	al-aux	poly	auscral_3052.wav.mp3	auscraux_2772.wav.mp3	auscrail_145.wav.mp3	auscraux_2772.wav.mp3
 cral	craux	crail	craux	al-aux	mono	cral_2632.wav.mp3	craux_257.wav.mp3	crail_229.wav.mp3	craux_257.wav.mp3
 dernal	dernaux	dernail	dernaux	al-aux	poly	dernal_3192.wav.mp3	dernaux_55.wav.mp3	dernail_1532.wav.mp3	dernaux_55.wav.mp3

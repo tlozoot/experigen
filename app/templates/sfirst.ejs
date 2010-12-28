@@ -1,15 +1,19 @@
 <%
-Experigen.screen().singular = (Experigen.screen().finalConsonant=="l") ? Experigen.screen().item_l : Experigen.screen().item_j
+Experigen.screen().singular = (Experigen.screen().finalConsonant=="l") ? Experigen.screen().item_l : Experigen.screen().item_j;
 %>
 
 <div class="trialpartWrapper" id="part1">
 	<%= Experigen.screen().frame.text1 %><b><i><%= Experigen.screen().singular %></i></b><%= Experigen.screen().frame.text2 %>
+	
 	<%= Experigen.screen().makeSoundButton(Experigen.screen()["file_" + Experigen.screen().finalConsonant]) %>
+	<%= Experigen.screen().continueButton("►") %>
 </div>
 
 <div class="trialpartWrapper" id="part3">
-	<!-- Experigen.screen().makeScale({direction: Experigen.screen().VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) -->
+	<!-- Experigen.Experigen.screen()().makeScale({direction: Experigen.screen().VERTICAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['top','','','no pref','','','bottom'] }) -->
 	<%= Experigen.screen().makeTextInput() %>
+	<%= Experigen.screen().continueButton("►") %>
+	
 </div>
 
 <div class="trialpartWrapper" id="part2">

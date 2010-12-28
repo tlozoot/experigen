@@ -4,7 +4,8 @@ var Experigen = (function() { return {
 	
 		experimentName: "Fido", // use only A-Z, a-z, 0-9
 		
-		databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
+		databaseServer: "http://localhost/surveys/db/",
+		//databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
 		
 		strings: {
 			loading:        "Loading...",
@@ -13,7 +14,7 @@ var Experigen = (function() { return {
 			continueButton: "   continue   "
 		},
 		
-		audio: true,
+		audio: false,
 		
 		progressbar: {
 			visible: true, 
