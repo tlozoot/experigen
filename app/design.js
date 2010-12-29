@@ -29,7 +29,7 @@ Experigen.initialize = function () {
 	//this.addStaticScreen("intro.ejs");
 	this.addBlock(block1);
 	this.addStaticScreen("getgoing.ejs");
-	this.addBlock(block2);
+	//this.addBlock(block2);
 	this.addStaticScreen("demographic.html");
 	this.addStaticScreen("finalthanks.html");
 	
