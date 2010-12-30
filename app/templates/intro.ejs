@@ -1,41 +1,37 @@
 
-<p>
-	Welcome to our English language questionnaire. We hope you enjoy it!
-</p>
-<p>
-	Please put on headphones to participate. 
-</p>
-<p>
-	Click the button to hear a made-up word: 
-	<input type='button' id='pharon_sound_button' value='<%= Experigen.settings.strings.soundButton %>'>
-	
-	<br>
-
-	Adjust the volume to a comfortable level.
-</p>
-
-<div id="pharon_buttons" style="display: none; text-align: center;">
-	The word you just heard has the sound of...<br>
-	<input type='button' id="pharon_leftbutton"  value="  the 'ph' in 'Stephen'  ">
-	<input type='button' id="pharon_rightbutton" value="  the 'ph' in 'orphan'  ">
+<div class="trialpartWrapper" id="part1" style="text-align: left;">
+	Bienvenue sur notre questionnaire ! Merci de votre participation. 
+	<p>
+	Pour commencer, mettez votre casque et cliquez ici: 
+	<%= Experigen.screen().makeSoundButton({soundFile: "data/sounds/chauteil_119.wav.mp3", soundID: "greeting"}) %>
+	<%= Experigen.screen().continueButton({hide: true}) %>
 </div>
 
-<script>
 
-	soundManager.createSound({
-		id: "pharon_sound",
-		url: "data/sounds/pharon_374.wav.mp3",
-		autoPlay: false, 
-		autoLoad: true,
-		onload:function() {
-		},
-		onfinish:function() {
-			$("#pharon_buttons").show();
-		}
-	});
+<div class="trialpartWrapper" id="part2" style="text-align: left;">
+	Qu'avez vous entendu?
+	<%= Experigen.screen().makeTextInput() %>
+	<%= Experigen.screen().continueButton("►") %>
+</div>
 
-	$("#pharon_sound_button").click(function() { soundManager.play("pharon_sound");} ); 
-	$("#pharon_leftbutton").click(function()   { alert("That's not right... try again.");});
-	$("#pharon_rightbutton").click(function()  { Experigen.advance(this);}); 
 
-</script>
+<div class="trialpartWrapper" id="part3" style="text-align: left;">
+	<div id="feedback"></div>
+	<p>
+	<%= Experigen.screen().continueButton() %>
+</div>
+
+<%
+		setTimeout(function(){
+			$("#response0").change(function() {
+				var str = $("#response0")[0].value;
+				if (str.match(/bienven/i)) {
+					$("#feedback").html("Oui, c'est bien ça !");
+				} else {
+					$("#feedback").html("Vous etiez censé entendre «Bienvenue». Vous pouvez reessayer.");
+				}
+			});
+		}, 500);
+%>
+		
+
