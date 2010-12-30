@@ -78,8 +78,7 @@ input, select, textarea {
 
 
 .scaleWrapperH {
-	text-align: left;
-	margin-left: 50px;
+	text-align: center;
 	height: 38px;
 }
 .scaleEdgeLabelH {
