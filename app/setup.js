@@ -11,10 +11,11 @@ var Experigen = (function() { return {
 			loading:        "Loading...",
 			errorMessage:   "An error occurred. We apologize for the inconvenience.",
 			soundButton:    "    ►    ",
-			continueButton: "   continue   "
+			continueButton: "   continue   ",
+			emptyBoxMessage: "Please supply your answer in the text box."
 		},
 		
-		audio: false,
+		audio: true,
 		
 		progressbar: {
 			visible: true, 

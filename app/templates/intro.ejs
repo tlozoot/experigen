@@ -9,7 +9,7 @@
 
 <div class="trialpartWrapper" id="part2" style="text-align: left;">
 	Qu'avez vous entendu?
-	<%= Experigen.screen().makeTextInput() %>
+	<%= Experigen.screen().makeTextInput({onchange: "Experigen.screen().bienvenue()", allowempty: false }) %>
 	<%= Experigen.screen().continueButton("►") %>
 </div>
 
@@ -21,16 +21,16 @@
 </div>
 
 <%
-		setTimeout(function(){
-			$("#response0").change(function() {
-				var str = $("#response0")[0].value;
-				if (str.match(/bienven/i)) {
-					$("#feedback").html("Oui, c'est bien ça !");
-				} else {
-					$("#feedback").html("Vous etiez censé entendre «Bienvenue». Vous pouvez reessayer.");
-				}
-			});
-		}, 500);
+
+Experigen.screen().bienvenue = function() {
+		var str = $("#response0")[0].value;
+		if (str.match(/bien ?ve?nu/i)) {
+			$("#feedback").html("Oui, c'est bien ça !");
+		} else {
+			$("#feedback").html("Vous etiez censé entendre «Bienvenue». Vous pouvez reessayer.");
+		}
+}
+
 %>
 		
 
