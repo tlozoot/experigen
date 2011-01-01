@@ -8,6 +8,7 @@ var Experigen = (function() { return {
 		//databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
 		
 		strings: {
+			windowTitle:    "Awesomeness",
 			loading:        "Loading...",
 			errorMessage:   "An error occurred. We apologize for the inconvenience.",
 			soundButton:    "    ►    ",
