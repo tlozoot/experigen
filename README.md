@@ -40,10 +40,10 @@ A framework for creating phonology experiments.
 
 ## TODO
 
-* add support for text input
-* add keyboard support
-* accept CR files
+
+* write the perl/python script that creates R-ready files
+* add response time measurements 
 * add source URL to all forms
-* send a form for all pages
 * send browser stats to server (with IP locator?)
 * improve sound button support / better encapsulation?
+* general encapuslation
