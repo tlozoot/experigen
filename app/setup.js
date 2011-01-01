@@ -1,4 +1,4 @@
-var Experigen = (function() { return {
+var Experigen =  {
 
 	settings: {
 	
@@ -31,6 +31,6 @@ var Experigen = (function() { return {
 		}
 	}	
 	
-}; }());
+};
 
 
