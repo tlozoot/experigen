@@ -1,28 +1,28 @@
 <%
-Experigen.screen().singular = (Experigen.screen().finalConsonant=="l") ? Experigen.screen().item_l : Experigen.screen().item_j;
+singular = (finalConsonant=="l") ? item_l : item_j;
 %>
 
-<%= Experigen.screen().frame.text1 %><b><i><%= Experigen.screen().singular %></i></b><%= Experigen.screen().frame.text2 %>
+<%= frame.text1 %><b><i><%= singular %></i></b><%= frame.text2 %>
 
 <p>
 
 <div class="trialpartWrapper" id="part1" style="float:left; height: 3em; width: 350px;">
-	<%= Experigen.screen().makeTextInput({allowempty: false}) %>
-	<%= Experigen.screen().continueButton("►") %>
+	<%= makeTextInput({allowempty: false}) %>
+	<%= continueButton("►") %>
 
 
-	<%= Experigen.screen().makeSoundButton(Experigen.screen()["file_" + Experigen.screen().finalConsonant]) %>
+	<%= makeSoundButton(this["file_" + finalConsonant]) %>
 </div>
 
 <div style="float:left; height: 3em; width: 320px; padding-left:20px;">  
 <div class="trialpartWrapper" id="part3">
-	<%= Experigen.screen().makeScale({direction: Experigen.screen().HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['','','','','','',''] }) %>
+	<%= makeScale({direction: HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['','','','','','',''] }) %>
 	
 </div>
 </div>
 
 <div class="trialpartWrapper" id="part2" style="float:left; height: 3em; width: 100px;">
-	<%= Experigen.screen().makeSoundButton(Experigen.screen()["file_pl_" + Experigen.screen().finalConsonant]) %>
+	<%= makeSoundButton(this["file_pl_" + finalConsonant]) %>
 </div>
 
 

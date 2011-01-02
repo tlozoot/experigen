@@ -2,7 +2,7 @@ var Experigen =  {
 
 	settings: {
 	
-		experimentName: "Fido", // use only A-Z, a-z, 0-9
+		experimentName: "Default", // use only A-Z, a-z, 0-9
 		
 		databaseServer: "http://localhost/surveys/db/",
 		//databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
@@ -24,11 +24,21 @@ var Experigen =  {
 			percentage: true
 		},
 		
-		resouces: {
-			items: true,
-			frames: true,
-			pictures: true	
-		}
+		tabdelimitedfiles: {
+			items: "data/items.txt",
+			frames: "data/frames.txt",
+			pictures: "data/pictures.txt"	
+		},
+
+		folders: {
+			sounds: "data/sounds",
+			pictures: "data/pictures"
+		},
+		
+		footer: "app/templates/footer.html",
+		
+		missingview: "app/templates/missingview.ejs"
+
 	}	
 	
 };
