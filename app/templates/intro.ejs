@@ -9,7 +9,7 @@
 
 <div class="trialpartWrapper" id="part2" style="text-align: left;">
 	Qu'avez vous entendu?
-	<%= makeTextInput({onchange: "Experigen.screen().bienvenue()", allowempty: false }) %>
+	<%= makeTextInput({onchange: "bienvenue()", allowempty: false }) %>
 	<%= continueButton("►") %>
 </div>
 
@@ -22,7 +22,7 @@
 
 <%
 
-	Experigen.screen().bienvenue = function() {
+	window.bienvenue = function() {
 		var str = $("#response0")[0].value;
 		if (str.match(/bien ?ve?nu/i)) {
 			$("#feedback").html("Oui, c'est bien ça !");
