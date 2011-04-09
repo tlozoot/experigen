@@ -1,6 +1,6 @@
 body {
 	font-size: 14pt;
-	background-color: #334;
+	background-color: #445;
 	padding-top: 12pt;
 }
 
@@ -20,13 +20,9 @@ h1 {
 	color: #390;
 }
 
-
-
 input, select, textarea {
 	font-size: 2ex;
 }
-
-
 
 #footer {
 	width: 640px;
@@ -82,7 +78,6 @@ input, select, textarea {
 	height: 38px;
 }
 .scaleEdgeLabelH {
-	float: left;
 	display: inline;
 	margin: 10px;
 }
@@ -90,13 +85,11 @@ input, select, textarea {
 	display: inline;
 }
 .scalebuttonsidelabelH{
-	float: left;
 	display: inline;
 }
 .scaleButtonH {
-	width: 2em;
 	font-size: 12pt;
-	float: left;
+	display: inline;
 	margin: 3px;
 }
 
@@ -114,7 +107,6 @@ input, select, textarea {
 	margin-left: 10px;
 }
 .scaleButtonV {
-	width: 2em;
 	font-size: 12pt;
 }
 
