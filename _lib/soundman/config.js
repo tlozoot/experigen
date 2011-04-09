@@ -1,2 +1,2 @@
-soundManager.url = 'lib/soundman/swf/';
+soundManager.url = '_lib/soundman/swf/';
 soundManager.debugMode = false;

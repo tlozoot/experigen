@@ -216,7 +216,7 @@ Experigen.make_into_trial = function (that) {
 		if (!obj.initValue) {
 			obj.scr = "";
 		}
-		obj.src = "data/pictures/" + obj.src;
+		obj.src = "resources/pictures/" + obj.src;
 	
 		var str = "";
 		str += "<img ";
@@ -314,7 +314,7 @@ Experigen.make_into_trial = function (that) {
 		}
 		var label = obj.label || Experigen.settings.strings.soundButton;
 		var soundID  = obj.soundID || Experigen.screen()[Experigen.resources.items.key] + Experigen.screen().trialnumber + Experigen.screen().soundbuttons.length;
-		var soundFile = "data/sounds/" + obj.soundFile;
+		var soundFile = "resources/sounds/" + obj.soundFile;
 		var advance = true;
 		if (obj.advance===false) {
 			advance = false;

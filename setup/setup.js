@@ -23,18 +23,18 @@ var Experigen =  {
 		},
 		
 		tabdelimitedfiles: {
-			items: "data/items.txt",
-			frames: "data/frames.txt",
-			pictures: "data/pictures.txt"	
+			items: "resources/items.txt",
+			frames: "resources/frames.txt",
+			pictures: "resources/pictures.txt"	
 		},
 
 		folders: {
-			sounds: "data/sounds",
-			pictures: "data/pictures"
+			sounds: "resources/sounds",
+			pictures: "resources/pictures"
 		},
 	
-		footer: "app/templates/footer.html",
-		missingview: "app/templates/missingview.ejs"
+		footer: "views/footer.html",
+		missingview: "views/missingview.ejs"
 	}	
 };
 

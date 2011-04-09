@@ -57,14 +57,14 @@ Experigen.load = function () {
 	$("#main").html(this.settings.strings.loading);
 	$(document).attr("title",this.settings.strings.windowTitle);
 
-	this.resources["items"] = this.loadResource("data/items.txt");
+	this.resources["items"] = this.loadResource("resources/items.txt");
 	this.fieldsToSave[this.resources.items.key] = true;
 	this.fieldsToSave["trialnumber"] = true;
 
-	this.resources["frames"] = this.loadResource("data/frames.txt"); 
-	this.resources["pictures"] = this.loadResource("data/pictures.txt"); 
+	this.resources["frames"] = this.loadResource("resources/frames.txt"); 
+	this.resources["pictures"] = this.loadResource("resources/pictures.txt"); 
 
-	this.loadText({destination: "#footer", url: "app/templates/footer.html", wait: true});
+	this.loadText({destination: "#footer", url: "views/footer.html", wait: true});
 
 	this.progressbar = this.new_progressbar();
 	this.progressbar.initialize();
@@ -139,11 +139,11 @@ Experigen.advance = function(callerButton) {
 		case this.TRIAL:
 			//console.log(screen);
 			if (screen.view) {
-				html = new EJS({url: 'app/templates/' + screen.view}).render(screen);
+				html = new EJS({url: 'views/' + screen.view}).render(screen);
 				$("#main").html(prefix + html + suffix);
 				screen.advance();
 			} else {
-				html = new EJS({url: 'app/templates/missingview.ejs'}).render(screen);
+				html = new EJS({url: 'views/missingview.ejs'}).render(screen);
 				$("#main").html(prefix + html + suffix);
 			}
 			break;
@@ -172,7 +172,7 @@ Experigen.resource = function (rname) {
 Experigen.addStaticScreen = function (obj) {
 
 	if (typeof obj=="string") {
-		obj = {url: "app/templates/" + obj};	
+		obj = {url: "views/" + obj};	
 	}
 	obj.screentype = this.STATIC;
 	obj.trialnumber = this._screens.length+1;
