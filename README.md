@@ -34,9 +34,6 @@ A framework for creating phonology experiments.
   - Use the templates in this folder to control how the participants
     see individual screens.
 
-
-* The "_lib" folder contains helper files; you don't need to go there. 
-
 * Your results will accumulate on the database server you specified. 
 
   - Download your results by specifying the name of your experiment
@@ -55,6 +52,9 @@ A framework for creating phonology experiments.
 	
 	http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire?file=demographics.csv
 
+* The "_lib" folder contains helper files; you don't need to go there. 
+
+* You don't need to edit "index.html".
 
 ## TODO
 
