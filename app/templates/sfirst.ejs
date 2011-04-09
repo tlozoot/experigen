@@ -14,12 +14,23 @@ singular = (finalConsonant=="l") ? item_l : item_j;
 	<%= makeSoundButton(this["file_" + finalConsonant]) %>
 </div>
 
-<div style="float:left; height: 3em; width: 320px; padding-left:20px;">  
-<div class="trialpartWrapper" id="part3">
-	<%= makeScale({direction: HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], edgelabels:['',''], sidelabels: ['','','','','','',''] }) %>
-	
+
+<div class="trialpartWrapper" id="part2" style="clear:both; height: 3em; text-align: center;">  
+	Ce mot inventé, comment est-il comme mot de <b><i>français</b></i> ?
+	<div style="text-align: center;">
+		<%= makeScale({direction: HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], edgelabels: ["atroce", "excellent"] }) %>
+	</div>
 </div>
+
+<div class="trialpartWrapper" id="part3" style="clear:both; height: 3em; text-align: center;">  
+	Ce mot inventé, comment est-il comme mot de <b><i>verlan</b></i> ?
+	<div style="text-align: center;">
+		<%= makeScale({direction: HORIZONTAL, buttons: ["1","2","3","4","5","6","7"], edgelabels: ["atroce", "excellent"] }) %>
+	</div>
 </div>
+
+
+
 
 <div class="trialpartWrapper" id="part2" style="float:left; height: 3em; width: 100px;">
 	<%= makeSoundButton(this["file_pl_" + finalConsonant]) %>

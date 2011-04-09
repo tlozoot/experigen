@@ -1,18 +1,16 @@
 var Experigen =  {
-
 	settings: {
-	
+
 		experimentName: "Default", // use only A-Z, a-z, 0-9
 		
-		databaseServer: "http://localhost/surveys/db/",
-		//databaseServer: "http://phonetics.fas.harvard.edu/surveys/db/",
+		databaseServer: "http://db.phonologist.org/",
 		
 		strings: {
-			windowTitle:    "Awesomeness",
-			loading:        "Loading...",
-			errorMessage:   "An error occurred. We apologize for the inconvenience.",
-			soundButton:    "    ►    ",
-			continueButton: "   continue   ",
+			windowTitle:     "Awesomeness",
+			loading:         "Loading...",
+			soundButton:     "    ►    ",
+			continueButton:  "   continue   ",
+			errorMessage:    "An error occurred. We apologize for the inconvenience.",
 			emptyBoxMessage: "Please supply your answer in the text box."
 		},
 		
@@ -34,13 +32,10 @@ var Experigen =  {
 			sounds: "data/sounds",
 			pictures: "data/pictures"
 		},
-		
-		footer: "app/templates/footer.html",
-		
-		missingview: "app/templates/missingview.ejs"
-
-	}	
 	
+		footer: "app/templates/footer.html",
+		missingview: "app/templates/missingview.ejs"
+	}	
 };
 
 
