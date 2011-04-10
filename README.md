@@ -21,12 +21,12 @@ A framework for creating phonology experiments.
 
 * Design your experiment in the "setup" folder
 
-  - Use setup.js to specify the experiment name and the database
-    server. We will maintain http://db.phonologist.org/ for the foreseeable
-    future. 
   - Use design.js to specify the information that the participants will see
     in each screen. 
-  - Change custom.css if you want to change colors, font sizes, alignments,
+  - Use settings.js to specify the experiment name and the database
+    server. We will maintain http://db.phonologist.org/ for the foreseeable
+    future. 
+  - Change styles.css if you want to change colors, font sizes, alignments,
     and the such.
 
 * Customize the display of the information in the "views" folder
