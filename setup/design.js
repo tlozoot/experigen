@@ -1,7 +1,5 @@
 Experigen.initialize = function () {
 	
-	// remember to give your experiment a name in setup.js
-	
 	var items  = this.resource("items");
 	var frames = this.resource("frames");
 	var pictures = this.resource("pictures");
@@ -26,16 +24,12 @@ Experigen.initialize = function () {
 			;
 
 
-	//this.addStaticScreen("intro.ejs");
+	this.addStaticScreen("intro.ejs");
 	this.addBlock(block1);
 	this.addStaticScreen("getgoing.ejs");
-	//this.addStaticScreen("missingview.ejs");
-	//this.addBlock(block2);
+	this.addStaticScreen("missingview.ejs");
+	this.addBlock(block2);
 	this.addStaticScreen("demographic.ejs");
 	this.addStaticScreen("finalthanks.ejs");
-	
-
-//	this.printScreensToConsole();
-	
 	
 }
