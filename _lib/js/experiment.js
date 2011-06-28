@@ -28,7 +28,7 @@ Experigen.initialized = false;
 Experigen.launch = function () {
 	var that = this;
 	$(document).ready(function(){
-		$('body').append('<div id="main"></div><div id="footer"></div>');
+		$('body').append('<div id="main">' + that.settings.strings.connecting + '</div><div id="footer"></div>');
 		that.loadUserID();		
 
 		// prepare to catch the return key when 
@@ -57,14 +57,15 @@ Experigen.load = function () {
 	$("#main").html(this.settings.strings.loading);
 	$(document).attr("title",this.settings.strings.windowTitle);
 
-	this.resources["items"] = this.loadResource("resources/items.txt");
+	this.resources["items"] = this.loadResource(this.settings.items);
 	this.fieldsToSave[this.resources.items.key] = true;
 	this.fieldsToSave["trialnumber"] = true;
 
-	this.resources["frames"] = this.loadResource("resources/frames.txt"); 
-	this.resources["pictures"] = this.loadResource("resources/pictures.txt"); 
+	for (var resource in this.settings.otherresources) {
+		this.resources[resource] = this.loadResource(this.settings.otherresources[resource]); 
+	}
 
-	this.loadText({destination: "#footer", url: "views/footer.html", wait: true});
+	this.loadText({destination: "#footer", url: this.settings.footer, wait: true});
 
 	this.progressbar = this.new_progressbar();
 	this.progressbar.initialize();

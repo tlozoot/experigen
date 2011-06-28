@@ -6,7 +6,8 @@ var Experigen =  {
 		databaseServer: "http://db.phonologist.org/",
 		
 		strings: {
-			windowTitle:     "Awesomeness",
+			windowTitle:     "My Awesome Questionnaire",
+			connecting:		 "Connecting...",
 			loading:         "Loading...",
 			soundButton:     "    ►    ",
 			continueButton:  "   continue   ",
@@ -24,15 +25,16 @@ var Experigen =  {
 			percentage: false
 		},
 		
-		tabdelimitedfiles: {
-			items: "resources/items.txt",
+		items: "resources/items.txt",
+		
+		otherresources: {
 			frames: "resources/frames.txt",
 			pictures: "resources/pictures.txt"	
 		},
 
 		folders: {
-			sounds: "resources/sounds",
-			pictures: "resources/pictures"
+			sounds: "resources/sounds/",
+			pictures: "resources/pictures/"
 		},
 	
 		footer: "views/footer.html",
