@@ -42,7 +42,7 @@ A framework for creating phonology experiments.
     http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
     you will use the following URL:
     
-  - http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire
+    http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire
 
   - You can also read the information directly into R, like so:
 	
