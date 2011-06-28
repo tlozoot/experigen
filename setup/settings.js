@@ -11,7 +11,9 @@ var Experigen =  {
 			soundButton:     "    ►    ",
 			continueButton:  "   continue   ",
 			errorMessage:    "An error occurred. We apologize for the inconvenience.",
-			emptyBoxMessage: "Please supply your answer in the text box."
+			emptyBoxMessage: "Please supply your answer in the text box.",
+			feedbackRight:   "Pretty good!",
+			feedbackWrong:   "We were expecting something like RIGHTANSWER."
 		},
 		
 		audio: true,
@@ -19,7 +21,7 @@ var Experigen =  {
 		progressbar: {
 			visible: true, 
 			adjustWidth: 6,
-			percentage: true
+			percentage: false
 		},
 		
 		tabdelimitedfiles: {

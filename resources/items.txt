@@ -1,24 +1,46 @@
-﻿item_l	pl_l	item_j	pl_j	type	size	file_l	file_pl_l	file_j	file_pl_j
-auscral	auscraux	auscrail	auscraux	al-aux	poly	auscral_3052.wav.mp3	auscraux_2772.wav.mp3	auscrail_145.wav.mp3	auscraux_2772.wav.mp3
-cral	craux	crail	craux	al-aux	mono	cral_2632.wav.mp3	craux_257.wav.mp3	crail_229.wav.mp3	craux_257.wav.mp3
-dernal	dernaux	dernail	dernaux	al-aux	poly	dernal_3192.wav.mp3	dernaux_55.wav.mp3	dernail_1532.wav.mp3	dernaux_55.wav.mp3
-fal	faux	fail	faux	al-aux	mono	fal_772.wav.mp3	faux_333.wav.mp3	fail_232.wav.mp3	faux_333.wav.mp3
-fral	fraux	frail	fraux	al-aux	mono	fral_81.wav.mp3	fraux_33.wav.mp3	frail_121.wav.mp3	fraux_33.wav.mp3
-gistal	gistaux	gistail	gistaux	al-aux	poly	gistal_2852.wav.mp3	gistaux_87.wav.mp3	gistail_317.wav.mp3	gistaux_87.wav.mp3
-gnal	gnaux	gnail	gnaux	al-aux	mono	gnal_2232.wav.mp3	gnaux_2052.wav.mp3	gnail_1632.wav.mp3	gnaux_2052.wav.mp3
-gouval	gouvaux	gouvail	gouvaux	al-aux	poly	gouval_41.wav.mp3	gouvaux_1172.wav.mp3	gouvail_1872.wav.mp3	gouvaux_1172.wav.mp3
-histral	histraux	histrail	histraux	al-aux	poly	histral_127.wav.mp3	histraux_1332.wav.mp3	histrail_31.wav.mp3	histraux_1332.wav.mp3
-jal	jaux	jail	jaux	al-aux	mono	jal_2312.wav.mp3	jaux_1492.wav.mp3	jail_112.wav.mp3	jaux_1492.wav.mp3
-caul	caux			aul-au	mono	caul_281.wav.mp3	caux_312.wav.mp3	x	x
-craul	craux			aul-au	mono	craul_271.wav.mp3	craux_257.wav.mp3	x	x
-chautel	chautaux	chauteil	chauteux	el-aux	poly	chautel_2732.wav.mp3	chautaux_241.wav.mp3	chauteil_119.wav.mp3	chauteux_223.wav.mp3
-cnel	cnaux	cneil	cneux	el-aux	mono	cnel_183.wav.mp3	cnaux_1212.wav.mp3	cneil_103.wav.mp3	cneux_157.wav.mp3
-drel	draux	steil	steux	el-aux	mono	drel_45.wav.mp3	draux_247.wav.mp3	steil_2792.wav.mp3	steux_179.wav.mp3
-fanel	fanaux	faneil	faneux	el-aux	poly	fanel_2132.wav.mp3	fanaux_372.wav.mp3	faneil_301.wav.mp3	faneux_111.wav.mp3
-farasel	farasaux	faraseil	faraseux	el-aux	poly	farasel_215.wav.mp3	farasaux_3352.wav.mp3	faraseil_149.wav.mp3	faraseux_452.wav.mp3
-juvel	juvaux	juveil	juveux	el-aux	poly	juvel_552.wav.mp3	juvaux_732.wav.mp3	juveil_992.wav.mp3	juveux_532.wav.mp3
-dol	doux			ol-ou	mono	dol_212.wav.mp3	doux_1572.wav.mp3	x	x
-gigol	gigoux			ol-ou	poly	gigol_217.wav.mp3	gigoux_1812.wav.mp3	x	x
-grassol	grassoux			ol-ou	poly	grassol_311.wav.mp3	grassoux_2392.wav.mp3	x	x
-guénol	guénoux			ol-ou	poly	guenol_13.wav.mp3	guenoux_91.wav.mp3	x	x
-
+item	file_sg	file_pl1	file_pl2	IPA	type	shape	vowel
+brelowth	brelowth_104.wav.mp3	brelowth.s_108.wav.mp3	brelowth.z_106.wav.mp3	brəloʊθ	stim	iamb	oʊ
+buwalf	buwalf_98.wav.mp3	buwalf.s_102.wav.mp3	buwalf.z_100.wav.mp3	bəwælf	stim	iamb	æ
+dackelth	dackelth_262.wav.mp3	dackelth.s_266.wav.mp3	dackelth.z_264.wav.mp3	dəkɛlθ	stim	iamb	ɛ
+dipyth	dipyth_172.wav.mp3	dipyth.s_176.wav.mp3	dipyth.z_174.wav.mp3	dəpaɪθ	stim	iamb	aɪ
+genurth	genurth_3002.wav.mp3	genurth.s_3022.wav.mp3	genurth.z_3042.wav.mp3	gənɚθ	stim	iamb	ɚ
+glinof	glinof_322.wav.mp3	glinof.s_362.wav.mp3	glinof.z_342.wav.mp3	glənɑf	stim	iamb	ɑ
+hareeth	hareeth_408.wav.mp3	hareeth.s_534.wav.mp3	hareeth.z_532.wav.mp3	həɹiθ	stim	iamb	i
+hibof	hibof_2402.wav.mp3	hibof.s_2442.wav.mp3	hibof.z_2422.wav.mp3	həbɑf	stim	iamb	ɑ
+hilayth	hullayth_4242.wav.mp3	hullayth.s_4282.wav.mp3	hullayth.z_4262.wav.mp3	həleɪθ	stim	iamb	eɪ
+hissyth	hussyth_2042.wav.mp3	hussyth.s_2082.wav.mp3	hussyth.z_2062.wav.mp3	həsaɪθ	stim	iamb	aɪ
+jezoth	jezoth_62.wav.mp3	jezoth.s_66.wav.mp3	jezoth.z_64.wav.mp3	ʤəzɑθ	stim	iamb	ɑ
+bafe	bafe_420.wav.mp3	bafe.s_424.wav.mp3	bafe.z_422.wav.mp3	beɪf	stim	mono	eɪ
+beeth	beeth_5782.wav.mp3	beeth.s_5822.wav.mp3	beeth.z_5802.wav.mp3	biθ	stim	mono	i
+bilth	bilth_692.wav.mp3	bilth.s_5142.wav.mp3	bilth.z_5122.wav.mp3	bɪlθ	stim	mono	ɪ
+brife	brife_578.wav.mp3	brife.s_152.wav.mp3	brife.z_150.wav.mp3	bɹaɪf	stim	mono	aɪ
+bunf	bunf_584.wav.mp3	bunf.s_588.wav.mp3	bunf.z_586.wav.mp3	bʌnf	stim	mono	ʌ
+choath	choath_44.wav.mp3	choath.s_48.wav.mp3	choath.z_46.wav.mp3	ʧoʊθ	stim	mono	oʊ
+chyth	chyth_542.wav.mp3	chyth.s_546.wav.mp3	chyth.z_544.wav.mp3	ʧaɪθ	stim	mono	aɪ
+cloof	cloof_8.wav.mp3	cloof.s_12.wav.mp3	cloof.z_10.wav.mp3	klʊf	stim	mono	ʊ
+deef	deef_5162.wav.mp3	deef.s_5182.wav.mp3	deef.z_5202.wav.mp3	dif	stim	mono	i
+doof	doof_620.wav.mp3	doof.s_624.wav.mp3	doof.z_622.wav.mp3	duf	stim	mono	u
+doath	dowth_6122.wav.mp3	dowth.s_6162.wav.mp3	dowth.z_6142.wav.mp3	doʊθ	stim	mono	oʊ
+dweeth	dweeth_202.wav.mp3	dweeth.s_206.wav.mp3	dweeth.z_204.wav.mp3	dwiθ	stim	mono	i
+gleef	gleef_1523.wav.mp3	gleef.s_4222.wav.mp3	gleef.z_4202.wav.mp3	glif	stim	mono	i
+hooth	hooth_80.wav.mp3	hooth.s_84.wav.mp3	hooth.z_82.wav.mp3	huθ	stim	mono	u
+jaff	jaf_3602.wav.mp3	jaf.s_3642.wav.mp3	jaf.z_3622.wav.mp3	ʤæf	stim	mono	æ
+brunlif	brunlif_6862.wav.mp3	brunlif.s_6902.wav.mp3	brunlif.z_6882.wav.mp3	brʌnləf	stim	trochee	ʌ
+chiddif	chiddif_4302.wav.mp3	chiddif.s_4342.wav.mp3	chiddif.z_4322.wav.mp3	ʧɪdəf	stim	trochee	ɪ
+craedef	craedef_740.wav.mp3	craedef.s_744.wav.mp3	craedef.z_742.wav.mp3	kreɪdəf	stim	trochee	eɪ
+fiddith	fiddith_224.wav.mp3	fiddith.s_346.wav.mp3	fiddith.z_344.wav.mp3	fɪdəθ	stim	trochee	ɪ
+flodaf	floduf_7582.wav.mp3	floduf.s_7622.wav.mp3	floduf.z_7602.wav.mp3	floʊdəf	stim	trochee	oʊ
+glersif	glersif_274.wav.mp3	glersif.s_278.wav.mp3	glersif.z_276.wav.mp3	glɚsəf	stim	trochee	ɚ
+hockith	hockith_734.wav.mp3	hockith.s_736.wav.mp3	hockith.z_738.wav.mp3	hɑkəθ	stim	trochee	ɑ
+hylith	hylith_524.wav.mp3	hylith.s_526.wav.mp3	hylith.z_528.wav.mp3	haɪləθ	stim	trochee	aɪ
+jonnif	jonnif_444.wav.mp3	jonnif.s_446.wav.mp3	jonnif.z_5622.wav.mp3	dʒɑnəf	stim	trochee	ɑ
+juckith	juckith_3742.wav.mp3	juckith.s_1783.wav.mp3	juckith.z_1803.wav.mp3	ʤʌkəθ	stim	trochee	ʌ
+jellix	jellix_5982.wav.mp3	jellix.i_6002.wav.mp3	jellix.s_6022.wav.mp3	dʒəlɪks	filler	iamb	ɪ
+baudge	baudge_614.wav.mp3	baudge.i_618.wav.mp3	baudge.z_616.wav.mp3	bɑdʒ	filler	mono	ɑ
+bish	bish_438.wav.mp3	bish.i_1143.wav.mp3	bish.s_440.wav.mp3	bɪʃ	filler	mono	ɪ
+chox	chox_710.wav.mp3	chox.i_504.wav.mp3	chox.s_714.wav.mp3	ʧɑks	filler	mono	ɑ
+dow	dow_128.wav.mp3	dow.i_1983.wav.mp3	dow.s_132.wav.mp3	daʊ	filler	mono	aʊ
+bosum	bosum_330.wav.mp3	bosum.i_334.wav.mp3	bosum.s_332.wav.mp3	boʊzəm	filler	trochee	oʊ
+cresson	cresson_7402.wav.mp3	cresson.i_7442.wav.mp3	cresson.s_7422.wav.mp3	krɛsən	filler	trochee	ɛ
+cretum	cretum_4802.wav.mp3	cretum.i_6102.wav.mp3	cretum.s_6082.wav.mp3	kɹitəm	filler	trochee	i
+jedex	jedex_562.wav.mp3	jedex.i_486.wav.mp3	jedex.s_602.wav.mp3	dʒɛdəks	filler	trochee	ɛ

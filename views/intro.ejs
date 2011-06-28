@@ -1,36 +1,27 @@
 
 <div class="trialpartWrapper" id="part1" style="text-align: left;">
-	Bienvenue sur notre questionnaire ! Merci de votre participation. 
+	Welcome! 
 	<p>
-	Pour commencer, mettez votre casque et cliquez ici: 
-	<%= makeSoundButton({soundFile: "data/sounds/chauteil_119.wav.mp3", soundID: "greeting"}) %>
+	Please put your headphones on and listen to this made-up word: 
+	<%= makeSoundButton({soundFile: "pharon_374.wav.mp3", soundID: "greeting"}) %>
 </div>
 
 
 <div class="trialpartWrapper" id="part2" style="text-align: left;">
-	Qu'avez vous entendu?
-	<%= makeTextInput({onchange: "bienvenue()", allowempty: false }) %>
+	What did you hear?
+	<%= makeTextInput({allowempty: false, matchRegExpression: "[pfshb]h?[aeiou]+r[aeiou]+[mn]", rightAnswer: "pharon", feedbackID: "#feedback" }) %>
 	<%= continueButton("►") %>
+	<p>
+	<div id="feedback"></div>
 </div>
 
 
 <div class="trialpartWrapper" id="part3" style="text-align: left;">
-	<div id="feedback"></div>
 	<p>
 	<%= continueButton() %>
 </div>
 
-<%
 
-	window.bienvenue = function() {
-		var str = $("#response0")[0].value;
-		if (str.match(/bien ?ve?nu/i)) {
-			$("#feedback").html("Oui, c'est bien ça !");
-		} else {
-			$("#feedback").html("Vous etiez censé entendre «Bienvenue». Vous pouvez reessayer.");
-		}
-	}
 
-%>
 		
 

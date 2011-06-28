@@ -1,21 +1,41 @@
-id	type	text1	text2
-A	sg/pl	Au debut il y avait qu'un seul gros  	.<br>Puis, cinq petits  _______ sont arrivés.
-B	sg/pl	Ce mec a eu un  	 gris.<br>Puis, ses amis lui ont donnés encore trois  _______ blancs.
-C	sg/pl	J'ai un grand 	 pour toi.<br>Je peux te donner autant de grands  ____ que tu veux.
-D	sg/pl	It paraît qu'il me faut un petit 	.<br>On m'a piqué tous mes petits _______ cette semaine. 
-E	sg/pl	Il y a un  	 blanc sur la table.<br>Il y a aussi six _______ blancs sur l'étagère.
-F	sg/pl	L'été dernier, on avait un gros 	.<br>Cet été on a pas de gros ______ du tout.
-G	sg/pl	Il y a un petit 	 qui dort dans une boîte.<br>Il ya plusiers petits _______ a côté de la boîte.
-H	sg/pl	Le musée a un  	 léger.<br>Le zoo se vente d'avoir des disaine de lourds _______.
-I	sg/pl	Tiens, regarde ce long  	 !<br>J'apperçoit encore trois longs  _______ à l'autre côté.
-J	sg/pl	Elle a acheté un 	 blanc.<br>Ses amis lui ont acheté plusiers  _______ noirs.
-K	sg/pl	Personne ne connaît ce  	.<br>On ne connaît aucun de ces vieux _______ non plus.
-L	sg/pl	Elle n'a pu se permettre qu'un seul 	 épais.<br>Ma mère lui a offert deux _______ fins.
-M	sg/pl	Ce joli 	 est trop cuit.<br>Il faut mieux surveiller les autres _______.
-N	sg/pl	J'ai envoyé un petit 	 à mon patron.<br>Il m'a répondu en envoyant trois gros _______.
-O	sg/pl	Elle aime bien son 	 ouvert.<br>Par contre, ses amis tiennent leurs  _______ bien fermés.
-P	sg/pl	Hier je me suis débarrassé d'un 	.<br>Mais ce matin j'ai trouvé cinq _____ qui sont toujours là.
-Q	sg/pl	Ton 	 est trop lourd.<br>Moi, j'ai l'horreur des  ______ lourds comme ça.
-R	sg/pl	J'aimerai bien avoir un 	.<br>C'est pas ta mère qui passe là avec deux _______ ?
-S	sg/pl	Je viens d'installé un  	 bien mauvais.<br>Combien de mauvais ______ as-tu sur ton ordinateur ?
-T	sg/pl	Ton premier  	 est vraiment pas mal.<br>Encore quelsque _____,  et tu seras tout prêt.
+id	text1	text2
+1	At first, we could only see one  _______.	Then, another five _______ showed up.
+2	This guy only had one  _______.	Then, his friends gave him two more  _______.
+3	I got a nice ____ for you.	I can get you as many ____ as you'd like.
+4	I was told that it's important to have a _______.	They tried to sell me several _______ this month. 
+5	There is one _______ on the table.	There are six _______ on the shelf.
+6	We used to have a really big _______.	Now we have no _______ at all.
+7	There is one little _______ sitting in the box.	There are several _______ outside the box.
+8	The museum has one spotted _______.	The zoo has several spotted _______.
+9	Look at this  _______!	I can see at least three more  _______.
+10	She only bought one _______.	Her friends bought dozens of _______.
+11	The museum had one black _______.	Then they bought two more  _______.
+12	Nobody knows this new _______.	We don't know any of the other _______, either.
+13	She only had enough money for one _______.	My mom gave her money for three _______.
+14	Yesterday, we saw a big _______.	Today, we're hoping to see some more _______.
+15	My son has one yellow _______.	Your son has eight yellow _______.
+16	This _______ got ruined.	We need to keep on eye on all the other _______.
+17	I am going through a serious _______.	Your mom had several bad _______, too.
+18	I emailed a _______ to my boss.	He sent me three _______ back.
+19	There is a  _______ outside my house.	There are a couple of  _______ across the street, too.
+20	Our local zoo has one small _______.	The zoo in Springfield has five _______.
+21	She really loves a good _______.	None of her friends like these _______, though.
+22	I needed a _______ pretty badly.	My boyfriend got me two nice _______.
+23	We saw a scary  _______ yesterday.	These _______ can get nasty, you know.
+24	I have one _____ hanging on my wall.	How many _____ do you have on your wall?
+25	I got rid of one ______ yesterday.	But today I saw five more _____ still hanging around.
+26	Your mom needs to get a _______.	Mine couldn't do without two big _______.
+27	Back in my day, kids only had one ______.	Now they have at least three ______ each.
+28	That _________ is pretty heavy.	I wouldn't want to carry any more ______ up the stairs.
+29	My brothers got this ______ for lunch.	I could eat two of these _____ right now.
+30	Look at this crazy _______!	I can't believe how many _______ we have to deal with.
+31	There's a big _______ on the couch.	We threw a few _______ out the door last night. 
+32	I have only met one  ______ before.	How many ______ do you know?
+33	You'd think one ________ should be enough,	but then she had to have six more _______.
+34	Your daughter's _______ is pretty ridiculous.	Tell her to get some new ______ already.
+35	I could really use a _________ right now.	Do you have any of these _______ around here?
+36	I hear you saw a nice _______ last summer.	I can show you a couple real ______ if you want. 
+37	I just installed this new _____ on my phone.	How many ______ do you have on your phone?
+38	She just bought a really pathetic ________.	These _______ are so lame now.
+39	I just got that ________ we've been waiting for.	Can you put it in with those _____ from last week?
+40	That's a pretty good ______ you got there.	A couple more _____, and you'd be all set.

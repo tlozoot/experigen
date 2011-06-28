@@ -65,40 +65,21 @@ Experigen.make_into_trial = function (that) {
 	
 	that.makeScale = function(obj) {
 		Experigen.screen().responses++;
-		var direction = obj.direction || that.VERTICAL;
 		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
 		var edgelabels = obj.edgelabels || [''];
-		var sidelabels = obj.sidelabels || [''];
-		var edgelabel_position = 0;
-		var sidelabel_position = 0;
 
 		var serverValues = obj.serverValues || buttons;
 		/// validate serverValues here to be non-empty and distinct
 
 		var str = "";
-		str += '<div class="scaleWrapper' + direction + '">';
-		str += '<div class="scaleEdgeLabel' + direction + '">' + edgelabels[edgelabel_position] + '</div>';
-		edgelabel_position += 1; 
-		if(edgelabel_position>=edgelabels.length)  edgelabel_position=0;
-
+		str += '<div class="scaleWrapper">';
+		str += '<div class="scaleEdgeLabel">' + edgelabels[0] + '</div>';
 		for (var i=0; i<buttons.length; i+=1) {
-
-			if (direction===that.VERTICAL) {
-				str += '<div class="scalebuttonWrapper' + direction + '">';
-			} else {
-				str += '<div class="scalebuttonWrapper' + direction + '">';
-			}
-			
-			str += '<input type="button" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" class="scaleButton' + direction + '" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.advance();">';
-			str += '<div class="scalebuttonsidelabel' + direction + '">' + sidelabels[sidelabel_position] + '</div>';
-
+			str += '<div class="scalebuttonWrapper">';
+			str += '<input type="button" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this);">';
 			str += '</div>';
-
-			sidelabel_position+= 1;  
-			if(sidelabel_position >=sidelabels.length)  sidelabel_position=0;
 		}
-
-		str += '<div class="scaleEdgeLabel' + direction + '">' + edgelabels[edgelabel_position] + '</div>';
+		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
 		str += '</div>';
 		str += "<input type='hidden' name='response" + Experigen.screen().responses + "' value=''>\n";
 		return str;
@@ -187,7 +168,6 @@ Experigen.make_into_trial = function (that) {
 		if (obj.style) {
 			str += "style='" + obj.style + "' ";
 		}
-		
 		if (obj.onclick) {
 			str += "onclick='" + obj.onclick + "' ";
 		}
@@ -200,8 +180,24 @@ Experigen.make_into_trial = function (that) {
 		if (obj.onchange) {
 			str += "onchange='" + obj.onchange + "' ";
 		}
+		if (obj.matchRegExpression) {
+			var temp = 'Experigen.screen().feedback(this,"' + obj.matchRegExpression + '","' + obj.rightAnswer + '","' + obj.feedbackID + '")';
+			str += "onchange='" + temp + "' ";
+		}
 		str += ">\n";
 		return str;
+	}
+
+
+	that.feedback = function (sourceElement, regex, rightAnswer, targetElement) {
+		var str = $(sourceElement)[0].value;
+		var patt = new RegExp(regex,"i");
+		if (patt.test(str)) {
+			$(targetElement).html(Experigen.settings.strings.feedbackRight);
+		} else {
+			var str = Experigen.settings.strings.feedbackWrong.replace(/RIGHTANSWER/,rightAnswer)
+			$(targetElement).html(str);
+		}
 	}
 
 
@@ -321,16 +317,42 @@ Experigen.make_into_trial = function (that) {
 		}
 		Experigen.screen().soundbuttons.push({id: soundID, presses: 0, file: soundFile});
 		
+		var soundFile2 = "";
+		if (obj.soundFile2) {
+			soundFile2 = "resources/sounds/" + obj.soundFile2;
+		}
+		var soundID2  = soundID + "2";
+		
 		soundManager.createSound({
 			id: soundID,
 			url: soundFile,
 			autoPlay: false, 
 			autoLoad: true,
 			onload:function() {
+
+				if (soundFile2 != "") {
+					soundManager.createSound({
+						id: soundID2,
+						url: soundFile2,
+						autoPlay: false, 
+						autoLoad: true,
+						onload:function() {
+						},
+						onfinish:function() {
+							if (advance) {
+								Experigen.screen().advance();
+							}
+						}
+					});
+				}
 			},
 			onfinish:function() {
-				if (advance) { 
-					Experigen.screen().advance();
+				if (advance) {
+					if (soundFile2 === "") {
+						Experigen.screen().advance();
+					} else {
+						soundManager.play(soundID2);
+					}
 				}
 			}
 		});
