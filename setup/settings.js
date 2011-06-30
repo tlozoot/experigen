@@ -6,7 +6,7 @@ var Experigen =  {
 		databaseServer: "http://db.phonologist.org/",
 		
 		strings: {
-			windowTitle:     "My Awesome Questionnaire",
+			windowTitle:     "Wug test",
 			connecting:		 "Connecting...",
 			loading:         "Loading...",
 			soundButton:     "    ►    ",

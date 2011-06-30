@@ -2,7 +2,6 @@ Experigen.initialize = function () {
 	
 	var items  = this.resource("items");
 	var frames = this.resource("frames");
-	var pictures = this.resource("pictures");
 
 	items = items.pairWith("frame", frames.shuffle())
 

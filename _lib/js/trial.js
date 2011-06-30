@@ -195,7 +195,7 @@ Experigen.make_into_trial = function (that) {
 		if (patt.test(str)) {
 			$(targetElement).html(Experigen.settings.strings.feedbackRight);
 		} else {
-			var str = Experigen.settings.strings.feedbackWrong.replace(/RIGHTANSWER/,rightAnswer)
+			var str = Experigen.settings.strings.feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"')
 			$(targetElement).html(str);
 		}
 	}
