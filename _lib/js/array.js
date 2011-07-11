@@ -124,5 +124,33 @@ Array.prototype.repeat = function (num) {
 }
 
 
+String.prototype.repeat = function (num) {
+
+	var newArray = [];
+	for (var i=0; i<num; i++) {
+		newArray.push(this.toString());
+	}
+	return newArray;
+}
+
+Boolean.prototype.repeat = function (num) {
+
+	var newArray = [];
+	for (var i=0; i<num; i++) {
+		newArray.push(this==true);
+	}
+	return newArray;
+}
+
+
+Number.prototype.repeat = function (num) {
+
+	var newArray = [];
+	for (var i=0; i<num; i++) {
+		newArray.push(parseFloat(this));
+	}
+	return newArray;
+}
+
 
 
