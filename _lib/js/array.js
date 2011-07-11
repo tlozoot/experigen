@@ -113,3 +113,16 @@ Array.prototype.uniqueNonEmpty = function () {
 	for (i in hash) {hashlength++};
 	return (this.length===hashlength && noempties);
 }
+
+Array.prototype.repeat = function (num) {
+
+	var newArray = [];
+	for (var i=0; i<num; i++) {
+		newArray = newArray.concat(this);
+	}
+	return newArray;
+}
+
+
+
+
