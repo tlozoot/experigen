@@ -138,14 +138,12 @@ Experigen.advance = function(callerButton) {
 			break;
 			
 		case this.TRIAL:
-			//console.log(screen);
 			if (screen.view) {
-				html = new EJS({url: 'views/' + screen.view}).render(screen);
+				html = new EJS({url: this.settings.folders.views + screen.view}).render(screen);
 				$("#main").html(prefix + html + suffix);
 				screen.advance();
 			} else {
-				html = new EJS({url: 'views/missingview.ejs'}).render(screen);
-				$("#main").html(prefix + html + suffix);
+				$("#main").html(this.settings.strings.errorMessage);
 			}
 			break;
 		default:
@@ -173,7 +171,7 @@ Experigen.resource = function (rname) {
 Experigen.addStaticScreen = function (obj) {
 
 	if (typeof obj=="string") {
-		obj = {url: "views/" + obj};	
+		obj = {url: this.settings.folders.views + obj};	
 	}
 	obj.screentype = this.STATIC;
 	obj.trialnumber = this._screens.length+1;
