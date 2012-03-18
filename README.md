@@ -48,7 +48,7 @@ A framework for creating phonology experiments.
 	
   - exp = read.csv("http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire", sep="\t")
 	
-  - To get demographic information, add "?file=demographics.csv" at the end, e.g.:
+  - To get demographic information, add "&file=demographics.csv" at the end, e.g.:
 
   - http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire?file=demographics.csv
 
