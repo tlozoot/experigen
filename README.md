@@ -42,15 +42,18 @@ A framework for creating phonology experiments.
     http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
     you will use the following URL:
     
-  - http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire
+	http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire
 
-  - You can also read the information directly into R, like so:
-	
-  - exp = read.csv("http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire", sep="\t")
-	
   - To get demographic information, add "&file=demographics.csv" at the end, e.g.:
 
-  - http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire?file=demographics.csv
+	http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire&file=demographics.csv
+
+
+  - You can also read the information directly into R, like so:
+
+	url  = "http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire"
+	exp  = read.csv(url, sep="\t")
+	meta = read.csv(paste(url, "&file=demographics.csv", sep=""), sep="\t")
 
 * The "_lib" folder contains helper files; you don't need to go there. 
 
