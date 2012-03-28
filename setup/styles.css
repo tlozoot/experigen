@@ -1,7 +1,7 @@
 body {
 	font-size: 14pt;
 	background-color: #445;
-	padding-top: 12pt;
+	padding-top: 2ex;
 }
 
 #main {
@@ -75,19 +75,17 @@ input, select, textarea {
 
 .scaleWrapper {
 	text-align: center;
-	height: 38px;
 }
 .scaleEdgeLabel {
 	display: inline;
-	margin: 10px;
+	margin: .5ex;
 }
 .scalebuttonWrapper {
 	display: inline;
 }
 .scaleButton {
-	font-size: 12pt;
 	display: inline;
-	margin: 3px;
+	margin: .35ex;
 }
 
 
