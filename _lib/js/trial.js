@@ -55,7 +55,7 @@ Experigen.make_into_trial = function (that) {
 					part = "#" + "part" + Experigen.screen().currentPart;
 					$(part).show();
 					// give focus to the first form object inside, if any
-					$(part).find(':input[type!="hidden"][class!="scaleButtonV"][class!="scaleButtonH"]').first().focus();
+					$(part).find(':input[type!="hidden"][class!="scaleButton"]').first().focus();
 				}
 			}
 		}
@@ -69,6 +69,8 @@ Experigen.make_into_trial = function (that) {
 		var edgelabels = obj.edgelabels || [''];
 		var buttontype = "button";
 		if (obj.buttontype === "radio") { buttontype = "radio"; };
+		var hide = "";
+		if (obj.hide===true) { hide = ",{}" };
 
 		var serverValues = obj.serverValues || buttons;
 		/// validate serverValues here to be non-empty and distinct
@@ -78,7 +80,7 @@ Experigen.make_into_trial = function (that) {
 		str += '<div class="scaleEdgeLabel">' + edgelabels[0] + '</div>';
 		for (var i=0; i<buttons.length; i+=1) {
 			str += '<div class="scalebuttonWrapper">';
-			str += '<input type="' + buttontype + '" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this);">';
+			str += '<input type="' + buttontype + '" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this' + hide + ');">';
 			str += '</div>';
 		}
 		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
