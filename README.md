@@ -55,6 +55,13 @@ A framework for creating phonology experiments.
 		exp  = read.csv(url, sep="\t")  
 		meta = read.csv(paste(url, "&file=demographics.csv", sep=""), sep="\t")  
 
+  - And you will probably want to change time stamps from strings to date objects:
+
+		exp$time = as.POSIXct(strptime(as.character(exp$time), "%a %b %d %H:%M:%S %Y"))
+
+  - The the getresults.R file.
+
+
 * The "_lib" folder contains helper files; you don't need to go there. 
 
 * You don't need to edit "index.html".
