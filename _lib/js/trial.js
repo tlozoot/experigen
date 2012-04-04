@@ -313,7 +313,7 @@ Experigen.make_into_trial = function (that) {
 			obj = {soundFile: obj}
 		}
 		var label = obj.label || Experigen.settings.strings.soundButton;
-		var soundID  = obj.soundID || Experigen.screen()[Experigen.resources.items.key] + Experigen.screen().trialnumber + Experigen.screen().soundbuttons.length;
+		var soundID  = obj.soundID || (Experigen.screen()[Experigen.resources.items.key]||"") + Experigen.screen().trialnumber + Experigen.screen().soundbuttons.length;
 		var soundFile = Experigen.settings.folders.sounds + obj.soundFile;
 		var advance = true;
 		if (obj.advance===false) {
