@@ -59,7 +59,7 @@ A framework for creating phonology experiments.
 
 		exp$time = as.POSIXct(strptime(as.character(exp$time), "%a %b %d %H:%M:%S %Y"))
 
-  - The the getresults.R file.
+  - Use the getresults.R file to get started.
 
 
 * The "_lib" folder contains helper files; you don't need to go there. 
