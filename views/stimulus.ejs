@@ -28,4 +28,32 @@
 	<%= makeScale({buttons: ["1","2","3","4","5","6","7"], edgelabels: ["first one", "second one"] }) %>
 </div>
 
+
+<div class="trialpartWrapper" style="clear:both; height: 3em; text-align: center;">  
+	Try a radio button, why don't you.
+	<p>
+	<%= makeScale({buttons: ["1","2","3","4","5"], edgelabels: ["first one", "second one"], buttontype: "radio", disable: true  }) %>
+</div>
+
+
+<div class="trialpartWrapper" style="clear:both; height: 3em; text-align: center;">  
+	Can you answer a yes-no question?
+	<p>
+	<%= makeScale({buttons: ["YMMV", "YOLO"], edgelabels: ["", ""], disable: true  }) %>
+</div>
+
+
+<div class="trialpartWrapper" style="clear:both; height: 3em; text-align: center;">  
+	Please make this question disappear by pressing one of the bottons below. 
+	<p>
+	<%= makeScale({buttons: ["OMG", "WTF", "WHATEVER"], edgelabels: ["", ""], disable: true, hide: true }) %>
+</div>
+
+<div class="trialpartWrapper" style="clear:both; height: 3em; text-align: center;">  
+	Ready for the next item?
+	<p>
+	<%= makeScale({buttons: ["sure", "totes"], edgelabels: ["", ""], disable: true  }) %>
+</div>
+
+
 <div style="clear: both; height: 1px;">&nbsp;</div>

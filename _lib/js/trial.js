@@ -17,6 +17,7 @@ Experigen.make_into_trial = function (that) {
 	that.advance = function(spec) {
 		var parts = $(".trialpartWrapper");
 		var part = "";
+		var spec = spec || {};
 		// initial call figures out screen parts
 		if (parts.length && Experigen.screen().callingPart===0) { 
 			Experigen.screen().parts = $(".trialpartWrapper");
@@ -42,13 +43,17 @@ Experigen.make_into_trial = function (that) {
 			} else {
 				// no text boxes to fill, we can move on
 				// hide current part first if needed
-				if (spec) {
+				if (spec && spec.hide) {
 					$(part).hide();
+				}
+				if (spec && spec.disable) {
+					// let's disable any form elements
+					$(part + ' input[type!="hidden"]').attr("disabled", "disabled");
 				}
 				// now advance and show next part, or advance to next screen
 				Experigen.screen().currentPart += 1;
 				if (Experigen.screen().currentPart > Experigen.screen().parts.length) {
-					Experigen.screen().recordResponse();
+					Experigen.sendForm($("#currentform"));
 					Experigen.advance();
 				} else {
 					// show next part
@@ -69,8 +74,8 @@ Experigen.make_into_trial = function (that) {
 		var edgelabels = obj.edgelabels || [''];
 		var buttontype = "button";
 		if (obj.buttontype === "radio") { buttontype = "radio"; };
-		var hide = "";
-		if (obj.hide===true) { hide = ",{}" };
+		var disable = (obj.disable) ? true  : false;
+		var hide    = (obj.hide) ? true  : false;
 
 		var serverValues = obj.serverValues || buttons;
 		/// validate serverValues here to be non-empty and distinct
@@ -80,7 +85,7 @@ Experigen.make_into_trial = function (that) {
 		str += '<div class="scaleEdgeLabel">' + edgelabels[0] + '</div>';
 		for (var i=0; i<buttons.length; i+=1) {
 			str += '<div class="scalebuttonWrapper">';
-			str += '<input type="' + buttontype + '" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this' + hide + ');">';
+			str += '<input type="' + buttontype + '" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this,{hide:' +  hide + ',disable:' + disable + '});">';
 			str += '</div>';
 		}
 		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
@@ -109,7 +114,6 @@ Experigen.make_into_trial = function (that) {
 			var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
 			$("#currentform").append(str);
 		}
-		Experigen.sendForm($("#currentform"));
 	}
 
 
@@ -287,7 +291,7 @@ Experigen.make_into_trial = function (that) {
 
 		str += '<input type="button" value="' + obj.label + '" ';
 		if (obj.hide===true) {
-			str += 'onClick="Experigen.screen().continueButtonClick(this,{});">'
+			str += 'onClick="Experigen.screen().continueButtonClick(this,{hide:true});">'
 		} else {
 			str += 'onClick="Experigen.screen().continueButtonClick(this);">'
 		}
