@@ -36,22 +36,28 @@ A framework for creating phonology experiments.
   - Use the templates in this folder to control how the participants
     see individual screens.
 
-* Your results will accumulate on the database server you specified. Currently, there is only one database server available at http://db.phonologist.org/. You are welcome to use it.
-
-  - To download the results, use the getresults.R file (you'll want to install R if you don't have it already). 
-
-  - In the getresults.R file, specify where your experiment is hosted (line 2). For example, if your experiment is at
-    http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
-    you will write www.awesomeuniversity.edu.iamawesome.questionnaire (turning slashes into periods, etc.) 
-
-  - Specify your experimentName (line 4). That's the string you entered in your settings.js.
-  
-  - Run the getresults.R file, which will download the data and save it to your computer.
-
-
 * The "_lib" folder contains helper files; you don't need to go there. 
 
 * You don't need to edit "index.html".
+
+
+## Results.
+
+Your results will accumulate on the database server you specified. 
+
+Currently, there is only one database server available at http://db.phonologist.org/. You are welcome to use it.
+
+* To download the results, use the getresults.R file (you'll want to install R if you don't have it already). 
+
+* In the getresults.R file, specify where your experiment is hosted (line 2). For example, if your experiment is at
+    http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
+    you will write www.awesomeuniversity.edu.iamawesome.questionnaire (turning slashes into periods, etc.) 
+
+* Specify your experimentName (line 4). That's the string you entered in your settings.js.
+  
+* Run the getresults.R file, which will download the data and save it to your computer.
+
+
 
 ## TODO
 
