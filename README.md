@@ -6,7 +6,9 @@ A framework for creating phonology experiments.
 
 ## Setup
 
-* Copy the "web" folder to your server. Inside the "web" folder:
+Copy the `web` folder to your server. 
+
+Inside the `web` folder:
 
 * Put your materials in the "resources" folder
   - Make a tab-delimited file called items.txt, where each line specifies
@@ -41,7 +43,7 @@ A framework for creating phonology experiments.
 * You don't need to edit "index.html".
 
 
-## Results.
+## Results
 
 Your results will accumulate on the database server you specified. 
 
