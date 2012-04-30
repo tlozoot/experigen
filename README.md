@@ -6,6 +6,8 @@ A framework for creating phonology experiments.
 
 ## Setup
 
+* Copy the "web" folder to your server. Inside the "web" folder:
+
 * Put your materials in the "resources" folder
   - Make a tab-delimited file called items.txt, where each line specifies
     one item (stimuli or filler). You will probably make this file in a
