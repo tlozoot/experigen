@@ -38,30 +38,15 @@ A framework for creating phonology experiments.
 
 * Your results will accumulate on the database server you specified. 
 
-  - Download your results by specifying the name of your experiment
-    and the URL of the server you put it on. For example, if your experiment
-    name is "Default" (specified in setup.js), and you put it on
+  - To download the results, use the getresults.R file (you'll want to install R if you don't have it already). 
+
+  - In the getresults.R file, specify where your experiment is hosted (line 2). For example, if your experiment is at
     http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
-    you will use the following URL:
-    
-		http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire
+    you will write www.awesomeuniversity.edu.iamawesome.questionnaire (turning slashes into periods, etc.) 
 
-  - To get demographic information, add "&file=demographics.csv" at the end, e.g.:
-
-		http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire&file=demographics.csv
-
-
-  - You can also read the information directly into R, like so:
-
-		url  = "http://db.phonologist.org/makecsv.cgi?experimentName=Default&sourceurl=www.awesomeuniversity.edu.iamawesome.questionnaire"  
-		exp  = read.csv(url, sep="\t")  
-		meta = read.csv(paste(url, "&file=demographics.csv", sep=""), sep="\t")  
-
-  - And you will probably want to change time stamps from strings to date objects:
-
-		exp$time = as.POSIXct(strptime(as.character(exp$time), "%a %b %d %H:%M:%S %Y"))
-
-  - Use the getresults.R file to get started.
+  - Specify your experimentName - that's the string you entered in your settings.js.
+  
+  - Run the getresults.R file, which will download the data and save it to your computer.
 
 
 * The "_lib" folder contains helper files; you don't need to go there. 
