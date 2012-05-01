@@ -8,14 +8,21 @@ body {
 #main {
 	width: 600px;
 	margin: auto;	
-	border: solid black 1px;
-	padding: 20px 20px 20px 20px;
-
+	border: none;
+	padding: 0px;
 	background-color: #eee;
 	color: #000;
 	position: relative;
 	clear:both;
-
+}
+#mainwrapper {
+	width: 640px;
+	margin: auto;	
+	border: solid black 1px;
+	padding: 20px 0px;
+	background-color: #eee;
+	position: relative;
+	clear:both;
 }
 h1 {
 	color: #390;

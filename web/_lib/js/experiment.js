@@ -28,7 +28,7 @@ Experigen.initialized = false;
 Experigen.launch = function () {
 	var that = this;
 	$(document).ready(function(){
-		$('body').append('<div id="main">' + that.settings.strings.connecting + '</div><div id="footer"></div>');
+		$('body').append('<div id="mainwrapper"><div id="main">' + that.settings.strings.connecting + '</div></div><div id="footer"></div>');
 		that.loadUserID();		
 
 		// prepare to catch the return key when 
