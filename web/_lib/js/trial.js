@@ -188,8 +188,8 @@ Experigen.make_into_trial = function (that) {
 		if (obj.onchange) {
 			str += "onchange='" + obj.onchange + "' ";
 		}
-		if (obj.matchRegExpression) {
-			var temp = 'Experigen.screen().feedback(this,"' + obj.matchRegExpression + '","' + obj.rightAnswer + '","' + obj.feedbackID + '")';
+		if (obj.matchRegExpression || obj.rightAnswer) {
+			var temp = 'Experigen.screen().feedbackOnText(this,"' + obj.feedbackID + '","' + obj.matchRegExpression + '","' + obj.rightAnswer + '","' + obj.feedbackWrong + '","' + obj.feedbackMatch + '","' + obj.feedbackRight + '")';
 			str += "onchange='" + temp + "' ";
 		}
 		str += ">\n";
@@ -197,14 +197,24 @@ Experigen.make_into_trial = function (that) {
 	}
 
 
-	that.feedback = function (sourceElement, regex, rightAnswer, targetElement) {
+
+
+
+	that.feedbackOnText = function (sourceElement, targetElement, regex, rightAnswer, feedbackWrong, feedbackMatch, feedbackRight) {
 		var str = $(sourceElement)[0].value;
 		var patt = new RegExp(regex,"i");
-		if (patt.test(str)) {
-			$(targetElement).html(Experigen.settings.strings.feedbackRight);
+		if (str===rightAnswer) {
+			$(targetElement).html(feedbackRight.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 		} else {
-			var str = Experigen.settings.strings.feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"')
-			$(targetElement).html(str);
+			if (!feedbackMatch) {
+				$(targetElement).html(feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
+				return true;
+			}
+			if (patt.test(str)) {
+				$(targetElement).html(feedbackMatch.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
+			} else {
+				$(targetElement).html(feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
+			}
 		}
 	}
 
@@ -228,13 +238,13 @@ Experigen.make_into_trial = function (that) {
 			str += "src='" + obj.src + "' ";
 		}
 		if (obj.width) {
-			str += "id='" + obj.width + "' ";
+			str += "width='" + obj.width + "' ";
 		}
 		if (obj.height) {
-			str += "id='" + obj.height + "' ";
+			str += "height='" + obj.height + "' ";
 		}
 		if (obj.alt) {
-			str += "id='" + obj.alt + "' ";
+			str += "alt='" + obj.alt + "' ";
 		}
 		if (obj["class"]) {
 			str += "class='" + obj["class"] + "' ";
@@ -257,7 +267,7 @@ Experigen.make_into_trial = function (that) {
 		if (obj.onchange) {
 			str += "onchange='" + obj.onchange + "' ";
 		}
-		str += ">\n";
+		str += ">";
 		return str;	
 	}
 

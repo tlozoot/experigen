@@ -9,7 +9,7 @@
 
 <div class="trialpartWrapper" style="text-align: left;">
 	What did you hear?
-	<%= makeTextInput({allowempty: false, matchRegExpression: "[pfshb]h?[aeiou]+r[aeiou]+[mn]", rightAnswer: "pharon", feedbackID: "#feedback" }) %>
+	<%= makeTextInput({allowempty: false, matchRegExpression: "[pfshb]h?[aeiou]+r[aeiou]+[mn]", rightAnswer: "pharon", feedbackID: "#feedback", feedbackWrong: "Okay. We were hoping you would write something like RIGHTANSWER.", feedbackMatch: "Pretty close! The word we had in mind was RIGHTANSWER.",  feedbackRight: "Great! The right answer is indeed RIGHTANSWER." }) %>
 	<%= continueButton("►") %>
 	<p>
 	<div id="feedback"></div>

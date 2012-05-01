@@ -12,9 +12,7 @@ var Experigen =  {
 			soundButton:     "    ►    ",
 			continueButton:  "   continue   ",
 			errorMessage:    "An error occurred. We apologize for the inconvenience.",
-			emptyBoxMessage: "Please supply your answer in the text box.",
-			feedbackRight:   "Pretty good!",
-			feedbackWrong:   "We were expecting something like RIGHTANSWER."
+			emptyBoxMessage: "Please supply your answer in the text box."
 		},
 		
 		audio: true,
