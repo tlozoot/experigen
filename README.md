@@ -57,7 +57,9 @@ Currently, there is only one database server available at http://db.phonologist.
 
 * Specify your experimentName (line 4). That's the string you entered in your `settings.js`.
   
-* Run the `getresults.R` file, which will download the data and save it to your computer.
+* Run the `getresults.R` file, which will download the data and save it to your computer. 
+
+* The default names for these files are `exp.csv` and `meta.csv`. You can open them in Excel or OpenOffice if you want to.
 
 
 
