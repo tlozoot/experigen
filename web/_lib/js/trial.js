@@ -53,6 +53,23 @@ Experigen.make_into_trial = function (that) {
 				// now advance and show next part, or advance to next screen
 				Experigen.screen().currentPart += 1;
 				if (Experigen.screen().currentPart > Experigen.screen().parts.length) {
+					
+					// add all require data to the current form
+					for (i in Experigen.fieldsToSave) {
+						var str = "";
+						//console.log(i + ": " + typeof Experigen.screen()[i]);
+						if (typeof Experigen.screen()[i] === "object") {
+							str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i][Experigen.resources[i+"s"].key] + "'>"; 
+						} else {
+							str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i] + "'>"; 
+						}
+						$("#currentform").append(str);
+					}
+					for (var i=0; i<Experigen.screen().soundbuttons.length; i+=1) {
+						var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
+						$("#currentform").append(str);
+					}
+					// send the form
 					Experigen.sendForm($("#currentform"));
 					Experigen.advance();
 				} else {
@@ -99,20 +116,6 @@ Experigen.make_into_trial = function (that) {
 		/// and fill them with data
 		if (scaleNo!==undefined && buttonNo!==undefined) {
 			document.forms["currentform"]["response"+scaleNo].value = buttonNo;
-		}
-		for (i in Experigen.fieldsToSave) {
-			var str = "";
-			//console.log(i + ": " + typeof Experigen.screen()[i]);
-			if (typeof Experigen.screen()[i] === "object") {
-				str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i][Experigen.resources[i+"s"].key] + "'>"; 
-			} else {
-				str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i] + "'>"; 
-			}
-			$("#currentform").append(str);
-		}
-		for (var i=0; i<Experigen.screen().soundbuttons.length; i+=1) {
-			var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
-			$("#currentform").append(str);
 		}
 	}
 
