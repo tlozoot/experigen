@@ -206,7 +206,7 @@ Experigen.new_progressbar = function () {
 	return { 
 		initialize : function() {
 			if (visible) {
-				$("#progressbar").html('<DIV ID="progress_bar_empty"></DIV><DIV ID="progress_bar_full"></DIV><DIV ID="progress_text"></DIV>');
+				$("#progressbar").html('<DIV ID="progress_bar_empty"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></DIV><DIV ID="progress_bar_full"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></DIV><DIV ID="progress_text">&nbsp;</DIV>');
 				this.advance();
 			}
 		},
