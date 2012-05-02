@@ -3,6 +3,7 @@ body {
 	background-color: #445;
 	padding-top: 2ex;
 	text-align: center;
+	overflow-y: scroll;
 }
 
 #main {
@@ -47,6 +48,7 @@ input, select, textarea {
 
 #progressbar {
 	float: right;
+	direction: ltr;
 }
 #progress_text {
 	float: right;
