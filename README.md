@@ -70,3 +70,6 @@ Currently, there is only one database server available at http://db.phonologist.
 * general encapuslation
 * add response time measurements 
 * send browser stats to server (with IP locator?)
+* replace EJS?
+* feedback on button presses
+* group-level variables, participant counters
