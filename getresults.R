@@ -22,3 +22,6 @@ meta$time = as.POSIXct(strptime(as.character(meta$time), "%a %b %d %H:%M:%S %Y")
 # it would be unwise not to keep a local copy of your results
 write.csv(exp, "exp.csv")
 write.csv(meta, "meta.csv")
+
+# cleanup
+rm(experigen.database, experigen.experimentName, experigen.sourceURL, experigen.url, experigen.users)

@@ -89,6 +89,7 @@ Experigen.make_into_trial = function (that) {
 		Experigen.screen().responses++;
 		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
 		var edgelabels = obj.edgelabels || [''];
+		var linebreaks = obj.linebreaks || 0;
 		var buttontype = "button";
 		if (obj.buttontype === "radio") { buttontype = "radio"; };
 		var disable = (obj.disable) ? true  : false;
@@ -104,6 +105,7 @@ Experigen.make_into_trial = function (that) {
 			str += '<div class="scalebuttonWrapper">';
 			str += '<input type="' + buttontype + '" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this,{hide:' +  hide + ',disable:' + disable + '});">';
 			str += '</div>';
+			if (linebreaks>0 && (i+1)%linebreaks==0 && (i+1)!=buttons.length) { str += '<br>'}
 		}
 		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
 		str += '</div>';
