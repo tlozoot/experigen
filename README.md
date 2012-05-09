@@ -2,6 +2,14 @@
 
 A framework for creating phonology experiments.
 
+## Who is it for? How can I get help?
+
+Experigen is for linguists who have basic knowledge of HTML, CSS, and Javascript, and who know the basics of using a web server.
+
+The code is provided as is. Turn to your local web expert for help with setting up your experiment.
+
+If you have fixed anything or added functionality to Experigen, we invite you contribute your code back to the project.
+
 
 
 ## Setup
@@ -72,4 +80,5 @@ Currently, there is only one database server available at http://db.phonologist.
 * send browser stats to server (with IP locator?)
 * replace EJS?
 * feedback on button presses
-* group-level variables, participant counters
+* group-level variables
+* offline mode
