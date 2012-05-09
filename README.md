@@ -81,4 +81,4 @@ Currently, there is only one database server available at http://db.phonologist.
 * replace EJS?
 * feedback on button presses
 * group-level variables
-* offline mode
+* offline mode (on iOS, possibly generally on webkit)
