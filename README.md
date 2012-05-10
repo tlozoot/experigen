@@ -4,12 +4,17 @@ A framework for creating phonology experiments.
 
 ## Who is it for? How can I get help?
 
-Experigen is for linguists who have basic knowledge of HTML, CSS, and Javascript, and who know the basics of using a web server.
+Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of using a web server, and who know a little bit of R (or for linguists who want to learn these things). It's not for linguists who are ''not good with computers''.
 
-The code is provided as is. Turn to your local web expert for help with setting up your experiment.
+The code is provided as is. Turn to your local web expert for help with setting up your experiment. 
 
-If you have fixed anything or added functionality to Experigen, we invite you contribute your code back to the project.
+If you fixed anything or added functionality to Experigen, we invite you contribute your code back to the project.
 
+## Known limitations
+
+Experigen does not measure reaction times.
+
+Experigen requires participants to have a line internet connection. There is no offline mode at the moment. 
 
 
 ## Setup
@@ -20,13 +25,13 @@ Inside the `web` folder:
 
 * Put your materials in the `resources` folder
   - Make a tab-delimited file called `items.txt`, where each line specifies
-    one item (stimuli or filler). You will probably make this file in a
+    one item (stimulus or filler). You will probably make this file in a
     spreadsheet program (Excel or some such) and save it as a text file. The
     first column in this file is special:  it uniquely identifies your items.
     It may not contain blank cells or repeated entries.
   - If your experiment contains stuff that will get randomly paired with
     your items, such as frame sentences or pictures, make tab-delimited text
-    files for those, again with the first column specifying the frames
+    files for those, again with the first column uniquely identifying the frames
     or pictures.
   - Put audio files in mp3 format in the sounds folder, and pictures in
     the pictures folder.
@@ -36,7 +41,7 @@ Inside the `web` folder:
   - Use `design.js` to specify the information that the participants will see
     in each screen. 
   - Use `settings.js` to specify the experiment name and the database
-    server. We will maintain http://db.phonologist.org/ for the foreseeable
+    server. We will maintain the database server http://db.phonologist.org/ for the foreseeable
     future. 
   - Change `styles.css` if you want to change colors, font sizes, alignments,
     and the such.
@@ -55,7 +60,7 @@ Inside the `web` folder:
 
 Your results will accumulate on the database server you specified. 
 
-Currently, there is only one database server available at http://db.phonologist.org/. You are welcome to use it.
+Currently, there is only one database server available at http://db.phonologist.org/. You are welcome to use it if you want to, so long as you don't hold us responsible for anything that might happen to your data. We offer this service for free and as is. 
 
 * To download the results, use the `getresults.R` file (you'll want to install R if you don't have it already). 
 
