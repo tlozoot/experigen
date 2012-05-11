@@ -4,7 +4,7 @@ A framework for creating phonology experiments.
 
 ## Who is it for? How can I get help?
 
-Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of using a web server, and who know a little bit of R (or for linguists who want to learn these things). It's not for linguists who are ''not good with computers''.
+Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of using a web server, and who know a little bit of R  – or for linguists who want to learn these things. It's not for linguists who are ''not good with computers''.
 
 The code is provided as is. Turn to your local web expert for help with setting up your experiment. 
 
@@ -14,7 +14,7 @@ If you fixed anything or added functionality to Experigen, we invite you contrib
 
 Experigen does not measure reaction times.
 
-Experigen requires participants to have a line internet connection. There is no offline mode at the moment. 
+Experigen requires participants to be online and using an active internet connection. There is no offline mode at the moment. 
 
 
 ## Setup
