@@ -23,5 +23,6 @@ meta$time = as.POSIXct(strptime(as.character(meta$time), "%a %b %d %H:%M:%S %Y")
 write.csv(exp, "exp.csv")
 write.csv(meta, "meta.csv")
 
-# cleanup
-rm(experigen.database, experigen.experimentName, experigen.sourceURL, experigen.url, experigen.users)
+
+# cleanup: remove all variables that begin with "experigen."
+rm(list=ls(pattern="^experigen."))
