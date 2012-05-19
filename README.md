@@ -4,7 +4,7 @@ A framework for creating phonology experiments.
 
 ## Who is it for? How can I get help?
 
-Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of using a web server, and who know a little bit of R  – or for linguists who want to learn these things. It's not for linguists who are ''not good with computers''.
+Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of putting a webpage up, and who know a little bit of R  – or for linguists who want to learn these things, or for linguists who have an someone like this on their team. It's not for linguists who are ''not good with computers''.
 
 The code is provided as is. Turn to your local web expert for help with setting up your experiment. 
 
@@ -75,16 +75,3 @@ Currently, there is only one database server available at http://db.phonologist.
 * The default names for these files are `exp.csv` and `meta.csv`. You can open them in Excel or OpenOffice if you want to.
 
 
-
-## TODO
-
-* more documentation
-* improve sound button support / better encapsulation?
-* general encapuslation
-* add response time measurements 
-* send browser stats to server (with IP locator?)
-* replace EJS?
-* feedback on button presses
-* group-level variables
-* offline mode (for laptops running Apache)
-* offline mode (for iOS)

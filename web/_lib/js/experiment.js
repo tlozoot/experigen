@@ -149,6 +149,12 @@ Experigen.advance = function(callerButton) {
 		default:
 			$("#main").html(this.settings.strings.errorMessage);
 	}
+	// hide local interface
+	if (screen.trialnumber===2) {
+		if ($("#localStorageAccess")) {
+			$("#localStorageAccess").hide();
+		}
+	}
 
 }
 
@@ -206,7 +212,7 @@ Experigen.new_progressbar = function () {
 	return { 
 		initialize : function() {
 			if (visible) {
-				$("#progressbar").html('<DIV ID="progress_bar_empty"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></DIV><DIV ID="progress_bar_full"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></DIV><DIV ID="progress_text">&nbsp;</DIV>');
+				$("#progressbar").html('<div id="progress_bar_empty"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></div><div id="progress_bar_full"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></div><div id="progress_text">&nbsp;</div>');
 				this.advance();
 			}
 		},
@@ -222,8 +228,39 @@ Experigen.new_progressbar = function () {
 			}
 		}
 	}
-}
+};
 
+
+Experigen.manageLocalData = function () {
+
+	var html = '<div id="localStorageAccess" style="position:absolute; bottom: 0px; left: 0px; cursor:pointer;" onClick="$(\'#localStorageInterface\').toggle()">O</div>';
+	$('body').append(html);
+
+	html = '<div id="localStorageInterface" style="display:none; background: white; margin: 30px auto; padding: 30px; width: 500px; position:relative;">'
+		+ '<input type="button" style="margin: 30px;" value="I am on a laptop, send the data on this computer to the server" onClick="Experigen.synchLocalData()"><br>'
+		+ '<input type="button" style="margin: 30px;" value="I am on an iDevice, email me the data" onClick="Experigen.emailLocalData()" disabled=true><br>'
+		+ '<input type="button" style="margin: 30px;" value="erase the data on this computer" onClick="if(confirm(\'Are you sure? No undo!\')) Experigen.eraseLocalData();">'
+		+ '<div style="position:absolute; top:0px;right:2px;cursor:pointer;" onClick="$(\'#localStorageInterface\').toggle()">X</div>'
+		+ '</div>';
+
+	$('body').append(html);
+
+};
+
+Experigen.synchLocalData = function () {
+	var data = $.totalStorage(Experigen.settings.experimentName);
+	for (var i=0; i<data.length; i=i+1) {
+		this.sendForm(data[i]);
+	}
+};
+
+Experigen.emailLocalData = function () {
+
+};
+
+Experigen.eraseLocalData = function () {
+	$.totalStorage(Experigen.settings.experimentName,'');
+};
 
 
 

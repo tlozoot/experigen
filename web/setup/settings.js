@@ -4,6 +4,8 @@ var Experigen =  {
 		experimentName: "Default", // use only A-Z, a-z, 0-9
 		
 		databaseServer: "http://db.phonologist.org/",
+
+		online: false, // make sure you know what you're doing before changing this
 		
 		strings: {
 			windowTitle:     "Wug test",
