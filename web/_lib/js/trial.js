@@ -103,8 +103,13 @@ Experigen.make_into_trial = function (that) {
 		str += '<div class="scaleEdgeLabel">' + edgelabels[0] + '</div>';
 		for (var i=0; i<buttons.length; i+=1) {
 			str += '<div class="scalebuttonWrapper">';
-			str += '<input type="' + buttontype + '" value=" '+ buttons[i] +' " id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this,{hide:' +  hide + ',disable:' + disable + '});">';
-			str += '</div>';
+			str += '<input type="' + buttontype + '" value="'+ buttons[i] +'" id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this,{hide:' +  hide + ',disable:' + disable + '});';
+
+			if (obj.rightAnswer) {
+				str += 'Experigen.screen().feedbackOnText(this,\'' + obj.feedbackID + '\',\'' + obj.matchRegExpression + '\',\'' + obj.rightAnswer + '\',\'' + obj.feedbackWrong + '\',\'' + obj.feedbackMatch + '\',\'' + obj.feedbackRight + '\')';
+			}
+
+			str += '"></div>';
 			if (linebreaks>0 && (i+1)%linebreaks==0 && (i+1)!=buttons.length) { str += '<br>'}
 		}
 		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
@@ -207,7 +212,7 @@ Experigen.make_into_trial = function (that) {
 
 	that.feedbackOnText = function (sourceElement, targetElement, regex, rightAnswer, feedbackWrong, feedbackMatch, feedbackRight) {
 		var str = $(sourceElement)[0].value;
-		var patt = new RegExp(regex,"i");
+		var patt;
 		if (str===rightAnswer) {
 			$(targetElement).html(feedbackRight.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 		} else {
@@ -215,6 +220,7 @@ Experigen.make_into_trial = function (that) {
 				$(targetElement).html(feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 				return true;
 			}
+			patt = new RegExp(regex,"i");
 			if (patt.test(str)) {
 				$(targetElement).html(feedbackMatch.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 			} else {

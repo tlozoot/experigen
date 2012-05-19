@@ -10,6 +10,5 @@ Email us with your suggestions, requests, and code contributions.
 * general encapuslation
 * send browser stats to server (with IP locator?)
 * replace EJS?
-* feedback on button presses
 * group-level variables
 * add response time measurements 
