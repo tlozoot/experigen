@@ -391,7 +391,7 @@ Experigen.make_into_trial = function (that) {
 		str += ' id="' + soundID +'"';
 		str += ' value="' + label + '"';
 		str += ' onClick="Experigen.screen().playSound(\'' + soundID + '\',this);"'
-		str += ' style="margin-left: 10px;"'
+		str += ' class="soundbutton"'
 		str += '>';
 		return str;
 	}
