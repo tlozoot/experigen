@@ -4,7 +4,7 @@ A framework for creating phonology experiments.
 
 ## Who is it for? How can I get help?
 
-Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of putting a webpage up, and who know a little bit of R  – or for linguists who want to learn these things, or for linguists who have an someone like this on their team. It's not for linguists who are ''not good with computers''.
+Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of putting a webpage up, and who know a little bit of R  – or for linguists who want to learn these things, or for linguists who have someone like this on their team. It's not for linguists who are ''not good with computers''.
 
 The code is provided as is. Turn to your local web expert for help with setting up your experiment. 
 
