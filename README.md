@@ -74,4 +74,4 @@ Currently, there is only one database server available at http://db.phonologist.
 
 * The default names for the created files are `exp.csv` and `meta.csv`. You can open them in Excel or OpenOffice if you want to.
 
-
+If you want to set up your own database server, email Michael Becker.
