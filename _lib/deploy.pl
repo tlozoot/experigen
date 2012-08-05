@@ -7,8 +7,8 @@ binmode STDOUT, ":utf8";
 
 my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time);
 my @outputFile;
-$outputFile[0] = 'experigen1-' . (1900+$year) . '-' . $mday . '-' . (1+$mon) . '.js';
-$outputFile[1] = 'experigen2-' . (1900+$year) . '-' . $mday . '-' . (1+$mon) . '.js';
+$outputFile[0] = 'experigen1-' . (1900+$year) . '-' . (1+$mon) . '-' . $mday . '.js';
+$outputFile[1] = 'experigen2-' . (1900+$year) . '-' . (1+$mon) . '-' . $mday . '.js';
 
 my @inputfile;
 $inputfile[0] = [];
@@ -17,14 +17,16 @@ push(@{$inputfile[0]}, "jquery/jquery.total-storage.min.js");
 push(@{$inputfile[0]}, "ejs/ejs_production.js");
 push(@{$inputfile[0]}, "soundman/soundmanager2-jsmin.js");
 push(@{$inputfile[0]}, "soundman/config.js");
+push(@{$inputfile[0]}, "js/array.js");
 
 $inputfile[1] = [];
 push(@{$inputfile[1]}, "js/trial.js");
 push(@{$inputfile[1]}, "js/dataconnection.js");
-push(@{$inputfile[1]}, "js/array.js");
 push(@{$inputfile[1]}, "js/experiment.js");
 push(@{$inputfile[1]}, "js/launch.js");
 
+# remove the old js files
+system("rm ../web/_lib/*.js");
 
 for (my $i=0; $i<2; $i++) {
 	open (OUTPUT,  ">:utf8" , "../web/_lib/" . $outputFile[$i]) or die "Can't write output file $!";
