@@ -4,6 +4,61 @@
 
 
 
+//printing the content of js/timerModule.js
+
+;/**********************************************
+* timerModule.js
+*
+* Creates an object that tracks response times for experigen trials.
+* Designed to record times for each part in a screen, then return times
+* in an object to write to database server. 
+*
+* by Carl Pillot
+* last update 8-16-12
+***********************************************/
+
+var timer_maker = function (  ) {
+    
+    // private variables
+    var start_time = 0;
+    var stop_time = 0;
+    var reponse_id = 1;
+    var response_times = {};
+    
+    var clear_values = function (  ) {
+            start_time = 0;
+            stop_time = 0;
+            reponse_id = 1;
+            response_times = {};
+    };
+    
+    return {
+        set_start_time: function ( ) {
+            start_time = new Date().getTime();
+            //console.log(start_time);
+        },
+        log_part: function ( ) {
+            stop_time = new Date().getTime();
+            //console.log(stop_time);
+            
+            // catch if start time hasn't been logged  Shouldn't happen with new design
+            if(start_time == 0) start_time = stop_time;
+            
+            // added time difference to array
+            response_times['response_' + reponse_id + '_time'] = stop_time - start_time;
+            reponse_id++;
+            console.log(response_times);
+        },
+        new_frame: function ( ) {
+            clear_values( );
+        },
+        get_response_times: function ( ) {
+            return response_times;
+        }
+    };
+}
+
+
 //printing the content of js/trial.js
 
 ;
@@ -48,7 +103,7 @@ Experigen.make_into_trial = function (that) {
 			// does it contain text boxes that shouldn't allowed to be empty?
 			if ($(part).find(':input').first().attr("class")==="textInputNotEmpty" && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
-			} else {
+			} else {			    
 				// no text boxes to fill, we can move on
 				// hide current part first if needed
 				if (spec && spec.hide) {
@@ -60,6 +115,7 @@ Experigen.make_into_trial = function (that) {
 				}
 				// now advance and show next part, or advance to next screen
 				Experigen.screen().currentPart += 1;
+								
 				if (Experigen.screen().currentPart > Experigen.screen().parts.length) {
 					
 					// add all require data to the current form
@@ -77,13 +133,35 @@ Experigen.make_into_trial = function (that) {
 						var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
 						$("#currentform").append(str);
 					}
+					
+					// Add timing values to current form if necessary
+					if(Experigen.trackTimes) {
+                        var responseTimes = Experigen.timeTracker.get_response_times(  );
+                        for (x in responseTimes) {
+                            str = "<input type='hidden' name='" + x + "' value='" + responseTimes[x] + "'>";
+                            $("#currentform").append(str);
+                        }
+					}
+					
 					// send the form
 					Experigen.sendForm($("#currentform"));
+					
+					// reset time tracker values for next screen
+					if(Experigen.trackTimes) {
+					    Experigen.timeTracker.new_frame( );
+					}
+					
 					Experigen.advance();
 				} else {
 					// show next part
 					part = "#" + "part" + Experigen.screen().currentPart;
 					$(part).show();
+					
+					// TIMER: Reset Start Time
+					if(Experigen.trackTimes) {
+				        Experigen.timeTracker.set_start_time(  );    
+				    }
+					
 					// give focus to the first form object inside, if any
 					$(part).find(':input[type!="hidden"][class!="scaleButton"]').first().focus();
 				}
@@ -127,6 +205,11 @@ Experigen.make_into_trial = function (that) {
 	}
 
 	that.recordResponse = function (scaleNo, buttonNo) {
+		
+		// Record response time for part
+		if(Experigen.trackTimes) {
+		    Experigen.timeTracker.log_part(  );
+		}
 		/// make all the necessary fields in document.forms["currentform"],
 		/// and fill them with data
 		if (scaleNo!==undefined && buttonNo!==undefined) {
@@ -603,6 +686,9 @@ Experigen.fieldsToSave = {};
 Experigen.resources = [];
 Experigen.position = -1;
 Experigen.initialized = false;
+Experigen.trackTimes = false;
+
+
 
 Experigen.launch = function () {
 	var that = this;
@@ -649,6 +735,13 @@ Experigen.load = function () {
 	this.progressbar = this.new_progressbar();
 	this.progressbar.initialize();
 
+    // Initialize response time tracker if necessary
+    if(this.settings.recordResponseTimes) { 
+        this.timeTracker = timer_maker(  );
+        this.trackTimes = true;
+    }
+    
+    
 	if (this.settings.audio) {
 
 		soundManager.onready(function() { 
