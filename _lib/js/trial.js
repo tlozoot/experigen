@@ -40,7 +40,7 @@ Experigen.make_into_trial = function (that) {
 			// does it contain text boxes that shouldn't allowed to be empty?
 			if ($(part).find(':input').first().attr("class")==="textInputNotEmpty" && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
-			} else {
+			} else {			    
 				// no text boxes to fill, we can move on
 				// hide current part first if needed
 				if (spec && spec.hide) {
@@ -52,6 +52,7 @@ Experigen.make_into_trial = function (that) {
 				}
 				// now advance and show next part, or advance to next screen
 				Experigen.screen().currentPart += 1;
+								
 				if (Experigen.screen().currentPart > Experigen.screen().parts.length) {
 					
 					// add all require data to the current form
@@ -69,13 +70,35 @@ Experigen.make_into_trial = function (that) {
 						var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
 						$("#currentform").append(str);
 					}
+					
+					// Add timing values to current form if necessary
+					if(Experigen.trackTimes) {
+                        var responseTimes = Experigen.timeTracker.get_response_times(  );
+                        for (x in responseTimes) {
+                            str = "<input type='hidden' name='" + x + "' value='" + responseTimes[x] + "'>";
+                            $("#currentform").append(str);
+                        }
+					}
+					
 					// send the form
 					Experigen.sendForm($("#currentform"));
+					
+					// reset time tracker values for next screen
+					if(Experigen.trackTimes) {
+					    Experigen.timeTracker.new_frame( );
+					}
+					
 					Experigen.advance();
 				} else {
 					// show next part
 					part = "#" + "part" + Experigen.screen().currentPart;
 					$(part).show();
+					
+					// TIMER: Reset Start Time
+					if(Experigen.trackTimes) {
+				        Experigen.timeTracker.set_start_time(  );    
+				    }
+					
 					// give focus to the first form object inside, if any
 					$(part).find(':input[type!="hidden"][class!="scaleButton"]').first().focus();
 				}
@@ -119,6 +142,11 @@ Experigen.make_into_trial = function (that) {
 	}
 
 	that.recordResponse = function (scaleNo, buttonNo) {
+		
+		// Record response time for part
+		if(Experigen.trackTimes) {
+		    Experigen.timeTracker.log_part(  );
+		}
 		/// make all the necessary fields in document.forms["currentform"],
 		/// and fill them with data
 		if (scaleNo!==undefined && buttonNo!==undefined) {
