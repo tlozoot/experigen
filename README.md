@@ -12,8 +12,6 @@ If you fixed anything or added functionality to Experigen, we invite you contrib
 
 ## Known limitations
 
-Experigen does not measure reaction times. You can only get a very rough idea of how fast participants are working by examining the server timestamps. 
-
 Experigen requires participants to be online and using an active internet connection. There is no offline mode at the moment (it's in the works, though). 
 
 
