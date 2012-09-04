@@ -75,7 +75,7 @@ Experigen.make_into_trial = function (that) {
 					if(Experigen.trackTimes) {
                         var responseTimes = Experigen.timeTracker.get_response_times(  );
                         for (x in responseTimes) {
-                            str = "<input type='hidden' name='" + x + "' value='" + responseTimes[x] + "'>";
+                            str = "<input type='hidden' name='" + x + "' value='" + responseTimes[x]['time'] + "'>";
                             $("#currentform").append(str);
                         }
 					}
@@ -145,7 +145,7 @@ Experigen.make_into_trial = function (that) {
 		
 		// Record response time for part
 		if(Experigen.trackTimes) {
-		    Experigen.timeTracker.log_part(  );
+		    Experigen.timeTracker.log_part( scaleNo );
 		}
 		/// make all the necessary fields in document.forms["currentform"],
 		/// and fill them with data

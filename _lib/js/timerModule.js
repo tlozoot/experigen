@@ -27,19 +27,32 @@ var timer_maker = function (  ) {
     return {
         set_start_time: function ( ) {
             start_time = new Date().getTime();
-            //console.log(start_time);
+            //console.log('New Start Time: '+start_time);
         },
-        log_part: function ( ) {
+        log_part: function ( responseID ) {
             stop_time = new Date().getTime();
             //console.log(stop_time);
+            responseName = 'response' + responseID + '_time';
             
-            // catch if start time hasn't been logged  Shouldn't happen with new design
-            if(start_time == 0) start_time = stop_time;
+            // If a response doesn't exist add new response
+            if(!response_times.hasOwnProperty(responseName)) {
+                response_times[responseName] = 
+                    { start: start_time,
+                      stop: stop_time,
+                      time: stop_time - start_time,
+                      number: 1 };
+            }
             
-            // added time difference to array
-            response_times['response_' + reponse_id + '_time'] = stop_time - start_time;
-            reponse_id++;
-            console.log(response_times);
+            // If a response already exists, recalculate the response time
+            // TODO add check for missing values
+            //(response_times.hasOwnProperty(responseName)) {
+            else {
+                response_times[responseName]['stop'] = stop_time;
+                response_times[responseName]['time'] = stop_time - response_times[responseName]['start'];
+                response_times[responseName]['number'] = response_times[responseName]['number'] + 1;
+            }
+            //console.log('Recording time for '+responseName);
+            //console.log(response_times);
         },
         new_frame: function ( ) {
             clear_values( );
