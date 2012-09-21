@@ -14,7 +14,7 @@
 * in an object to write to database server. 
 *
 * by Carl Pillot
-* last update 8-16-12
+* last update 9-20-12
 ***********************************************/
 
 var timer_maker = function (  ) {
@@ -22,25 +22,24 @@ var timer_maker = function (  ) {
     // private variables
     var start_time = 0;
     var stop_time = 0;
-    var reponse_id = 1;
     var response_times = {};
     
     var clear_values = function (  ) {
             start_time = 0;
             stop_time = 0;
-            reponse_id = 1;
             response_times = {};
     };
     
     return {
         set_start_time: function ( ) {
             start_time = new Date().getTime();
-            //console.log('New Start Time: '+start_time);
         },
         log_part: function ( responseID ) {
+            
+            // Immediately record stop time
             stop_time = new Date().getTime();
-            //console.log(stop_time);
-            responseName = 'response' + responseID + '_time';
+
+            var responseName = 'response' + responseID + '_time';
             
             // If a response doesn't exist add new response
             if(!response_times.hasOwnProperty(responseName)) {
@@ -48,25 +47,22 @@ var timer_maker = function (  ) {
                     { start: start_time,
                       stop: stop_time,
                       time: stop_time - start_time,
-                      number: 1 };
+                      number: 1 
+                    };
             }
             
-            // If a response already exists, recalculate the response time
-            // TODO add check for missing values
-            //(response_times.hasOwnProperty(responseName)) {
+            // If a response has already been logged, recalculate the response time with new stop time
             else {
                 response_times[responseName]['stop'] = stop_time;
                 response_times[responseName]['time'] = stop_time - response_times[responseName]['start'];
                 response_times[responseName]['number'] = response_times[responseName]['number'] + 1;
             }
-            //console.log('Recording time for '+responseName);
-            //console.log(response_times);
-        },
-        new_frame: function ( ) {
-            clear_values( );
         },
         get_response_times: function ( ) {
             return response_times;
+        },
+        new_frame: function ( ) {
+            clear_values( );
         }
     };
 }
@@ -74,8 +70,7 @@ var timer_maker = function (  ) {
 
 //printing the content of js/trial.js
 
-;
-Experigen.make_into_trial = function (that) {
+;Experigen.make_into_trial = function (that) {
 
 	that.userCode = Experigen.userCode;
 	that.userFileName = Experigen.userFileName;
@@ -88,7 +83,7 @@ Experigen.make_into_trial = function (that) {
 	that.callingPart = 0;
 	that.soundbuttons = [];
 	that.responses = 0;
-	
+
 
 	that.advance = function(spec) {
 		var parts = $(".trialpartWrapper");
@@ -128,9 +123,9 @@ Experigen.make_into_trial = function (that) {
 				}
 				// now advance and show next part, or advance to next screen
 				Experigen.screen().currentPart += 1;
-								
+
 				if (Experigen.screen().currentPart > Experigen.screen().parts.length) {
-					
+
 					// add all require data to the current form
 					for (i in Experigen.fieldsToSave) {
 						var str = "";
@@ -146,7 +141,7 @@ Experigen.make_into_trial = function (that) {
 						var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
 						$("#currentform").append(str);
 					}
-					
+
 					// Add timing values to current form if necessary
 					if(Experigen.trackTimes) {
                         var responseTimes = Experigen.timeTracker.get_response_times(  );
@@ -155,26 +150,26 @@ Experigen.make_into_trial = function (that) {
                             $("#currentform").append(str);
                         }
 					}
-					
+
 					// send the form
 					Experigen.sendForm($("#currentform"));
-					
+
 					// reset time tracker values for next screen
 					if(Experigen.trackTimes) {
 					    Experigen.timeTracker.new_frame( );
 					}
-					
+
 					Experigen.advance();
 				} else {
 					// show next part
 					part = "#" + "part" + Experigen.screen().currentPart;
 					$(part).show();
-					
+
 					// TIMER: Reset Start Time
 					if(Experigen.trackTimes) {
 				        Experigen.timeTracker.set_start_time(  );    
 				    }
-					
+
 					// give focus to the first form object inside, if any
 					$(part).find(':input[type!="hidden"][class!="scaleButton"]').first().focus();
 				}
@@ -183,7 +178,7 @@ Experigen.make_into_trial = function (that) {
 		return true;
 	}
 
-	
+
 	that.makeScale = function(obj) {
 		Experigen.screen().responses++;
 		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
@@ -218,7 +213,7 @@ Experigen.make_into_trial = function (that) {
 	}
 
 	that.recordResponse = function (scaleNo, buttonNo) {
-		
+
 		// Record response time for part
 		if(Experigen.trackTimes) {
 		    Experigen.timeTracker.log_part( scaleNo );
@@ -265,9 +260,9 @@ Experigen.make_into_trial = function (that) {
 		return comingFrom;
 	}
 
-	
+
 	that.makeTextInput = function (obj) {
-	
+
 		if (typeof obj==="string") {
 			obj = {initValue: obj}
 		}
@@ -335,7 +330,7 @@ Experigen.make_into_trial = function (that) {
 
 
 	that.makePicture = function (obj) {
-	
+
 		if (typeof obj==="string") {
 			obj = {src: obj}
 		}
@@ -346,7 +341,7 @@ Experigen.make_into_trial = function (that) {
 			obj.scr = "";
 		}
 		obj.src = Experigen.settings.folders.pictures + obj.src;
-	
+
 		var str = "";
 		str += "<img ";
 		if (obj.src) {
@@ -386,7 +381,7 @@ Experigen.make_into_trial = function (that) {
 		return str;	
 	}
 
-	
+
 	that.checkEmpty = function (obj) {
 
 		if ($(obj).val().match(/^\s*$/)) {
@@ -431,11 +426,11 @@ Experigen.make_into_trial = function (that) {
 		} else {
 			Experigen.advance(caller);
 		}
-	
+
 	}
 
 
-	
+
 	that.makeSoundButton = function (obj) {
 
 		if (typeof obj==="string") {
@@ -449,13 +444,13 @@ Experigen.make_into_trial = function (that) {
 			advance = false;
 		}
 		Experigen.screen().soundbuttons.push({id: soundID, presses: 0, file: soundFile});
-		
+
 		var soundFile2 = "";
 		if (obj.soundFile2) {
 			soundFile2 = Experigen.settings.folders.sounds + obj.soundFile2;
 		}
 		var soundID2  = soundID + "2";
-		
+
 		soundManager.createSound({
 			id: soundID,
 			url: soundFile,
@@ -502,9 +497,6 @@ Experigen.make_into_trial = function (that) {
 
 	return that;
 }
-
-
-
 
 
 
