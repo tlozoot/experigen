@@ -21,7 +21,7 @@ meta$time = as.POSIXct(strptime(as.character(meta$time), "%a %b %d %H:%M:%S %Y")
 # assuming all went well, write to disk
 # so that the results are saved even after the database server is gone
 # it would be unwise not to keep a local copy of your results
-write.csv(xp, "exp.csv")
+write.csv(xp, "xp.csv")
 write.csv(meta, "meta.csv")
 
 # optional cleanup: remove all variables that begin with "experigen."
