@@ -42,7 +42,11 @@ Experigen.launch = function () {
 					$(".:focus").change();
 					if (Experigen.screen()) {
 						Experigen.screen().findCaller($(".:focus"));
-						Experigen.screen().advance();
+						var spec = {};
+						if (/textInputDisable/.test($(".:focus").attr("class"))) {
+							spec.disable = true;
+						}
+						Experigen.screen().advance(spec);
 					}
 				}
 			}

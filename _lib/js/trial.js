@@ -178,11 +178,17 @@ Experigen.make_into_trial = function (that) {
 		str += "id=response" + Experigen.screen().responses + " ";
 		str += "value='"+ obj.initValue + "' ";
 
+		var classNames = [];
 		if (obj.allowempty===false) {
-			str += "class='textInputNotEmpty' ";
+			classNames.push("textInputNotEmpty");
 		} else {
-			str += "class='textInput' ";
+			classNames.push("textInput");
 		}
+		if (obj.disable===true) {
+			classNames.push("textInputDisable");
+		}
+		str += "class='" + classNames.join(" ") + "' ";
+		
 		if (obj.style) {
 			str += "style='" + obj.style + "' ";
 		}
@@ -211,12 +217,13 @@ Experigen.make_into_trial = function (that) {
 
 
 	that.feedbackOnText = function (sourceElement, targetElement, regex, rightAnswer, feedbackWrong, feedbackMatch, feedbackRight) {
-		var str = $(sourceElement)[0].value;
+		var str = $(sourceElement)[0].value || "";
+		str = str.trim();
 		var patt;
 		if (str===rightAnswer) {
 			$(targetElement).html(feedbackRight.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 		} else {
-			if (!feedbackMatch) {
+			if (str && !feedbackMatch) { // supply feedback only to non-empty answers
 				$(targetElement).html(feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 				return true;
 			}
@@ -224,7 +231,9 @@ Experigen.make_into_trial = function (that) {
 			if (patt.test(str)) {
 				$(targetElement).html(feedbackMatch.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
 			} else {
-				$(targetElement).html(feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
+				if (str) { // supply feedback only to non-empty answers
+					$(targetElement).html(feedbackWrong.replace(/RIGHTANSWER/,'"' + rightAnswer + '"'));
+				}
 			}
 		}
 	}
@@ -311,11 +320,15 @@ Experigen.make_into_trial = function (that) {
 		}
 
 		str += '<input type="button" value="' + obj.label + '" ';
+		var spec = [];
 		if (obj.hide===true) {
-			str += 'onClick="Experigen.screen().continueButtonClick(this,{hide:true});">'
-		} else {
-			str += 'onClick="Experigen.screen().continueButtonClick(this);">'
+			spec.push("hide:true");
 		}
+		if (obj.disable===true) {
+			spec.push("disable:true");
+		}
+		spec = spec.length ? ",{" + spec.join(",") + "}" : "";		
+		str += 'onClick="Experigen.screen().continueButtonClick(this' + spec + ');">'
 		return str
 	}
 
