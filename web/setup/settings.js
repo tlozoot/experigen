@@ -19,6 +19,8 @@ var Experigen =  {
 		
 		audio: true,
 		
+		recordResponseTimes: true,
+		
 		progressbar: {
 			visible: true, 
 			adjustWidth: 6,

@@ -1,4 +1,3 @@
-
 Experigen.make_into_trial = function (that) {
 
 	that.userCode = Experigen.userCode;
@@ -12,7 +11,7 @@ Experigen.make_into_trial = function (that) {
 	that.callingPart = 0;
 	that.soundbuttons = [];
 	that.responses = 0;
-	
+
 
 	that.advance = function(spec) {
 		var parts = $(".trialpartWrapper");
@@ -40,7 +39,7 @@ Experigen.make_into_trial = function (that) {
 			// does it contain text boxes that shouldn't allowed to be empty?
 			if ($(part).find(':input').first().attr("class")==="textInputNotEmpty" && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
-			} else {
+			} else {			    
 				// no text boxes to fill, we can move on
 				// hide current part first if needed
 				if (spec && spec.hide) {
@@ -52,8 +51,9 @@ Experigen.make_into_trial = function (that) {
 				}
 				// now advance and show next part, or advance to next screen
 				Experigen.screen().currentPart += 1;
+
 				if (Experigen.screen().currentPart > Experigen.screen().parts.length) {
-					
+
 					// add all require data to the current form
 					for (i in Experigen.fieldsToSave) {
 						var str = "";
@@ -69,15 +69,37 @@ Experigen.make_into_trial = function (that) {
 						var str= "<input type='hidden' name='sound" + (i+1) + "' value='" + Experigen.screen().soundbuttons[i].presses + "'>\n";
 						$("#currentform").append(str);
 					}
+
+					// Add timing values to current form if necessary
+					if(Experigen.trackTimes) {
+                        var responseTimes = Experigen.timeTracker.get_response_times(  );
+                        for (x in responseTimes) {
+                            str = "<input type='hidden' name='" + x + "' value='" + responseTimes[x]['time'] + "'>";
+                            $("#currentform").append(str);
+                        }
+					}
+
 					// send the form
 					// enabled all text fields before sending, because disabled elements will not be sent
 					$("#currentform " + 'input[type="text"]').attr("disabled","")
 					Experigen.sendForm($("#currentform"));
+
+					// reset time tracker values for next screen
+					if(Experigen.trackTimes) {
+					    Experigen.timeTracker.new_frame( );
+					}
+
 					Experigen.advance();
 				} else {
 					// show next part
 					part = "#" + "part" + Experigen.screen().currentPart;
 					$(part).show();
+
+					// TIMER: Reset Start Time
+					if(Experigen.trackTimes) {
+				        Experigen.timeTracker.set_start_time(  );    
+				    }
+
 					// give focus to the first form object inside, if any
 					$(part).find(':input[type!="hidden"][class!="scaleButton"]').first().focus();
 				}
@@ -86,7 +108,7 @@ Experigen.make_into_trial = function (that) {
 		return true;
 	}
 
-	
+
 	that.makeScale = function(obj) {
 		Experigen.screen().responses++;
 		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
@@ -121,6 +143,11 @@ Experigen.make_into_trial = function (that) {
 	}
 
 	that.recordResponse = function (scaleNo, buttonNo) {
+
+		// Record response time for part
+		if(Experigen.trackTimes) {
+		    Experigen.timeTracker.log_part( scaleNo );
+		}
 		/// make all the necessary fields in document.forms["currentform"],
 		/// and fill them with data
 		if (scaleNo!==undefined && buttonNo!==undefined) {
@@ -163,9 +190,9 @@ Experigen.make_into_trial = function (that) {
 		return comingFrom;
 	}
 
-	
+
 	that.makeTextInput = function (obj) {
-	
+
 		if (typeof obj==="string") {
 			obj = {initValue: obj}
 		}
@@ -242,7 +269,7 @@ Experigen.make_into_trial = function (that) {
 
 
 	that.makePicture = function (obj) {
-	
+
 		if (typeof obj==="string") {
 			obj = {src: obj}
 		}
@@ -253,7 +280,7 @@ Experigen.make_into_trial = function (that) {
 			obj.scr = "";
 		}
 		obj.src = Experigen.settings.folders.pictures + obj.src;
-	
+
 		var str = "";
 		str += "<img ";
 		if (obj.src) {
@@ -293,7 +320,7 @@ Experigen.make_into_trial = function (that) {
 		return str;	
 	}
 
-	
+
 	that.checkEmpty = function (obj) {
 
 		if ($(obj).val().match(/^\s*$/)) {
@@ -342,11 +369,11 @@ Experigen.make_into_trial = function (that) {
 		} else {
 			Experigen.advance(caller);
 		}
-	
+
 	}
 
 
-	
+
 	that.makeSoundButton = function (obj) {
 
 		if (typeof obj==="string") {
@@ -360,13 +387,13 @@ Experigen.make_into_trial = function (that) {
 			advance = false;
 		}
 		Experigen.screen().soundbuttons.push({id: soundID, presses: 0, file: soundFile});
-		
+
 		var soundFile2 = "";
 		if (obj.soundFile2) {
 			soundFile2 = Experigen.settings.folders.sounds + obj.soundFile2;
 		}
 		var soundID2  = soundID + "2";
-		
+
 		soundManager.createSound({
 			id: soundID,
 			url: soundFile,
@@ -413,6 +440,3 @@ Experigen.make_into_trial = function (that) {
 
 	return that;
 }
-
-
-

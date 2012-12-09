@@ -24,6 +24,9 @@ Experigen.fieldsToSave = {};
 Experigen.resources = [];
 Experigen.position = -1;
 Experigen.initialized = false;
+Experigen.trackTimes = false;
+
+
 
 Experigen.launch = function () {
 	var that = this;
@@ -74,6 +77,13 @@ Experigen.load = function () {
 	this.progressbar = this.new_progressbar();
 	this.progressbar.initialize();
 
+    // Initialize response time tracker if necessary
+    if(this.settings.recordResponseTimes) { 
+        this.timeTracker = timer_maker(  );
+        this.trackTimes = true;
+    }
+    
+    
 	if (this.settings.audio) {
 
 		soundManager.onready(function() { 
