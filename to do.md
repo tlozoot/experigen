@@ -13,4 +13,3 @@ Email us with your suggestions, requests, and code contributions.
 * send browser stats to server (with IP locator?)
 * replace EJS?
 * group-level variables
-* 
