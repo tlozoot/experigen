@@ -33,7 +33,7 @@ var timer_maker = function (  ) {
 
             var responseName = 'response' + responseID + '_time';
             
-            // If a response doesn't exist add new response
+            // If a response doesn't exist for this part, add new response
             if(!response_times.hasOwnProperty(responseName)) {
                 response_times[responseName] = 
                     { start: start_time,
