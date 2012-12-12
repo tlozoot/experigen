@@ -37,7 +37,7 @@ Experigen.make_into_trial = function (that) {
 			// current part
 			part = "#" + "part" + Experigen.screen().currentPart;
 			// does it contain text boxes that shouldn't allowed to be empty?
-			if ($(part).find(':input').first().attr("class")==="textInputNotEmpty" && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
+			if (/textInputNotEmpty/.test($(part).find(':input').first().attr("class")) && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
 			} else {			    
 				// no text boxes to fill, we can move on
@@ -192,6 +192,8 @@ Experigen.make_into_trial = function (that) {
 
 
 	that.makeTextInput = function (obj) {
+
+		Experigen.screen().responses++;
 
 		if (typeof obj==="string") {
 			obj = {initValue: obj}
