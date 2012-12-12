@@ -361,6 +361,8 @@ Experigen.make_into_trial = function (that) {
 		if (obj.advance===false) {
 			advance = false;
 		}
+		var disable = (obj.disable) ? true  : false;
+		
 		Experigen.screen().soundbuttons.push({id: soundID, presses: 0, file: soundFile});
 		
 		var soundFile2 = "";
@@ -385,6 +387,9 @@ Experigen.make_into_trial = function (that) {
 						onload:function() {
 						},
 						onfinish:function() {
+						    if(disable) {
+                                $("#"+soundID2).attr("disabled", "disabled");
+                            }
 							if (advance) {
 								Experigen.screen().advance();
 							}
@@ -395,6 +400,9 @@ Experigen.make_into_trial = function (that) {
 			onfinish:function() {
 				if (advance) {
 					if (soundFile2 === "") {
+					    if(disable) {
+					        $("#"+soundID).attr("disabled", "disabled");
+					    }
 						Experigen.screen().advance();
 					} else {
 						soundManager.play(soundID2);
