@@ -349,7 +349,7 @@ Experigen.make_into_trial = function (that) {
 
 
 	
-	that.makeSoundButton = function (obj) {
+    that.makeSoundButton = function (obj) {
 
 		if (typeof obj==="string") {
 			obj = {soundFile: obj}
@@ -387,8 +387,8 @@ Experigen.make_into_trial = function (that) {
 						onload:function() {
 						},
 						onfinish:function() {
-						    if(disable) {
-                                $("#"+soundID2).attr("disabled", "disabled");
+							if(disable) {
+                                $("#"+soundID).attr("disabled", "disabled");
                             }
 							if (advance) {
 								Experigen.screen().advance();

@@ -46,7 +46,7 @@ Experigen.make_into_trial = function (that) {
 			// current part
 			part = "#" + "part" + Experigen.screen().currentPart;
 			// does it contain text boxes that shouldn't allowed to be empty?
-			if ($(part).find(':input').first().attr("class")==="textInputNotEmpty" && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
+			if (/textInputNotEmpty/.test($(part).find(':input').first().attr("class")) && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
 			} else {
 				// no text boxes to fill, we can move on
@@ -173,6 +173,8 @@ Experigen.make_into_trial = function (that) {
 
 	
 	that.makeTextInput = function (obj) {
+
+		Experigen.screen().responses++;
 	
 		if (typeof obj==="string") {
 			obj = {initValue: obj}
@@ -355,7 +357,7 @@ Experigen.make_into_trial = function (that) {
 
 
 	
-	that.makeSoundButton = function (obj) {
+    that.makeSoundButton = function (obj) {
 
 		if (typeof obj==="string") {
 			obj = {soundFile: obj}
@@ -367,6 +369,8 @@ Experigen.make_into_trial = function (that) {
 		if (obj.advance===false) {
 			advance = false;
 		}
+		var disable = (obj.disable) ? true  : false;
+		
 		Experigen.screen().soundbuttons.push({id: soundID, presses: 0, file: soundFile});
 		
 		var soundFile2 = "";
@@ -391,6 +395,9 @@ Experigen.make_into_trial = function (that) {
 						onload:function() {
 						},
 						onfinish:function() {
+							if(disable) {
+                                $("#"+soundID).attr("disabled", "disabled");
+                            }
 							if (advance) {
 								Experigen.screen().advance();
 							}
@@ -401,6 +408,9 @@ Experigen.make_into_trial = function (that) {
 			onfinish:function() {
 				if (advance) {
 					if (soundFile2 === "") {
+					    if(disable) {
+					        $("#"+soundID).attr("disabled", "disabled");
+					    }
 						Experigen.screen().advance();
 					} else {
 						soundManager.play(soundID2);
