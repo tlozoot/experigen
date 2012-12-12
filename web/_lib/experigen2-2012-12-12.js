@@ -213,6 +213,52 @@ var timer_maker = function (  ) {
 		str += "<input type='hidden' name='response" + Experigen.screen().responses + "' value=''>\n";
 		return str;
 	}
+    
+    // makeScaleWithMidpoint: For scales with an odd number, this applies a given style to the midpoint
+    // scale button.
+	that.makeScaleWithMidpoint = function(obj) {
+		Experigen.screen().responses++;
+		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
+		var edgelabels = obj.edgelabels || [''];
+		var linebreaks = obj.linebreaks || 0;
+		var style = obj.style || "";
+		var midpointStyle = obj.midpointStyle || "text-decoration:underline;";
+		var buttontype = "button";
+		var disable = (obj.disable) ? true  : false;
+		var hide    = (obj.hide) ? true  : false;
+
+		var serverValues = obj.serverValues || buttons;
+		/// validate serverValues here to be non-empty and distinct
+
+        var highlightMidpoint = (buttons.length % 2 == 1) ? true : false;
+
+		var str = "";
+		str += '<div class="scaleWrapper">';
+		str += '<div class="scaleEdgeLabel">' + edgelabels[0] + '</div>';
+		for (var i=0; i<buttons.length; i+=1) {
+			str += '<div class="scalebuttonWrapper">';
+			str += '<input type="' + buttontype + '" value="'+ buttons[i] +'" id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this,{hide:' +  hide + ',disable:' + disable + '});';
+
+			if (obj.rightAnswer) {
+				str += 'Experigen.screen().feedbackOnText(this,\'' + obj.feedbackID + '\',\'' + obj.matchRegExpression + '\',\'' + obj.rightAnswer + '\',\'' + obj.feedbackWrong + '\',\'' + obj.feedbackMatch + '\',\'' + obj.feedbackRight + '\')';
+			}
+
+			str += '"';
+			
+			if (highlightMidpoint && (i == Math.floor(buttons.length/2))){
+			    str += ' style="' + midpointStyle + '" ';
+			} else {
+			    str += ' style="' + style + '" ';
+			}
+			
+			str += '></div>';
+			if (linebreaks>0 && (i+1)%linebreaks==0 && (i+1)!=buttons.length) { str += '<br>'}
+		}
+		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
+		str += '</div>';
+		str += "<input type='hidden' name='response" + Experigen.screen().responses + "' value=''>\n";
+		return str;
+	}
 
 	that.recordResponse = function (scaleNo, buttonNo) {
 

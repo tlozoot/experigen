@@ -142,8 +142,7 @@ Experigen.make_into_trial = function (that) {
 		return str;
 	}
     
-    // makeScaleWithMidpoint: For scales with an odd number, this applies a given style to the midpoint
-    // scale button.
+    // makeScaleWithMidpoint: For scales with an odd number, this applies a given style to the midpoint scale button.
 	that.makeScaleWithMidpoint = function(obj) {
 		Experigen.screen().responses++;
 		var buttons = obj.buttons || ["1","2","3","4","5","6","7"];
