@@ -5,7 +5,7 @@ var Experigen =  {
 		
 		databaseServer: "http://db.phonologist.org/",
 
-		//online: true, // make sure you know what you're doing before changing this
+		online: true, // make sure you know what you're doing before changing this
 		
 		strings: {
 			windowTitle:     "Wug test",
