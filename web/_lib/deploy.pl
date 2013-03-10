@@ -15,7 +15,7 @@ $inputfile[0] = [];
 push(@{$inputfile[0]}, "jquery/jquery-1.7.2.min.js");
 push(@{$inputfile[0]}, "jquery/jquery.total-storage.min.js");
 push(@{$inputfile[0]}, "ejs/ejs_production.js");
-push(@{$inputfile[0]}, "soundman/soundmanager2-jsmin.js");
+push(@{$inputfile[0]}, "soundman/script/soundmanager2-nodebug-jsmin.js");
 push(@{$inputfile[0]}, "soundman/config.js");
 push(@{$inputfile[0]}, "js/array.js");
 
@@ -26,10 +26,10 @@ push(@{$inputfile[1]}, "js/experiment.js");
 push(@{$inputfile[1]}, "js/launch.js");
 
 # remove the old js files
-system("rm ../web/_lib/*.js");
+system("rm experigen*.js");
 
 for (my $i=0; $i<2; $i++) {
-	open (OUTPUT,  ">:utf8" , "../web/_lib/" . $outputFile[$i]) or die "Can't write output file $!";
+	open (OUTPUT,  ">:utf8" , "" . $outputFile[$i]) or die "Can't write output file $!";
 	print OUTPUT "// nothing to edit here; this file was created by deploy.pl\n\n\n";
 	for my $input (@{$inputfile[$i]}) {
 		print OUTPUT "\n\n\n//printing the content of $input\n\n;";
@@ -42,7 +42,7 @@ for (my $i=0; $i<2; $i++) {
 	close(OUTPUT) or die "OMG Can't close output file $!";
 }
 
-open (OUTPUT,  ">:utf8" , "../web/" . "index.html") or die "Can't write output file $!";
+open (OUTPUT,  ">:utf8" , "../" . "index.html") or die "Can't write output file $!";
 print OUTPUT <<"EOF";
 <!DOCTYPE html PUBLIC "-//W3C//DTD html 4.0 Transitional//EN">
 <html>

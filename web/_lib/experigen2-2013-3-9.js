@@ -46,7 +46,7 @@ Experigen.make_into_trial = function (that) {
 			// current part
 			part = "#" + "part" + Experigen.screen().currentPart;
 			// does it contain text boxes that shouldn't allowed to be empty?
-			if ($(part).find(':input').first().attr("class")==="textInputNotEmpty" && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
+			if (/textInputNotEmpty/.test($(part).find(':input').first().attr("class")) && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
 			} else {
 				// no text boxes to fill, we can move on
@@ -173,6 +173,8 @@ Experigen.make_into_trial = function (that) {
 
 	
 	that.makeTextInput = function (obj) {
+
+		Experigen.screen().responses++;
 	
 		if (typeof obj==="string") {
 			obj = {initValue: obj}
@@ -362,6 +364,7 @@ Experigen.make_into_trial = function (that) {
 		}
 		var label = obj.label || Experigen.settings.strings.soundButton;
 		var soundID  = obj.soundID || (Experigen.screen()[Experigen.resources.items.key]||"") + Experigen.screen().trialnumber + Experigen.screen().soundbuttons.length;
+		soundID = "_" + soundID; // force all sounds to start with a non-numeric character
 		var soundFile = Experigen.settings.folders.sounds + obj.soundFile;
 		var advance = true;
 		if (obj.advance===false) {
@@ -373,31 +376,13 @@ Experigen.make_into_trial = function (that) {
 		if (obj.soundFile2) {
 			soundFile2 = Experigen.settings.folders.sounds + obj.soundFile2;
 		}
-		var soundID2  = soundID + "2";
+		var soundID2  = soundID + "_2";
 		
 		soundManager.createSound({
 			id: soundID,
 			url: soundFile,
 			autoPlay: false, 
 			autoLoad: true,
-			onload:function() {
-
-				if (soundFile2 != "") {
-					soundManager.createSound({
-						id: soundID2,
-						url: soundFile2,
-						autoPlay: false, 
-						autoLoad: true,
-						onload:function() {
-						},
-						onfinish:function() {
-							if (advance) {
-								Experigen.screen().advance();
-							}
-						}
-					});
-				}
-			},
 			onfinish:function() {
 				if (advance) {
 					if (soundFile2 === "") {
@@ -408,7 +393,19 @@ Experigen.make_into_trial = function (that) {
 				}
 			}
 		});
-
+		if (soundFile2 != "") {
+			soundManager.createSound({
+				id: soundID2,
+				url: soundFile2,
+				autoPlay: false, 
+				autoLoad: true,
+				onfinish:function() {
+					if (advance) {
+						Experigen.screen().advance();
+					}
+				}
+			});
+		}
 		var str = "";
 		str += '<input type="button" ';
 		str += ' id="' + soundID +'"';
@@ -618,6 +615,10 @@ Experigen.fieldsToSave = {};
 Experigen.resources = [];
 Experigen.position = -1;
 Experigen.initialized = false;
+
+if (Experigen.settings.online===undefined) {
+	Experigen.settings.online = true; // set to true for old settings files
+}
 
 Experigen.launch = function () {
 	var that = this;

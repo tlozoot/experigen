@@ -25,6 +25,10 @@ Experigen.resources = [];
 Experigen.position = -1;
 Experigen.initialized = false;
 
+if (Experigen.settings.online===undefined) {
+	Experigen.settings.online = true; // set to true for old settings files
+}
+
 Experigen.launch = function () {
 	var that = this;
 	$(document).ready(function(){
