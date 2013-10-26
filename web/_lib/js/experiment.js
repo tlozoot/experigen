@@ -28,6 +28,10 @@ Experigen.trackTimes = false;
 
 
 
+if (Experigen.settings.online===undefined) {
+	Experigen.settings.online = true; // set to true for old settings files
+}
+
 Experigen.launch = function () {
 	var that = this;
 	$(document).ready(function(){
@@ -45,7 +49,11 @@ Experigen.launch = function () {
 					$(".:focus").change();
 					if (Experigen.screen()) {
 						Experigen.screen().findCaller($(".:focus"));
-						Experigen.screen().advance();
+						var spec = {};
+						if (/textInputDisable/.test($(".:focus").attr("class"))) {
+							spec.disable = true;
+						}
+						Experigen.screen().advance(spec);
 					}
 				}
 			}

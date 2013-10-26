@@ -38,6 +38,21 @@ Array.prototype.excludeBlock = function (excludeArray) {
 	return newArray;
 }
 
+Array.prototype.interleave = function () {
+	var newArray = [];
+	var args = Array.prototype.slice.call(arguments, 0); // turn "arguments" into a real array (of arrays)
+	args.unshift(this); // add the current array as the first member in the array of arrays
+	var maxLen = $.map( args , function(val, i) { return val.length; } ).sort().reverse()[0]; // find the length of the longest array
+
+	for (var i=0; i<maxLen; i++) {
+		for (var j=0; j<args.length; j++) {
+			if (args[j][i]) {
+				newArray.push(args[j][i]);
+			}
+		} 
+	}
+	return newArray;
+}
 
 
 Array.prototype.chooseFirst = function (i) {
