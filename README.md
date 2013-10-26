@@ -76,7 +76,7 @@ If you want to set up your own database server, email Michael Becker.
 
 ## A Note on Time Measurements
 
-Response times can be enabled or disabled in settings.js.  Responses are measured with millisecond accuracy using the timer in the host browser.
+Response times can be enabled or disabled in settings.js.  Responses are measured with millisecond precision using the timer in the host browser.
 
 Note: there are known issues with older versions of IE (8 and below) rounding to 15 ms intervals (see: http://ejohn.org/blog/accuracy-of-javascript-time/)
 
