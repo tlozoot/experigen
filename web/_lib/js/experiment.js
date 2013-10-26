@@ -1,4 +1,4 @@
-/*  
+/*
 //future encapuslation
 Experigen = function () {
 
@@ -10,8 +10,6 @@ Experigen = function () {
 		initialize: initialize
 	}
 }(); */
-
-
 
 Experigen._screens = [];
 Experigen.STATIC = "instructions";
@@ -26,8 +24,6 @@ Experigen.position = -1;
 Experigen.initialized = false;
 Experigen.trackTimes = false;
 
-
-
 if (Experigen.settings.online===undefined) {
 	Experigen.settings.online = true; // set to true for old settings files
 }
@@ -36,9 +32,9 @@ Experigen.launch = function () {
 	var that = this;
 	$(document).ready(function(){
 		$('body').append('<div id="mainwrapper"><div id="main">' + that.settings.strings.connecting + '</div></div><div id="footer"></div>');
-		that.loadUserID();		
+		that.loadUserID();
 
-		// prepare to catch the return key when 
+		// prepare to catch the return key when
 		// the participant is typing in a textbox
 		// (which would naturally be focused)
 		$.expr[':'].focus = function(a){ return (a == document.activeElement); }
@@ -73,7 +69,7 @@ Experigen.load = function () {
 	this.fieldsToSave["trialnumber"] = true;
 
 	for (var resource in this.settings.otherresources) {
-		this.resources[resource] = this.loadResource(this.settings.otherresources[resource]); 
+		this.resources[resource] = this.loadResource(this.settings.otherresources[resource]);
 	}
 
 	this.loadText({destination: "#footer", url: this.settings.footer, wait: true});
@@ -82,15 +78,14 @@ Experigen.load = function () {
 	this.progressbar.initialize();
 
     // Initialize response time tracker if necessary
-    if(this.settings.recordResponseTimes) { 
+    if(this.settings.recordResponseTimes) {
         this.timeTracker = timer_maker(  );
         this.trackTimes = true;
     }
-    
-    
+
 	if (this.settings.audio) {
 
-		soundManager.onready(function() { 
+		soundManager.onready(function() {
 			if (!that.initialized) {
 				that.initialize();
 				that.initialized = true;
@@ -105,35 +100,34 @@ Experigen.load = function () {
 	}
 }
 
-
 Experigen.advance = function(callerButton) {
 
 	var that = this;
 	var html = "";
-	
-	var prefix = "<form id='currentform' onSubmit='return false;'>" 
+
+	var prefix = "<form id='currentform' onSubmit='return false;'>"
 			   + "<input type='hidden' name='userCode' value='" + this.userCode + "'>"
 			   + "<input type='hidden' name='userFileName' value='" + this.userFileName + "'>"
 			   + "<input type='hidden' name='experimentName' value='" + this.settings.experimentName + "'>"
 			   + "<input type='hidden' name='sourceurl' value='" + encodeURIComponent(window.location) + "'>";
-			   
+
 
 	var suffix = "</form>";
 
 	if (callerButton) callerButton.disabled = true;
 	this.position++;
-	this.progressbar.advance(); 
-	
+	this.progressbar.advance();
+
 	var screen = this.screen();
 	this.make_into_trial(screen);
 
 	switch (screen.screentype) {
 		case this.STATIC:
-			
+
 			var fileType = screen.url.match(/\.[a-zA-Z]+$/);
 			if (fileType) { fileType = fileType[0]; };
 			switch (fileType) {
-			
+
 				case ".html":
 					$.get(screen.url, function(data) {
 						$("#main").html(prefix + data + suffix);
@@ -141,7 +135,7 @@ Experigen.advance = function(callerButton) {
 					});
 					screen.advance();
 					break;
-				
+
 				case ".ejs":
 					html = new EJS({url: screen.url}).render(screen);
 					$("#main").html(prefix + html + suffix);
@@ -151,10 +145,10 @@ Experigen.advance = function(callerButton) {
 
 				default:
 					$("#main").html(this.settings.strings.errorMessage);
-			
+
 			}
 			break;
-			
+
 		case this.TRIAL:
 			if (screen.view) {
 				html = new EJS({url: this.settings.folders.views + screen.view}).render(screen);
@@ -176,12 +170,11 @@ Experigen.advance = function(callerButton) {
 
 }
 
-
 Experigen.addBlock = function (arr) {
 	for (var i=0 ; i<arr.length ; i++) {
 		arr[i].trialnumber = this._screens.length+1;
 		arr[i].screentype = this.TRIAL;
-		this._screens.push(arr[i]);	
+		this._screens.push(arr[i]);
 	}
 	return this;
 }
@@ -195,11 +188,11 @@ Experigen.resource = function (rname) {
 Experigen.addStaticScreen = function (obj) {
 
 	if (typeof obj=="string") {
-		obj = {url: this.settings.folders.views + obj};	
+		obj = {url: this.settings.folders.views + obj};
 	}
 	obj.screentype = this.STATIC;
 	obj.trialnumber = this._screens.length+1;
-	this._screens.push(obj);	
+	this._screens.push(obj);
 
 	return this;
 }
@@ -219,15 +212,14 @@ Experigen.recordResponse = function (callerbutton) {
 	this.advance(callerbutton);
 }
 
-
 Experigen.new_progressbar = function () {
-	
+
 	var adjust = this.settings.progressbar.adjustWidth || 4;
 	var visible = this.settings.progressbar.visible;
 	var percentage = this.settings.progressbar.percentage;
 	var that = this;
 
-	return { 
+	return {
 		initialize : function() {
 			if (visible) {
 				$("#progressbar").html('<div id="progress_bar_empty"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></div><div id="progress_bar_full"><img scr="_lib/js/spacer.gif" width="1" height="1" alt="" border=0></div><div id="progress_text">&nbsp;</div>');
@@ -247,7 +239,6 @@ Experigen.new_progressbar = function () {
 		}
 	}
 };
-
 
 Experigen.manageLocalData = function () {
 
@@ -279,8 +270,3 @@ Experigen.emailLocalData = function () {
 Experigen.eraseLocalData = function () {
 	$.totalStorage(Experigen.settings.experimentName,'');
 };
-
-
-
-
-

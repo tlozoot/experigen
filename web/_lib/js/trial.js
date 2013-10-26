@@ -18,7 +18,7 @@ Experigen.make_into_trial = function (that) {
 		var part = "";
 		var spec = spec || {};
 		// initial call figures out screen parts
-		if (parts.length && Experigen.screen().callingPart===0) { 
+		if (parts.length && Experigen.screen().callingPart===0) {
 			Experigen.screen().parts = $(".trialpartWrapper");
 			var haveIDs = true; // check that all wrappers have ID's
 			// to do: check that they are "part" + number w/o skipping
@@ -39,7 +39,7 @@ Experigen.make_into_trial = function (that) {
 			// does it contain text boxes that shouldn't allowed to be empty?
 			if (/textInputNotEmpty/.test($(part).find(':input').first().attr("class")) && !Experigen.screen().checkEmpty($(part).find(':input').first())) {
 				return false;
-			} else {			    
+			} else {
 				// no text boxes to fill, we can move on
 				// hide current part first if needed
 				if (spec && spec.hide) {
@@ -59,9 +59,9 @@ Experigen.make_into_trial = function (that) {
 						var str = "";
 						//console.log(i + ": " + typeof Experigen.screen()[i]);
 						if (typeof Experigen.screen()[i] === "object") {
-							str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i][Experigen.resources[i+"s"].key] + "'>"; 
+							str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i][Experigen.resources[i+"s"].key] + "'>";
 						} else {
-							str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i] + "'>"; 
+							str = "<input type='hidden' name='" + i + "' value='" + Experigen.screen()[i] + "'>";
 						}
 						$("#currentform").append(str);
 					}
@@ -97,7 +97,7 @@ Experigen.make_into_trial = function (that) {
 
 					// TIMER: Reset Start Time
 					if(Experigen.trackTimes) {
-				        Experigen.timeTracker.set_start_time(  );    
+				        Experigen.timeTracker.set_start_time(  );
 				    }
 
 					// give focus to the first form object inside, if any
@@ -164,7 +164,7 @@ Experigen.make_into_trial = function (that) {
 				Experigen.screen().soundbuttons[i].presses += 1;
 			}
 		}
-		// find who called it, so the screen can advance 
+		// find who called it, so the screen can advance
 		// when the sound is done playing
 		Experigen.screen().findCaller(caller);
 	}
@@ -219,7 +219,7 @@ Experigen.make_into_trial = function (that) {
 			classNames.push("textInputDisable");
 		}
 		str += "class='" + classNames.join(" ") + "' ";
-		
+
 		if (obj.style) {
 			str += "style='" + obj.style + "' ";
 		}
@@ -319,7 +319,7 @@ Experigen.make_into_trial = function (that) {
 			str += "onchange='" + obj.onchange + "' ";
 		}
 		str += ">";
-		return str;	
+		return str;
 	}
 
 
@@ -358,7 +358,7 @@ Experigen.make_into_trial = function (that) {
 		if (obj.disable===true) {
 			spec.push("disable:true");
 		}
-		spec = spec.length ? ",{" + spec.join(",") + "}" : "";		
+		spec = spec.length ? ",{" + spec.join(",") + "}" : "";
 		str += 'onClick="Experigen.screen().continueButtonClick(this' + spec + ');">'
 		return str
 	}
@@ -401,7 +401,7 @@ Experigen.make_into_trial = function (that) {
 		soundManager.createSound({
 			id: soundID,
 			url: soundFile,
-			autoPlay: false, 
+			autoPlay: false,
 			autoLoad: true,
 			onfinish:function() {
 				if (advance) {
@@ -417,7 +417,7 @@ Experigen.make_into_trial = function (that) {
 			soundManager.createSound({
 				id: soundID2,
 				url: soundFile2,
-				autoPlay: false, 
+				autoPlay: false,
 				autoLoad: true,
 				onfinish:function() {
 					if (advance) {
