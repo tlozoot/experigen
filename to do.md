@@ -1,6 +1,6 @@
-# Experigen TO DO list 
+# Experigen TO DO list
 
-Email us with your suggestions, requests, and code contributions. 
+Email us with your suggestions, requests, and code contributions.
 
 * remove reference to missingview.ejs from the settings.js file?
 
@@ -13,4 +13,3 @@ Email us with your suggestions, requests, and code contributions.
 * send browser stats to server (with IP locator?)
 * replace EJS?
 * group-level variables
-* add response time measurements 
