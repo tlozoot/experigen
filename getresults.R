@@ -1,10 +1,16 @@
 # where your experiment is hosted
-# substituting slashes, tildes, etc. with periods
+# removing initial "http://"
+# and substituting slashes, tildes, etc. with periods
+# no hyphens/dashes, alas (known bug)
 experigen.sourceURL = "www.awesomeuniversity.edu.iamawesome.questionnaire"
 # this information comes from your settings.js file
 experigen.experimentName = "Default"
 experigen.database = "http://db.phonologist.org/"
 
+# first, send some info to the server with the current 
+# sourceURL and experimentName by submitting at least one screen
+# to the server.
+# otherwise, the server will return an error message
 
 # check for usage of the experiment (number of page views per participant)
 experigen.users  =  paste(experigen.database, "users.cgi?experimentName=", experigen.experimentName, "&sourceurl=", experigen.sourceURL, sep="")
