@@ -1,6 +1,6 @@
 # where your experiment is hosted
-# removing initial "http://"
-# and substituting slashes, tildes, etc. with periods
+# removing initial "http://" and tildes
+# and substituting slashes, etc. with periods
 # no hyphens/dashes, alas (known bug)
 experigen.sourceURL = "www.awesomeuniversity.edu.iamawesome.questionnaire"
 # this information comes from your settings.js file
