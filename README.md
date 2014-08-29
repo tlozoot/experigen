@@ -74,7 +74,7 @@ Currently, there is only one database server available at http://db.phonologist.
 You are welcome to use it if you want to, so long as you don't hold us responsible for 
 anything that might happen to your data. We offer this service for free and as is. 
 
-* To download the results, use the `getresults.R` file (you'll want to install R if 
+* To download the results, use the `getresults.R` file (you'll want to install `R` if 
 you don't have it already). 
 
 * In the `getresults.R` file, specify where your experiment is hosted (line 5). For 
