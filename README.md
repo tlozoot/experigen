@@ -77,3 +77,13 @@ Currently, there is only one database server available at http://db.phonologist.
 * The default names for the created files are `xp.csv` and `meta.csv`. You can open them in Excel or OpenOffice if you want to.
 
 If you want to set up your own database server, email Michael Becker.
+
+## Citation
+
+Please cite Experigen whenever used in academic work:
+
+Becker, Michael and Jonathan Levine (2014) Experigen – an online experiment platform. Available at http://becker.phonologist.org/experigen.
+
+
+
+
