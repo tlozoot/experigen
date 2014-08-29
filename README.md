@@ -4,24 +4,32 @@ A framework for creating phonology experiments.
 
 ## Who is it for? How can I get help?
 
-Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  who know some of the basics of putting a webpage up, and who know a little bit of R  – or for linguists who want to learn these things, or for linguists who have someone like this on their team. It's not for linguists who are ''not good with computers''.
+Experigen is for linguists who have some basic knowledge of HTML, CSS, and Javascript,  
+who know some of the basics of putting a webpage up, and who know a little bit of R  – 
+or for linguists who want to learn these things, or for linguists who have someone like 
+this on their team. It's not for linguists who are ''not good with computers''.
 
-The code is provided as is. Turn to your local web expert for help with setting up your experiment. 
+The code is provided as is. Turn to your local web expert for help with setting up 
+your experiment. 
 
-If you fixed anything or added functionality to Experigen, we invite you contribute your code back to the project.
+If you fixed anything or added functionality to Experigen, we invite you to contribute 
+your code back to the project.
 
 ## Known limitations
 
 URLs may not contain hyphens/dashes. You'll have to use a different URL.
 
-Experigen does not measure reaction times. You can only get a very rough idea of how fast participants are working by examining the server timestamps. 
+Experigen requires participants to be online and using an active internet connection. 
+There is no offline mode at the moment (it's in the works, though). 
 
-Experigen requires participants to be online and using an active internet connection. There is no offline mode at the moment (it's in the works, though). 
+Experigen does not measure reaction times. You can only get a very rough idea of how 
+fast participants are working by examining the server timestamps. There is a forked 
+version that has RT measurement functionality at https://github.com/cpill0789/experigen.
 
 
 ## Setup
 
-Copy the `web` folder to your server. 
+Copy the `web` folder (or just its contents) to your server. 
 
 Inside the `web` folder:
 
@@ -62,19 +70,25 @@ Inside the `web` folder:
 
 Your results will accumulate on the database server you specified. 
 
-Currently, there is only one database server available at http://db.phonologist.org/. You are welcome to use it if you want to, so long as you don't hold us responsible for anything that might happen to your data. We offer this service for free and as is. 
+Currently, there is only one database server available at http://db.phonologist.org/. 
+You are welcome to use it if you want to, so long as you don't hold us responsible for 
+anything that might happen to your data. We offer this service for free and as is. 
 
-* To download the results, use the `getresults.R` file (you'll want to install R if you don't have it already). 
+* To download the results, use the `getresults.R` file (you'll want to install R if 
+you don't have it already). 
 
-* In the `getresults.R` file, specify where your experiment is hosted (line 2). For example, if your experiment is at
+* In the `getresults.R` file, specify where your experiment is hosted (line 5). For 
+example, if your experiment is at
     http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
     you will write www.awesomeuniversity.edu.iamawesome.questionnaire (turning slashes into periods, etc.) 
 
-* Specify your experimentName (line 4). That's the string you entered in your `settings.js`.
+* Specify your experimentName (line 7). That's the string you entered in your `settings.js`.
   
 * Run the `getresults.R` file, which will download the data and save it to your computer. 
 
-* The default names for the created files are `xp.csv` and `meta.csv`. You can open them in Excel or OpenOffice if you want to.
+* The default names for the created files are `xp.csv` and `meta.csv`. You can open them 
+in Excel or OpenOffice if you want to. They are saved to whatever `R`'s current working 
+directory is.  
 
 If you want to set up your own database server, email Michael Becker.
 
