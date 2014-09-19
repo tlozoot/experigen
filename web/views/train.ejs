@@ -1,0 +1,40 @@
+
+<div class="trialpartWrapper" style="float:left; width:295px;">
+	<p>
+	This is a <b><%= (see_sg) ? this.singular : "________" %></b>.
+	<%= makeSoundButton(this.sgfile) %>
+	</p>
+	<p>
+	<img src="resources/pictures/<%= picture.pic1 %>" width="160" style="padding:10px; border: none;"><br>
+	</p>
+</div>
+
+<div class="trialpartWrapper" style="float:right; width:295px;">
+	<p>
+	<% if (see_pl) { %>
+	
+	These are <b><%= this.plural %></b>.
+	<%= makeSoundButton(this.plfile) %>
+
+	<% } else { %>
+
+	These are _________.
+	<%= makeSoundButton(this.plfile) %>
+
+	<div class="trialpartWrapper" style="padding-top:0; margin-top:0;">
+		<small>Enter the word you just heard:</small><br>
+		<%=  makeTextInput({style: "width: 6em; font-size: 1em;", allowempty: false, feedbackID: "#feedback", exactMatch: this.plural, feedback_ifright: "That&#145;s exactly right!", feedback_ifwrong: "Not exactly... The Martian spelling of this word is <b>RIGHTANSWER</b>." })  %>
+		<%= continueButton() %>
+		<div id="feedback" style="font-size: 12pt; margin-top: 6px;"></div>
+	</div>
+	<% } %>
+
+	<div class="trialpartWrapper"><%= continueButton() %></div>
+	
+	<div style="border: none;">
+		<img src="resources/pictures/<%= picture.pic2 %>" width="100"  style="padding:10px;"><img src="resources/pictures/<%= picture.pic2 %>" width="100" style="padding:10px;"><br>
+		<img src="resources/pictures/<%= picture.pic2 %>" width="100"  style="padding:10px;"><img src="resources/pictures/<%= picture.pic2 %>" width="100" style="padding:10px;">
+	</div>
+</div>
+
+<div style="clear: both; height: 1px;">&nbsp;</div>

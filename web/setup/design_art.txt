@@ -1,0 +1,56 @@
+Experigen.initialize = function () {
+	
+	var items    = this.resource("items");
+	var pictures = this.resource("pictures");
+
+	var shapes = ["iamb","trochee"];
+	var group = shapes[1];
+
+	items = items
+			.pairWith("picture",pictures.shuffle())
+			.pairWith("group",group)
+			;
+			
+	var shape0_a = items.subset("vowel","a").subset("shape",shapes[0]).shuffle();
+	var shape0_e = items.subset("vowel","e").subset("shape",shapes[0]).shuffle();
+	var shape0_u = items.subset("vowel","u").subset("shape",shapes[0]).shuffle();
+	var shape1_a = items.subset("vowel","a").subset("shape",shapes[1]).shuffle();
+	var shape1_e = items.subset("vowel","e").subset("shape",shapes[1]).shuffle();
+	var shape1_u = items.subset("vowel","u").subset("shape",shapes[1]).shuffle();
+
+//$.map(["a","e","u"], function(vowel){return Experigen.resource("items").subset("vowel",vowel).chooseRandom(2)}).shuffle()
+
+	this.train = []
+			.concat(shape0_e.chooseFirst(5))
+			.concat(shape0_u.chooseFirst(5))
+			.concat(shape0_a.chooseFirst(3))
+			.concat(shape1_a.chooseFirst(3))
+			.pairWith("view","train.ejs")
+			.shuffle()
+			.pairWith("see_sg", true)
+			.pairWith("see_pl",[].concat(true.repeat(5)).concat(false.repeat(11)))
+			;
+
+	this.test = []
+			.concat(shape0_e.slice(5,10))
+			.concat(shape1_e.slice(5,10))
+			.concat(shape0_u.slice(5,10))
+			.concat(shape1_u.slice(5,10))
+			.concat(shape0_a.slice(5,10))
+			.concat(shape1_a.slice(5,10))
+			.pairWith("view","test.ejs")
+			.shuffle()
+			.pairWith("see_sg",[].concat(true.repeat(15)).concat(false.repeat(15)))
+			.pairWith("see_pl", false)
+			;
+
+
+	this.addStaticScreen("intro.ejs");
+	this.addStaticScreen("getgoing.ejs");
+	this.addStaticScreen("getgoing2.ejs");
+	this.addBlock(this.train);
+	this.addBlock(this.test);
+	this.addStaticScreen("demographic.ejs");
+	this.addStaticScreen("finalthanks.ejs");
+	
+}
