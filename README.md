@@ -20,16 +20,23 @@ your code back to the project.
 URLs may not contain hyphens/dashes. You'll have to use a different URL.
 
 Experigen requires participants to be online and using an active internet connection. 
-There is no offline mode at the moment (it's in the works, though). 
+There is no offline mode at the moment. 
 
 Experigen does not measure reaction times. You can only get a very rough idea of how 
 fast participants are working by examining the server timestamps. There is a forked 
 version that has RT measurement functionality at https://github.com/cpill0789/experigen.
 
+## Collecting audio from participants
+
+This seems to work on most browsers/operating systems, with the exception of iOS Chrome, so iPhone users will need to use Safari. 
+
+You will need a server with a secure connection (https) to put your experiment in (based on the `web` folder), and another server (or the same server)  with a secure connection to collect audio from your participants. Put the files from `audioserver` there, and update `settings.js` with the URL to the audio server.
+
+Demo: https://sdb.phonologist.org/demo/
 
 ## Setup
 
-Copy the `web` folder (or just its contents) to your server. 
+Copy the `web` folder (or just its contents) to your server. It is recommended that your server use a secure connection (https). 
 
 Inside the `web` folder:
 
@@ -51,8 +58,8 @@ Inside the `web` folder:
   - Use `design.js` to specify the information that the participants will see
     in each screen. 
   - Use `settings.js` to specify the experiment name and the database
-    server. We will maintain the database server http://db.phonologist.org/ for the foreseeable
-    future. 
+    server. The old database server http://db.phonologist.org/ will exist for the foreseeable
+    future. The new database server, which you are welcome to use, is at http://sdb.phonologist.org/experigen1/.
   - Change `styles.css` if you want to change colors, font sizes, alignments,
     and the such.
 
@@ -96,7 +103,7 @@ If you want to set up your own database server, email Michael Becker.
 
 Please cite Experigen whenever used in academic work:
 
-Becker, Michael and Jonathan Levine (2014) Experigen – an online experiment platform. Available at http://becker.phonologist.org/experigen.
+Becker, Michael and Jonathan Levine (2020) Experigen – an online experiment platform. Available at http://becker.phonologist.org/experigen.
 
 
 
