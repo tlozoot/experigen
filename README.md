@@ -32,6 +32,8 @@ This seems to work on most browsers/operating systems, with the exception of iOS
 
 You will need a server with a secure connection (https) to put your experiment in (based on the `web` folder), and another server (or the same server)  with a secure connection to collect audio from your participants. Put the files from `audioserver` there, and update `settings.js` with the URL to the audio server.
 
+You won't be able to use https://sdb.phonologist.org/audio/upload.php, because it only accepts data that comes from https://sdb.phonologist.org/. You will be able to record audio in the browser, but not to save it. To save audio, you'll need your own server.
+
 Demo: https://sdb.phonologist.org/demo/
 
 ## Setup
