@@ -3,7 +3,8 @@ var Experigen =  {
 
 		experimentName: "Default", // use only A-Z, a-z, 0-9
 		
-		databaseServer: "http://db.phonologist.org/",
+		databaseServer: "https://db2.phonologist.org/",
+		recorderServer: "https://sdb.phonologist.org/audio/upload.php",
 
 		online: true, // make sure you know what you're doing before changing this
 		
@@ -14,7 +15,16 @@ var Experigen =  {
 			soundButton:     "    ►    ",
 			continueButton:  "   continue   ",
 			errorMessage:    "An error occurred. We apologize for the inconvenience.",
-			emptyBoxMessage: "Please supply your answer in the text box."
+			emptyBoxMessage: "Please supply your answer in the text box.",
+			
+			recordButton : "Record",
+			stopButton : "Stop",
+			sentButton : "Save",
+			tryagainButton: "Try again",
+			uploadSuccessful : "Saved! ✔︎",
+			uploading : "Saving...︎",
+			recording : "Recording...",
+			processing: "Processing..."
 		},
 		
 		audio: true,
@@ -42,5 +52,7 @@ var Experigen =  {
 		missingview: "views/missingview.ejs"
 	}	
 };
+
+
 
 

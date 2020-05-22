@@ -22,6 +22,7 @@ Experigen.initialize = function () {
 
 
 	this.addStaticScreen("intro.ejs");
+	this.addStaticScreen("intro2.ejs");
 	this.addBlock(sampleItem);
 	this.addStaticScreen("getgoing.ejs");
 	this.addBlock(block1);

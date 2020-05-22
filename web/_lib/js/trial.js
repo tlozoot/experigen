@@ -145,6 +145,7 @@ Experigen.make_into_trial = function (that) {
 	that.findCaller = function (caller) {
 		// determine which trialpartWrapper the came from
 		var comingFrom = $(caller);
+		// while loop goes up the DOM to look for a trial wrapper
 		while (comingFrom && comingFrom.parent().length===1) {
 			if (comingFrom.parent(".trialpartWrapper").length===1) {
 				comingFrom = comingFrom.parent();
@@ -337,7 +338,6 @@ Experigen.make_into_trial = function (that) {
 	}
 
 	that.continueButtonClick = function (caller, spec) {
-
 		var comingFrom = Experigen.screen().findCaller(caller);
 		if (comingFrom && comingFrom.attr("class")==="trialpartWrapper") {
 			Experigen.screen().advance(spec);
@@ -407,6 +407,21 @@ Experigen.make_into_trial = function (that) {
 		str += '>';
 		return str;
 	}
+
+	that.makeRecorder = function (obj) {
+
+		if (typeof obj==="string") {
+			audioRecord.soundFile = Experigen.userCode + "_" + obj;
+		}
+		str = "";
+		str += '<div id="recorder"><div id="controls">';
+		str += '<button id="startStopButton" onClick="audioRecord.toggleRecording()">' + Experigen.settings.strings.recordButton + '</button>';
+		str += '<div id="status"></div></div><ol id="recordingsList"></ol></div>';
+		
+		return str;
+	}
+
+
 
 	return that;
 }

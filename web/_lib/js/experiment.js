@@ -38,16 +38,16 @@ Experigen.launch = function () {
 		// prepare to catch the return key when 
 		// the participant is typing in a textbox
 		// (which would naturally be focused)
-		$.expr[':'].focus = function(a){ return (a == document.activeElement); }
+		//$.expr[':'].focus = function(a){ return (a == document.activeElement); }
 		$(document).keydown(function(event) {
-			if ($(".:focus") && $(".:focus").attr("type")) {
-				if ($(".:focus").attr("type")==="text" && event.keyCode===13) {
+			if ($( document.activeElement ) && $( document.activeElement ).attr("type")) {
+				if ($( document.activeElement ).attr("type")==="text" && event.keyCode===13) {
 					event.preventDefault();
-					$(".:focus").change();
+					//$( document.activeElement ).attr("type").change();
 					if (Experigen.screen()) {
-						Experigen.screen().findCaller($(".:focus"));
+						Experigen.screen().findCaller($( document.activeElement ).attr("type"));
 						var spec = {};
-						if (/textInputDisable/.test($(".:focus").attr("class"))) {
+						if (/textInputDisable/.test($( document.activeElement ).attr("class"))) {
 							spec.disable = true;
 						}
 						Experigen.screen().advance(spec);
@@ -134,6 +134,7 @@ Experigen.advance = function(callerButton) {
 				
 				case ".ejs":
 					html = new EJS({url: screen.url}).render(screen);
+					//html = ejs.render(screen.url, screen)
 					$("#main").html(prefix + html + suffix);
 					$("#main").find(':input[type!="hidden"]').first().focus();
 					screen.advance();
@@ -148,6 +149,7 @@ Experigen.advance = function(callerButton) {
 		case this.TRIAL:
 			if (screen.view) {
 				html = new EJS({url: this.settings.folders.views + screen.view}).render(screen);
+				//html = ejs.render(this.settings.folders.views + screen.view, screen)
 				$("#main").html(prefix + html + suffix);
 				screen.advance();
 			} else {
@@ -271,6 +273,6 @@ Experigen.eraseLocalData = function () {
 };
 
 
-
-
+///// doesn't belong here necessarily but whatever :)
+Experigen.launch();
 

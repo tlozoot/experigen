@@ -106,6 +106,55 @@ input, select, textarea {
 
 
 
+#recorder {
+	width: 24rem;
+	text-align: left;
+	min-height: 4.5rem;
+	display: inline-block;
+}
+#controls {
+  line-height: 100%
+}
+#controls button {
+  min-width: 7rem;
+  margin-right: 1rem;
+  font-size: 2ex;
+}
+#controls div {
+	display: inline;
+}
+@keyframes pulsate {
+    0% { opacity: 1; }
+    50% { opacity: .25; }
+    100% { opacity: 1; }
+}
+#controls .pulsating {
+  animation: pulsate 1.5s ease-out infinite;
+}
+#recorder ol {
+	margin: 0;
+	padding: 0;
+}
+#recorder  li {
+  list-style: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+}
+#recorder audio {
+  display: block;
+  width: 100%;
+  margin-top: 0rem;
+  height: 2rem;
+}
+
+
+
+
+
+
+
+
 
 
 
