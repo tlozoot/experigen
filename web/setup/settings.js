@@ -3,7 +3,7 @@ var Experigen =  {
 
 		experimentName: "Default", // use only A-Z, a-z, 0-9
 		
-		databaseServer: "https://db2.phonologist.org/",
+		databaseServer: "http://sdb.phonologist.org/experigen1/",
 		recorderServer: "https://sdb.phonologist.org/audio/upload.php",
 
 		online: true, // make sure you know what you're doing before changing this
@@ -22,7 +22,7 @@ var Experigen =  {
 			sentButton : "Save",
 			tryagainButton: "Try again",
 			uploadSuccessful : "Saved! ✔︎",
-			uploading : "Saving...︎",
+			uploading : "Saving...",
 			recording : "Recording...",
 			processing: "Processing..."
 		},
