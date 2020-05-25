@@ -54,6 +54,7 @@ input, select, textarea {
 #progressbar {
 	float: right;
 	direction: ltr;
+	margin-left: .5rem;
 }
 #progress_text {
 	float: right;
