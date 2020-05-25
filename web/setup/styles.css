@@ -1,27 +1,32 @@
+
+
+
 body {
-	font-size: 14pt;
+	font-size: 12pt;
 	background-color: #445;
 	padding-top: 2ex;
 	text-align: center;
 	overflow-y: scroll;
+	margin: 1px;
+	padding: 3px;
 }
 
-#main {
-	width: 600px;
-	margin: auto;	
-	border: none;
-	padding: 0px;
+#mainwrapper {
+	width: 100%;
+	margin: 0 auto;	
+	border: solid black 1px;
+	padding: 0;
 	background-color: #eee;
-	color: #000;
 	position: relative;
 	clear:both;
 }
-#mainwrapper {
-	width: 640px;
-	margin: auto;	
-	border: solid black 1px;
-	padding: 20px 0px;
+
+#main {
+	margin: 20px;	
+	border: none;
+	padding: 0;
 	background-color: #eee;
+	color: #000;
 	position: relative;
 	clear:both;
 }
@@ -35,7 +40,7 @@ input, select, textarea {
 
 #footer {
 	text-align: left;
-	width: 640px;
+	width: 100%;
 	margin: auto;	
 	padding: 10px 0px 0px 0px;
 	color: #aaa;	
@@ -76,8 +81,8 @@ input, select, textarea {
 
 .trialpartWrapper {
 	display: none;
-	text-align:center; 
-	padding-top: 20px;
+	text-align: center; 
+	padding-bottom: 20px;
 }
 
 .soundbutton {
@@ -150,6 +155,22 @@ input, select, textarea {
 
 
 
+@media only screen and (min-width: 600px) {
+	body {
+		background-color: #445; /* #2e2e38 */
+		font-size: 14pt;
+		padding: 1rem;
+	}
+	body::after {
+		/* content: "big screen" */
+	}
+	#mainwrapper {
+		max-width: 700px;
+	}
+	#footer {
+		max-width: 700px;
+	}
+}
 
 
 
