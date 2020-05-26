@@ -93,6 +93,7 @@ input, select, textarea {
 
 .scaleWrapper {
 	text-align: center;
+	white-space: nowrap;
 }
 .scaleEdgeLabel {
 	display: inline;
@@ -166,10 +167,10 @@ input, select, textarea {
 		/* content: "big screen" */
 	}
 	#mainwrapper {
-		max-width: 700px;
+		max-width: 600px;
 	}
 	#footer {
-		max-width: 700px;
+		max-width: 600px;
 	}
 }
 
