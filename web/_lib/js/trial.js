@@ -348,6 +348,34 @@ Experigen.make_into_trial = function (that) {
 	}
 
 
+	that.continueCheckbox = function (obj) {
+
+		var str = ""
+
+		if (typeof obj==="string") {
+			obj = {label: obj}
+		}
+		if (!obj) {
+			obj = {};
+		}
+		if (!obj.label) {
+			obj.label = Experigen.settings.strings.continueButton;
+		}
+
+		str += '<input type="checkbox" value="' + obj.label + '" ';
+		var spec = [];
+		if (obj.hide===true) {
+			spec.push("hide:true");
+		}
+		if (obj.disable===true) {
+			spec.push("disable:true");
+		}
+		spec = spec.length ? ",{" + spec.join(",") + "}" : "";		
+		str += 'onClick="Experigen.screen().continueButtonClick(this' + spec + ');">'
+		return str
+	}
+
+
 	
 	that.makeSoundButton = function (obj) {
 

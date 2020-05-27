@@ -2,19 +2,33 @@
 <div class="trialpartWrapper" style="text-align: left;">
 	Welcome! 
 	<p>
-	Please put your headphones on and listen to this made-up word:
+	Please put your headphones on and listen to this made-up word: &nbsp; 
 	<%= makeSoundButton("pharon.mp3") %>
 </div>
 
 
-<div class="trialpartWrapper" style="text-align: left;">
+<!-- div class="trialpartWrapper" style="text-align: left;">
 	What did you hear?
 	<%= makeTextInput({allowempty: false, matchRegExpression: "[pfshb]h?[aeiou]+r[aeiou]+[mn]", rightAnswer: "pharon", feedbackID: "#feedback", feedbackWrong: "Okay. We were hoping you would write something like RIGHTANSWER.", feedbackMatch: "Pretty close! The word we had in mind was RIGHTANSWER.",  feedbackRight: "Great! The right answer is indeed RIGHTANSWER." }) %>
 	<%= continueButton("►") %>
 	<p>
 	<div id="feedback"></div>
-</div>
+</div -->
 
+
+
+<div class="trialpartWrapper" style="text-align: left;">
+	Welcome! Please participate in our study.<br>
+	<div style="padding: 1ex 0em 1.5ex 1.5em;">
+		<a href="javascript:$('#consent').toggle()">What am I agreeing to?</a><br>
+		<div id="consent" style="display:none; font-size:80%;">
+			This survey is completely anonymous. At the end of the survey we will ask you some very general demographic questions, but otherwise no identifying information will be collected or recorded about you.
+			<p>
+			By clicking on &quot;I accept&quot;, you are confirming that you understand the procedures of this survey.
+		</div> 
+	</div>
+	<%= continueCheckbox() %> I am over 18 and I agree to participate anonymously.
+</div>
 
 <div class="trialpartWrapper" style="text-align: left;">
 	<p>
