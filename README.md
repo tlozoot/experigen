@@ -34,7 +34,7 @@ You will need a server with a secure connection (https) to put your experiment i
 
 You won't be able to use https://sdb.phonologist.org/audio/upload.php, because it only accepts data that comes from https://sdb.phonologist.org/. You will be able to record audio in the browser, but not to save it. To save audio, you'll need your own server.
 
-Demo: https://sdb.phonologist.org/demo/
+Demo: https://sdb.phonologist.org/experigendemo/
 
 ## Setup
 
@@ -61,7 +61,7 @@ Inside the `web` folder:
     in each screen. 
   - Use `settings.js` to specify the experiment name and the database
     server. The old database server http://db.phonologist.org/ will exist for the foreseeable
-    future. The new database server, which you are welcome to use, is at http://sdb.phonologist.org/experigen1/.
+    future. The new database server, which you are welcome to use, is at https://sdb.phonologist.org/experigen1/.
   - Change `styles.css` if you want to change colors, font sizes, alignments,
     and the such.
 
@@ -79,9 +79,10 @@ Inside the `web` folder:
 
 Your results will accumulate on the database server you specified. 
 
-Currently, there is only one database server available at http://db.phonologist.org/. 
-You are welcome to use it if you want to, so long as you don't hold us responsible for 
-anything that might happen to your data. We offer this service for free and as is. 
+There is one database server available at http://db.phonologist.org/, 
+and one at https://sdb.phonologist.org/experigen1/.
+You are welcome to use either one if you want to, so long as you don't hold us responsible for 
+anything that might happen to your data. We offer this service for free and as is. You can also install your own database using the files in the folder `dbserver`.
 
 * To download the results, use the `getresults.R` file (you'll want to install `R` if 
 you don't have it already). 
