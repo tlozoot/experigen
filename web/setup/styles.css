@@ -1,6 +1,4 @@
-
-
-
+/* display for small screens */
 body {
 	font-size: 12pt;
 	background-color: #445;
@@ -123,8 +121,7 @@ input, select, textarea {
   line-height: 100%
 }
 #controls button {
-  min-width: 7rem;
-  margin-right: 1rem;
+  margin-right: .5rem;
   font-size: 2ex;
 }
 #controls div {
@@ -150,13 +147,13 @@ input, select, textarea {
 }
 #recorder audio {
   display: block;
-  width: 100%;
+  width: 250px;
   margin-top: 0rem;
   height: 2rem;
 }
 
 
-
+/* adjust display for bigger screens */
 @media only screen and (min-width: 600px) {
 	body {
 		background-color: #445; /* #2e2e38 */
@@ -172,18 +169,15 @@ input, select, textarea {
 	#footer {
 		max-width: 600px;
 	}
+	#controls button {
+		min-width: 7rem;
+		margin-right: 1rem;
+	}
+	#recorder audio {
+		width: 100%;
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

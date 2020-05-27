@@ -20,7 +20,7 @@ var Experigen =  {
 			recordButton : "Record",
 			stopButton : "Stop",
 			sentButton : "Save",
-			tryagainButton: "Try again",
+			tryagainButton: "Delete",
 			uploadSuccessful : "Saved! ✔︎",
 			uploading : "Saving...",
 			recording : "Recording...",
