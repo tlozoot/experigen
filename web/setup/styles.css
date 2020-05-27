@@ -2,11 +2,10 @@
 body {
 	font-size: 16px;
 	background-color: #445;
-	padding-top: 2ex;
 	text-align: center;
 	overflow-y: scroll;
 	margin: 1px;
-	padding: 3px;
+	padding: 1px;
 }
 
 #mainwrapper {
@@ -20,7 +19,7 @@ body {
 }
 
 #main {
-	margin: 20px;	
+	margin: 10px;	
 	border: none;
 	padding: 0;
 	background-color: #eee;
@@ -92,17 +91,23 @@ input, select, textarea {
 .scaleWrapper {
 	text-align: center;
 	white-space: nowrap;
+	clear: both;
 }
-.scaleEdgeLabel {
-	display: inline;
-	margin: .5ex;
+.scaleEdgeLabelL {
+	margin-right: .5ex;
+	float: left;
 }
+.scaleEdgeLabelR {
+	margin-left: .5ex;
+	float: right;
+}
+
 .scalebuttonWrapper {
 	display: inline;
 }
 .scaleButton {
 	display: inline;
-	margin: .35ex;
+	margin: .15ex;
 }
 
 
@@ -112,10 +117,10 @@ input, select, textarea {
 
 
 #recorder {
-	width: 24rem;
 	text-align: left;
 	min-height: 4.5rem;
 	display: inline-block;
+	width: 24rem;
 }
 #controls {
   line-height: 100%
@@ -145,7 +150,7 @@ input, select, textarea {
 }
 #recorder audio {
   display: block;
-  width: 250px;
+  width: 220px;
   margin-top: 0rem;
   height: 2rem;
 }
@@ -157,11 +162,11 @@ input, select, textarea {
 		font-size: 18px;
 		padding: 1rem;
 	}
-	body::after {
-		/* content: "big screen" */
-	}
 	#mainwrapper {
 		max-width: 600px;
+	}
+	#main {
+		margin: 20px;	
 	}
 	#footer {
 		max-width: 600px;
@@ -172,6 +177,12 @@ input, select, textarea {
 	}
 	#recorder audio {
 		width: 100%;
+	}
+	.scaleButton {
+		margin: .35ex;
+	}
+	.scaleWrapper {
+		clear: none;
 	}
 
 }

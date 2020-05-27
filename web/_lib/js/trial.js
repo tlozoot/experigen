@@ -101,8 +101,9 @@ Experigen.make_into_trial = function (that) {
 		/// validate serverValues here to be non-empty and distinct
 
 		var str = "";
+		str += '<div class="scaleEdgeLabelL">' + edgelabels[0] + '</div>';
+		str += '<div class="scaleEdgeLabelR">' + edgelabels[edgelabels.length-1] + '</div>';
 		str += '<div class="scaleWrapper">';
-		str += '<div class="scaleEdgeLabel">' + edgelabels[0] + '</div>';
 		for (var i=0; i<buttons.length; i+=1) {
 			str += '<div class="scalebuttonWrapper">';
 			str += '<input type="' + buttontype + '" value="'+ buttons[i] +'" id="' + Experigen.screen().responses + 'button' + i + '" name="scale'+ Experigen.screen().responses +'" class="scaleButton" onClick="Experigen.screen().recordResponse(' + Experigen.screen().responses + "," + "'" + buttons[i] + "'" + ');Experigen.screen().continueButtonClick(this,{hide:' +  hide + ',disable:' + disable + '});';
@@ -114,7 +115,6 @@ Experigen.make_into_trial = function (that) {
 			str += '"></div>';
 			if (linebreaks>0 && (i+1)%linebreaks==0 && (i+1)!=buttons.length) { str += '<br>'}
 		}
-		str += '<div class="scaleEdgeLabel">' + edgelabels[edgelabels.length-1] + '</div>';
 		str += '</div>';
 		str += "<input type='hidden' name='response" + Experigen.screen().responses + "' value=''>\n";
 		return str;
