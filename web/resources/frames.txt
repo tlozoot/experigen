@@ -28,7 +28,7 @@ id	text1	text2
 27	Back in my day, kids only had one ______.	Now they have at least three ______ each.
 28	That _________ is pretty heavy.	I wouldn't want to carry any more ______ up the stairs.
 29	My brothers got this ______ for lunch.	I could eat two of these _____ right now.
-30	Look at this crazy _______!	I can't believe how many _______ we have to deal with.
+30	Look at this outlandish _______!	I can't believe how many _______ we have to deal with.
 31	There's a big _______ on the couch.	We threw a few _______ out the door last night. 
 32	I have only met one  ______ before.	How many ______ do you know?
 33	You'd think one ________ should be enough,	but then she had to have six more _______.
