@@ -2,7 +2,7 @@
 
 Experigen.loadUserID = function () {
 	var that = this;
-	var jsonp_url = this.settings.databaseServer + "getuserid.cgi?experimentName=" + this.settings.experimentName  + "&sourceurl=" + encodeURIComponent(window.location);
+	var jsonp_url = this.settings.databaseServer + "getuserid.cgi?experimentName=" + this.settings.experimentName  + "&sourceurl=" + encodeURIComponent(window.location.href.split('?')[0]);
 	
 	if (this.settings.online) {
 		// online mode: connect to the database server
