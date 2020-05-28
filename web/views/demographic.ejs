@@ -5,7 +5,7 @@ Thank you! Please answer the following questions about your language background.
 
 <p>
 Where are you from?  
-	<select name="place" style="position: absolute; left:12em; margin-top:-2px;">
+	<select name="place" style="display: inline">
 		<option value="none">Please choose</option>
 		<option value="USA">USA</option>
 		<option value="Canada">Canada</option>
@@ -16,35 +16,43 @@ Where are you from?
 <p>
 
 When were you born? 
-	<select name="year" style="width: 10em; position: absolute; left:12em; margin-top:-2px;">
+	<select name="year" style="display: inline">
 		<option value="none">Please choose</option>
-		<option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option><option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option><option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option><option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option><option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option><option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option><option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option><option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option><option>1929</option><option>1928</option><option>1927</option><option>1926</option><option>1925</option><option>1924</option><option>1923</option><option>1922</option><option>1921</option><option>1920</option><option>1919</option><option>1918</option><option>1917</option><option>1916</option><option>1915</option><option>1914</option><option>1913</option><option>1912</option><option>1911</option><option>1910</option><option>1909</option><option>1908</option><option>1907</option><option>1906</option><option>1905</option><option>1904</option><option>1903</option><option>1902</option><option>1901</option><option>1900</option>
+<option>2020</option><option>2019</option><option>2018</option><option>2017</option><option>2016</option><option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option><option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option><option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option><option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option><option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option><option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option><option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option><option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option><option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option><option>1929</option><option>1928</option><option>1927</option><option>1926</option><option>1925</option><option>1924</option><option>1923</option><option>1922</option><option>1921</option><option>1920</option><option>1919</option><option>1918</option><option>1917</option><option>1916</option><option>1915</option><option>1914</option><option>1913</option><option>1912</option><option>1911</option><option>1910</option><option>1909</option><option>1908</option><option>1907</option><option>1906</option><option>1905</option><option>1904</option><option>1903</option><option>1902</option><option>1901</option><option>1900</option>
 	</select>
 
 <p>
 
-Sex:
-	<select name="sex" style="width: 10em; position: absolute; left:12em; margin-top:-2px;">
+Gender:
+	<select name="gender" style="display: inline">
 		<option value="none">Please choose</option>
 		<option value="male">Male</option>
 		<option value="female">Female</option>
+		<option value="other">Other</option>
+		<option value="decline">Decline to say</option>
 	</select>
 
 <p>
 When you speak English, where do people think you are from? 
 ... (for example, California, Detroit, etc.)<br>
-	<input type="text" name="soundlike" value="" SIZE="30" MAXLENGTH="100" style="width: 30em;">
+	<input type="text" name="soundlike" value="" size="30" maxlength="100" style="width: 100%;">
+
 <P style="clear: both;">
-What other languages do you speak? <br>
-<input type="text" name="lang" value="" SIZE="30" MAXLENGTH="100" style="width: 30em;">
+What other languages do you speak, if any?<br>
+<input type="text" name="lang" value="" size="30" maxlength="100" style="width: 100%;">
+
+<P style="clear: both;">
+How did you hear about this study? Who should we thank?<br>
+<input type="text" name="howheard" value="" size="30" maxlength="100" style="width: 100%;">
+
 
 <p>
 We would love to hear any comments or questions you might have.<br>
-<textarea ROWS="6" COLS="30" name="sugg" style="padding: 0px; width: 30em;"></textarea><br>
+<textarea rows="6" cols="30" name="sugg" style="padding: 0px; width: 100%;"></textarea><br>
 
 <p>
 Please leave us your email if you'd like us to get back to you.<br>
-<input type="text" name="email" value="" SIZE="30" MAXLENGTH="100" style="width: 30em;">
+<input type="text" name="email" value="" size="30" maxlength="100" style="width: 100%;">
 
 <P style="text-align: right;">
 <input type="button" value="   send   " onClick="Experigen.recordResponse(this);">

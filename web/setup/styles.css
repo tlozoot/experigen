@@ -6,6 +6,7 @@ body {
 	overflow-y: scroll;
 	margin: 1px;
 	padding: 1px;
+	font-family: serif;
 }
 
 #mainwrapper {
@@ -31,8 +32,10 @@ h1 {
 	color: #390;
 }
 
-input, select, textarea {
-	font-size: 2ex;
+button, input[type=button], input[type=text], select, textarea {
+	font-family: serif;
+	font-size: 100%;
+	height: 1.7rem;
 }
 
 #footer {
@@ -41,13 +44,9 @@ input, select, textarea {
 	margin: auto;	
 	padding: 10px 0px 0px 0px;
 	color: #aaa;	
-	font-size: 10pt;
+	font-size: 75%;
 	clear:both;
 }
-
-
-
-
 #progressbar {
 	float: right;
 	direction: ltr;
@@ -55,7 +54,6 @@ input, select, textarea {
 }
 #progress_text {
 	float: right;
-	font-size: 10pt;
 	color: #aaa;
 	padding-right: 6px;
 }
@@ -120,14 +118,14 @@ input, select, textarea {
 	text-align: left;
 	min-height: 4.5rem;
 	display: inline-block;
-	width: 24rem;
+	width: 13rem;
+	white-space: nowrap;
 }
 #controls {
-  line-height: 100%
+	line-height: 100%
 }
 #controls button {
-  margin-right: .5rem;
-  font-size: 2ex;
+	margin-right: .5rem;
 }
 #controls div {
 	display: inline;
@@ -145,14 +143,14 @@ input, select, textarea {
 	padding: 0;
 }
 #recorder  li {
-  list-style: none;
-  margin: 1rem 0rem;
+	list-style: none;
+	margin: 1rem 0rem;
 }
 #recorder audio {
-  display: block;
-  width: 220px;
-  margin-top: 0rem;
-  height: 2rem;
+	width: 100%;
+	display: block;
+	margin-top: 0rem;
+	height: 2rem;
 }
 
 
@@ -175,8 +173,8 @@ input, select, textarea {
 		min-width: 7rem;
 		margin-right: 1rem;
 	}
-	#recorder audio {
-		width: 100%;
+	#recorder {
+		width: 24.5rem;
 	}
 	.scaleButton {
 		margin: .35ex;
