@@ -1,8 +1,10 @@
 # where your experiment is hosted
-# removing initial "http://" or "https://" and tildes
-# and substituting slashes, etc. with periods
-# no hyphens/dashes, alas (known bug)
-experigen.sourceURL = "www.awesomeuniversity.edu.iamawesome.questionnaire"
+# removing initial "http://" or "https://",
+# removing tildes, hyphens/dashes,
+# and substituting slashes, etc. with periods.
+# for example, if your experiment is at  http://www.awesome-university.edu/~hotshot/questionnaire/, 
+# enter the following string:
+experigen.sourceURL = "www.awesomeuniversity.edu.hotshot.questionnaire"
 # the following information comes from your settings.js file:
 experigen.experimentName = "Default"
 experigen.database = "https://sdb.phonologist.org/experigen1/"

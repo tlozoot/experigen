@@ -56,7 +56,7 @@ Array.prototype.interleave = function () {
 
 
 Array.prototype.chooseFirst = function (i) {
-		if (!i) {
+		if (!i && i!=0) {
 			return this.slice(0,1);
 		} else {
 			return this.slice(0,i);

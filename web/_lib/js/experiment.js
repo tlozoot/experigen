@@ -24,6 +24,8 @@ Experigen.fieldsToSave = {};
 Experigen.resources = [];
 Experigen.position = -1;
 Experigen.initialized = false;
+Experigen.sourceURL = window.location.href.split('?')[0].replace(/[#\-]/g,"");
+
 
 if (Experigen.settings.online===undefined) {
 	Experigen.settings.online = true; // set to true for old settings files
@@ -105,7 +107,7 @@ Experigen.advance = function(callerButton) {
 			   + "<input type='hidden' name='userCode' value='" + this.userCode + "'>"
 			   + "<input type='hidden' name='userFileName' value='" + this.userFileName + "'>"
 			   + "<input type='hidden' name='experimentName' value='" + this.settings.experimentName + "'>"
-			   + "<input type='hidden' name='sourceurl' value='" + encodeURIComponent(window.location) + "'>";
+			   + "<input type='hidden' name='sourceurl' value='" + encodeURIComponent(this.sourceURL) + "'>";
 			   
 
 	var suffix = "</form>";

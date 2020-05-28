@@ -81,7 +81,7 @@ var audioRecord = (function () {
 			}
 
 			recorder.onEncodingProgress = function (recorder, progress) {
-				console.log(progress);
+				//console.log(progress);
 			}
 
 			recorder.setOptions({

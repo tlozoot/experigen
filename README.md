@@ -17,9 +17,7 @@ your code back to the project.
 
 ## Known limitations
 
-URLs may not contain hyphens/dashes. You'll have to use a different URL.
-
-Experigen requires participants to be online and using an active internet connection. 
+Experigen requires participants to be online and be using an active internet connection. 
 There is no offline mode at the moment. 
 
 Experigen does not measure reaction times. You can only get a very rough idea of how 
@@ -34,7 +32,7 @@ You will need a server with a secure connection (https) to put your experiment i
 
 You won't be able to use https://sdb.phonologist.org/audio/upload.php, because it only accepts data that comes from https://sdb.phonologist.org/. You will be able to record audio in the browser, but not to save it. To save audio, you'll need your own server.
 
-Demo: https://sdb.phonologist.org/experigendemo/
+Demo: https://sdb.phonologist.org/experigen-demo/
 
 ## Setup
 
@@ -60,8 +58,7 @@ Inside the `web` folder:
   - Use `design.js` to specify the information that the participants will see
     in each screen. 
   - Use `settings.js` to specify the experiment name and the database
-    server. The old database server http://db.phonologist.org/ will exist for the foreseeable
-    future. The new database server, which you are welcome to use, is at https://sdb.phonologist.org/experigen1/.
+    server. See more below about database servers.
   - Change `styles.css` if you want to change colors, font sizes, alignments,
     and the such.
 
@@ -79,9 +76,9 @@ Inside the `web` folder:
 
 Your results will accumulate on the database server you specified. 
 
-There is one database server available at http://db.phonologist.org/, 
-and one at https://sdb.phonologist.org/experigen1/.
-You are welcome to use either one if you want to, so long as you don't hold us responsible for 
+There is a database server available at https://sdb.phonologist.org/experigen1/. 
+The old database server is still at http://db.phonologist.org/.
+You are welcome to use either server if you want to, so long as you don't hold us responsible for 
 anything that might happen to your data. We offer this service for free and as is. You can also install your own database using the files in the folder `dbserver`.
 
 * To download the results, use the `getresults.R` file (you'll want to install `R` if 
@@ -89,8 +86,8 @@ you don't have it already).
 
 * In the `getresults.R` file, specify where your experiment is hosted (line 5). For 
 example, if your experiment is at
-    http://www.awesomeuniversity.edu/~iamawesome/questionnaire/,
-    you will write www.awesomeuniversity.edu.iamawesome.questionnaire (turning slashes into periods, etc.) 
+    http://www.awesome-university.edu/~hotshot/questionnaire/,
+    you will write www.awesomeuniversity.edu.hotshot.questionnaire (turning slashes into periods, removing hyphens, etc.) 
 
 * Specify your experimentName (line 7). That's the string you entered in your `settings.js`.
   
@@ -100,14 +97,10 @@ example, if your experiment is at
 in Excel or OpenOffice if you want to. They are saved to whatever `R`'s current working 
 directory is.  
 
-If you want to set up your own database server, email Michael Becker.
 
 ## Citation
 
 Please cite Experigen whenever used in academic work:
 
 Becker, Michael and Jonathan Levine (2020) Experigen – an online experiment platform. Available at http://becker.phonologist.org/experigen.
-
-
-
 
