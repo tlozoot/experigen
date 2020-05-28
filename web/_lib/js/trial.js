@@ -131,6 +131,7 @@ Experigen.make_into_trial = function (that) {
 
 	that.playSound = function (soundID, caller) {
 		// play the sound
+		soundManager.stopAll();
 		soundManager.play(soundID);
 		for (i=0; i<Experigen.screen().soundbuttons.length; i+=1) {
 			if (Experigen.screen().soundbuttons[i].id === soundID) {
