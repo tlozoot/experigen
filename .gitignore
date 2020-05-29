@@ -1,3 +1,6 @@
 
 sync just for me.command
 .DS_Store
+docs/.texpadtmp/
+docs/*.odg
+docs/*.tex
