@@ -129,6 +129,27 @@ Experigen.make_into_trial = function (that) {
 	}
 
 
+  that.makeScaleSlider = function(labelmin, labelmax, min, max, value, step) {
+    Experigen.screen().responses++;
+    var str = "";
+    str += '<tr>';
+    str += '<td style="text-align: right">' + labelmin + '</td>';
+    
+    str += '<td>';
+    str += '<input type="range" value="' + value + '" name="' + Experigen.screen().responses + 'slider" id ="' +  Experigen.screen().responses + 'slider' + '" class="scaleSlider" min="' + min + '" max="' + max + '" step="' + step + '" value="' + value + '">';
+    
+    str += '\n<script type="text/javascript">\n';
+    str += '$("#' + Experigen.screen().responses + 'slider").change(function() { Experigen.screen().recordResponse(' + Experigen.screen().responses  + ',this.value);} );';
+    str += '\n</script>\n';
+    str += '</td>';    
+    str += '<td style="text-align: left">' + labelmax + '</td>';
+    str += '</tr>';
+    str += "<input type='hidden' name='response" + Experigen.screen().responses + "' value=''>\n";
+    return str;
+  }
+  
+
+
 	that.playSound = function (soundID, caller) {
 		// play the sound
 		soundManager.stopAll();
