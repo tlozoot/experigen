@@ -20,7 +20,7 @@ if(!$q->url_param("userCode") || $q->url_param("userCode")!~/^[A-Z]+(\d+)$/) {
 if(!$q->url_param("experimentName") || $q->url_param("experimentName")!~/^[A-Za-z0-9]+$/) {
 	$success = "false";
 }
-if(!$q->url_param("sourceurl") || $q->url_param("sourceurl")!~/^[A-Za-z0-9\.\%\~\!\-\*\(\)\']+$/) {
+if(!$q->url_param("sourceurl") || $q->url_param("sourceurl")!~/^[A-Za-z0-9\_\.\%\~\!\-\*\(\)\']+$/) {
 	$success = "false";
 }
 
@@ -40,7 +40,7 @@ if ($success eq "true") {
 
 	# un-tainting the source url
 	my $source = $q->url_param("sourceurl");
-	$source =~ /^([A-Za-z0-9_\.\%\~\!\-\*\(\)\']+)$/;
+	$source =~ /^([A-Za-z0-9\_\.\%\~\!\-\*\(\)\']+)$/;
 	my  $sourceURL = $1;
 
 	# simplifying the source URL
@@ -53,7 +53,7 @@ if ($success eq "true") {
 	$sourceURL =~ s/%2D/./g;
 	$sourceURL =~ s/%5F/./g;
 	$sourceURL =~ s/~//g;
-
+	$sourceURL =~ s/_/./g;
 
 	# prepare an array to write to the server
 	my @fields;

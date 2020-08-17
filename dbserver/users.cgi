@@ -20,8 +20,8 @@ if(!$q->url_param("experimentName") || $q->url_param("experimentName")!~/^[A-Za-
 	$success = "false1";
 }
 
-my $sourceurl = uri_escape($q->url_param("sourceurl"),"^A-Za-z0-9\.\%\~\!\-\*\(\)\'");
-if(!$sourceurl || $sourceurl!~/^[A-Za-z0-9\.\%\~\!\-\*\(\)\']+$/) {
+my $sourceurl = uri_escape($q->url_param("sourceurl"),"^A-Za-z0-9\_\.\%\~\!\-\*\(\)\'");
+if(!$sourceurl || $sourceurl!~/^[A-Za-z0-9\_\.\%\~\!\-\*\(\)\']+$/) {
 	$success = "false2";
 }
 
@@ -35,7 +35,7 @@ if ($success eq "true") {
 	my  $experimentName = $1;
 
 	# un-tainting the source url
-	$sourceurl =~ /^([A-Za-z0-9\.\%\~\!\-\*\(\)\']+)$/;
+	$sourceurl =~ /^([A-Za-z0-9\_\.\%\~\!\-\*\(\)\']+)$/;
 	my $sourceURL = $1;
 
 	my %users;
